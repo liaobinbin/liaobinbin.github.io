@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
 
 
 <section class="section">
@@ -43,7 +43,9 @@
       <h2 class="subtitle is-6">May 14, 2018</h2>
       <h1 class="title"><a href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/">git无法pull仓库refusing to merge unrelated histories</a></h1>
       <div class="content">
-        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。 然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。 但是却发现refusing to merge unrelated histories这个错误，无法进行pull。
+        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
+然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。
+但是却发现refusing to merge unrelated histories这个错误，无法进行pull。
 所以就需要用到以下的参数：
 git pull origin master --allow-unrelated-histories  剩下的操作得以继续进行。
         
@@ -89,6 +91,14 @@ git pull origin master --allow-unrelated-histories  剩下的操作得以继续�
   </div>
 </section>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 

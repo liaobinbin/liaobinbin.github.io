@@ -7,9 +7,9 @@ disqusShortname = "bobslogs"
 publishdir = "docs"
 [parames]
 
-[[arams.highlight]]
+[params.highlight]
 style = "github"
-languages = ["javascript", "go", "dockerfile"]
+languages = ["bash", "javascript", "go", "dockerfile"]
 
 [[params.social]]
 url = "https://github.com/liaobinbin"
