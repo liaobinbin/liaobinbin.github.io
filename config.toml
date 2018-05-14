@@ -1,0 +1,20 @@
+baseURL = "https://liaobinbin.com/"
+languageCode = "zh-cn"
+title = "Liao'S"
+theme = "hemingway"
+copyright = "&copy; <a href=\"https://liaobinbin.com\"> BinBin Liao</a> 2008"
+disqusShortname = "bobslogs"
+publishdir = "docs"
+[parames]
+
+[[arams.highlight]]
+style = "github"
+languages = ["javascript", "go", "dockerfile"]
+
+[[params.social]]
+url = "https://github.com/liaobinbin"
+fa_icon = "fa-github"
+
+[[params.social]]
+url = "/index.xml"
+fa_icon = "fa-rss" 
