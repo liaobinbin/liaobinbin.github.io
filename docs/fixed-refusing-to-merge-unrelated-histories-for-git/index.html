@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Liao&#39;S</title>
+<title>git无法pull仓库refusing to merge unrelated histories | Liao&#39;S</title>
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
@@ -38,50 +38,39 @@
 
 <section class="section">
   <div class="container">
-    
-    <article>
-      <h2 class="subtitle is-6">May 14, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/">git无法pull仓库refusing to merge unrelated histories</a></h1>
-      <div class="content">
-        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。 然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。 但是却发现refusing to merge unrelated histories这个错误，无法进行pull。
-所以就需要用到以下的参数：
-git pull origin master --allow-unrelated-histories  剩下的操作得以继续进行。
-        
-      </div>
-    </article>
-    
+    <h2 class="subtitle is-6">May 14, 2018</h2>
+    <h1 class="title">git无法pull仓库refusing to merge unrelated histories</h1>
+    <div class="content">
+      <p>相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
+然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。
+但是却发现<code>refusing to merge unrelated histories</code>这个错误，无法进行pull。</p>
+
+<p>所以就需要用到以下的参数：</p>
+
+<pre><code class="language-bash">git pull origin master --allow-unrelated-histories
+</code></pre>
+
+<p>剩下的操作得以继续进行。</p>
+
+    </div>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-left"></i>
-            </span>
-            Newer
-          </a>
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            Older
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
-          
-        </div>
-      </div>
-    </nav>
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'bobslogs';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container has-text-centered">

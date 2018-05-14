@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</loc>
+    <lastmod>2018-05-14T10:04:24+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://liaobinbin.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://liaobinbin.com/</loc>
+    <lastmod>2018-05-14T10:04:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
