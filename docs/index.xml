@@ -18,11 +18,9 @@
       <pubDate>Mon, 14 May 2018 10:04:24 +0800</pubDate>
       
       <guid>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</guid>
-      <description>相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
-然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。
-但是却发现refusing to merge unrelated histories这个错误，无法进行pull。
-所以就需要用到以下的参数：
-git pull origin master --allow-unrelated-histories  剩下的操作得以继续进行。</description>
+      <description>&lt;p&gt;相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
