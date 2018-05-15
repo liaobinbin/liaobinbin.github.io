@@ -3,9 +3,18 @@ languageCode = "zh-cn"
 title = "Boiao Ch"
 theme = "hemingway"
 copyright = "&copy; <a href=\"https://liaobinbin.com\"> BinBin Liao</a> 2008"
-disqusShortname = "bobslogs"
+#disqusShortname = "bobslogs"
 publishdir = "docs"
 [parames]
+
+[params.comment]
+type = "valine"
+
+[params.comment.valine]
+id = "2xNbY1s8utVmugHB2Rd9q3SV-gzGzoHsz"
+key = "F0EWiD141auxM8QfxjA8FOdV"
+placeholder = "Write something ..."
+avatar = "retro"
 
 [params.highlight]
 style = "github"

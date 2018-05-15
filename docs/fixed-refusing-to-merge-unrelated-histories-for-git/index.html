@@ -58,23 +58,13 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="section">
   <div class="container">
-    <aside><div id="disqus_thread"></div></aside>
-    <script type="text/javascript">
-      var disqus_shortname = 'bobslogs';
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-  </div>
+    <div id="comment"></div>
 </section>
 
-
+ 
 <section class="section">
   <div class="container has-text-centered">
     <p>&copy; <a href="https://liaobinbin.com"> BinBin Liao</a> 2008</p>
@@ -89,6 +79,23 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+
+ 
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+ new Valine( {
+     el: "#comment",
+     notify: false,
+     verify: false,
+     appId: "2xNbY1s8utVmugHB2Rd9q3SV-gzGzoHsz",
+     appKey: "F0EWiD141auxM8QfxjA8FOdV",
+     placeholder: "Write something ...",
+     path: window.location.pathname,
+     avatar: "retro"
+ });
+</script>
+
 
 <script>hljs.initHighlightingOnLoad();</script>
 
