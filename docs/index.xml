@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; BinBin Liao&lt;/a&gt; 2008</copyright>
-    <lastBuildDate>Mon, 14 May 2018 10:04:24 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jun 2018 16:19:51 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</title>
+      <link>https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/</link>
+      <pubDate>Wed, 13 Jun 2018 16:19:51 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>git无法pull仓库refusing to merge unrelated histories</title>

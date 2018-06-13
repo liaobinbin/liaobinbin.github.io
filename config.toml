@@ -5,6 +5,7 @@ theme = "hemingway"
 copyright = "&copy; <a href=\"https://liaobinbin.com\"> BinBin Liao</a> 2008"
 #disqusShortname = "bobslogs"
 publishdir = "docs"
+
 [parames]
 
 [params.comment]
