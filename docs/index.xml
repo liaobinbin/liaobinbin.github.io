@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; BinBin Liao&lt;/a&gt; 2008</copyright>
-    <lastBuildDate>Wed, 13 Jun 2018 16:19:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jul 2018 11:15:04 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在MacOS上安装Flutter环境</title>
+      <link>https://liaobinbin.com/install-flutter-on-macos/</link>
+      <pubDate>Thu, 12 Jul 2018 11:15:04 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/install-flutter-on-macos/</guid>
+      <description>&lt;h1 id=&#34;系统需求&#34;&gt;系统需求&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;操作系统： MacOS(64位)&lt;/li&gt;
+&lt;li&gt;磁盘空间： 700MB(不包括IDE工具的磁盘占用)&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;必备工具： 需要以下命令行工具的支持&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</title>
