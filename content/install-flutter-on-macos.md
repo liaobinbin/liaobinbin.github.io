@@ -9,7 +9,11 @@ date: 2018-07-12T11:15:04+08:00
 - 磁盘空间： 700MB(不包括IDE工具的磁盘占用)
 - 必备工具： 需要以下命令行工具的支持
   - `bash`,`mkdir`,`rm`,`git`,`curl`,`unzip`,`which`
+
+
 <!--more-->
+
+
 # 获取FLutter SDK
 
 1. 跟随以下链接下载到最新的Beta版本的Flutter SDK(寻找其他发布版本，或者一些旧的版本编译，请查看[SDK归档](https://flutter.io/sdk-archive/)页面。)：
