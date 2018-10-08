@@ -2,7 +2,7 @@ baseURL = "https://liaobinbin.com/"
 languageCode = "zh-cn"
 title = "Boiao Ch"
 theme = "hemingway"
-copyright = "&copy; <a href=\"https://liaobinbin.com\"> BinBin Liao</a> 2008"
+copyright = "&copy; <a href=\"https://liaobinbin.com\"> BinBin Liao</a> 2008 - 2018"
 #disqusShortname = "bobslogs"
 publishdir = "docs"
 
