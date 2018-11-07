@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>修复DropBox同步到导致的SSH密钥文件权限丢失 | Boiao Ch</title>
+<link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://liaobinbin.com/"><h1 class="title is-4">Boiao Ch</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/liaobinbin">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">November 7, 2018</h2>
+    <h1 class="title">修复DropBox同步到导致的SSH密钥文件权限丢失</h1>
+    <div class="content">
+      <p><code>ssh -Tv git@gitlab.com</code>
+得到以下提示
+</p>
+
+<pre><code class="language-bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for '/Users/boiao/.ssh/gitlab' are too open.
+</code></pre>
+
+<h2 id="解决方法">解决方法</h2>
+
+<pre><code class="language-bash">chmod 600 ~/.ssh/gitlab
+</code></pre>
+    </div>
+  </div>
+</section>
+ 
+<section class="section">
+  <div class="container">
+    <div id="comment"></div>
+</section>
+
+ 
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+
+ 
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+ new Valine( {
+     el: "#comment",
+     notify: false,
+     verify: false,
+     appId: "2xNbY1s8utVmugHB2Rd9q3SV-gzGzoHsz",
+     appKey: "F0EWiD141auxM8QfxjA8FOdV",
+     placeholder: "Write something ...",
+     path: window.location.pathname,
+     avatar: "retro"
+ });
+</script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
