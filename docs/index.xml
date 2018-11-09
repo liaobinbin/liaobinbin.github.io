@@ -18,7 +18,9 @@
       <pubDate>Fri, 09 Nov 2018 09:15:50 +0800</pubDate>
       
       <guid>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
-      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
