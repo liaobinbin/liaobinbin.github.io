@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    <lastBuildDate>Wed, 07 Nov 2018 21:29:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Nov 2018 09:15:50 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于微信小程序onReachBottom上拉触底事件</title>
+      <link>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</link>
+      <pubDate>Fri, 09 Nov 2018 09:15:50 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
+      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>修复DropBox同步到导致的SSH密钥文件权限丢失</title>
