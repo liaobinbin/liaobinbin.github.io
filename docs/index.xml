@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    <lastBuildDate>Fri, 09 Nov 2018 09:15:50 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Dec 2018 12:44:09 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VScode 前端开发常用插件以及配置</title>
+      <link>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</link>
+      <pubDate>Tue, 25 Dec 2018 12:44:09 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</guid>
+      <description>&lt;h2 id=&#34;auto-rename-tag&#34;&gt;Auto Rename Tag&lt;/h2&gt;
+
+&lt;p&gt;自动重命名标签插件，html标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>关于微信小程序onReachBottom上拉触底事件</title>
