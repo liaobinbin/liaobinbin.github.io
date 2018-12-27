@@ -43,8 +43,9 @@
     <div class="content">
       <h2 id="auto-rename-tag">Auto Rename Tag</h2>
 
-<p>自动重命名标签插件，html标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。
-</p>
+<p>自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。</p>
+
+<p></p>
 
 <h2 id="breacket-pair-colorizer">Breacket Pair Colorizer</h2>
 
@@ -52,12 +53,12 @@
 
 <h2 id="vetur">Vetur</h2>
 
-<p>Vue语法高亮，格式化，自动补全等功能</p>
+<p>Vue 语法高亮，格式化，自动补全等功能</p>
 
 <h2 id="setting-sync">Setting Sync</h2>
 
 <p>多台电脑开发的用户选用
-配置文件同步功能，利用gist进行多设备统一同步vscode配置文件</p>
+配置文件同步功能，利用 gist 进行多设备统一同步 vscode 配置文件</p>
 
 <h2 id="editorconfig-for-vs-code">EditorConfig for VS Code</h2>
 
@@ -65,11 +66,11 @@
 
 <h2 id="git-history">Git History</h2>
 
-<p>图形化查看Git的提交，详细文件修改等</p>
+<p>图形化查看 Git 的提交，详细文件修改等</p>
 
 <h2 id="gitlens">GitLens</h2>
 
-<p>增强VsCode git功能，并且可以在文件中的代码块显示修改记录，便于定位代码作者并联系。</p>
+<p>增强 VsCode git 功能，并且可以在文件中的代码块显示修改记录，便于定位代码作者并联系。</p>
 
 <h2 id="guides">Guides</h2>
 
@@ -82,6 +83,90 @@
 <h2 id="prettier">Prettier</h2>
 
 <p>代码格式化工具，需要配置实现自动保存格式化代码。 并且可以配置<code>eslint</code>等工具进行规则配置。</p>
+
+<h3 id="我的常用配置文件">我的常用配置文件</h3>
+
+<pre><code class="language-json">{
+    /* 字体设置 */
+    &quot;editor.fontFamily&quot;: &quot;'Operator Mono','Fira Code', Menlo, Monaco, 'Courier New', monospace&quot;,
+    /* 取消类型检查js文件中 flow相关 */
+    &quot;javascript.validate.enable&quot;: false,
+    /* 字体大小设置 */
+    &quot;editor.fontSize&quot;: 12,
+    /* 字体行号设置 */
+    &quot;editor.lineHeight&quot;: 25,
+    /* 连体字支持，主要用于Fira Code中的大于等于小于等特殊符号 */
+    &quot;editor.fontLigatures&quot;: true,
+    /* 超出宽度自动换行 */
+    &quot;editor.wordWrap&quot;: &quot;on&quot;,
+    /* 当文件移动更新import的路径 */
+    &quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,
+    /* 确认删除提示 */
+    &quot;explorer.confirmDelete&quot;: false,
+    &quot;gitlens.advanced.messages&quot;: {
+        &quot;suppressLineUncommittedWarning&quot;: true
+    },
+    &quot;breadcrumbs.enabled&quot;: true,
+    /* 主题和文件图标主题 */
+    &quot;workbench.colorTheme&quot;: &quot;Dracula&quot;,
+    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,
+    &quot;files.associations&quot;: {
+        &quot;*.cjson&quot;: &quot;jsonc&quot;,
+        &quot;*.wxss&quot;: &quot;css&quot;,
+        &quot;*.wxs&quot;: &quot;javascript&quot;
+    },
+    /* emmet的wxml语法支持 */
+    &quot;emmet.includeLanguages&quot;: {
+        &quot;wxml&quot;: &quot;html&quot;
+    },
+    &quot;minapp-vscode.disableAutoConfig&quot;: true,
+    /* 快速小地图关闭 节省空间 */
+    &quot;editor.minimap.enabled&quot;: false,
+    /*  启用eslint整合 */
+    &quot;prettier.eslintIntegration&quot;: true,
+    /* 自动格式化在保存后 */
+    &quot;eslint.autoFixOnSave&quot;: true,
+    /* 添加vue支持 */
+    &quot;eslint.validate&quot;: [
+        &quot;javascript&quot;,
+        &quot;javascriptreact&quot;,
+        {
+            &quot;language&quot;: &quot;vue&quot;,
+            &quot;autoFix&quot;: true
+        },
+        {
+            &quot;language&quot;: &quot;html&quot;,
+            &quot;autoFix&quot;: true
+        }
+    ],
+    /*  强制单引号 */
+    &quot;prettier.singleQuote&quot;: true,
+    /*  尽可能控制尾随逗号的打印 */
+    &quot;prettier.trailingComma&quot;: &quot;all&quot;,
+    /* 使用插件格式化 html */
+    &quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,
+    /*  格式化插件的配置 */
+    &quot;vetur.format.defaultFormatterOptions&quot;: {
+        &quot;js-beautify-html&quot;: {
+            /*    属性强制折行对齐 */
+            &quot;wrap_attributes&quot;: &quot;force-aligned&quot;
+        }
+    },
+    &quot;editor.renderIndentGuides&quot;: false,
+    &quot;editor.renderWhitespace&quot;: &quot;all&quot;,
+    /* 格式化工具的tab长度定义 */
+    &quot;prettier.tabWidth&quot;: 4,
+    /* vue的tab定义长度 */
+    &quot;vetur.format.options.tabSize&quot;: 4,
+    /* 编辑器配置 在保存的时候自动格式化代码 */
+    &quot;editor.formatOnSave&quot;: true,
+    /* 编辑器的缩进量，支持所有语言 */
+    &quot;editor.tabSize&quot;: 4,
+    &quot;python.pythonPath&quot;: &quot;/usr/local/opt/python/bin/python3.7&quot;,
+    /* 初始化路径 */
+    &quot;workbench.startupEditor&quot;: &quot;welcomePage&quot;
+}
+</code></pre>
     </div>
   </div>
 </section>
