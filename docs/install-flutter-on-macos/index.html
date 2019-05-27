@@ -49,8 +49,7 @@
 <li>必备工具： 需要以下命令行工具的支持
 
 <ul>
-<li><code>bash</code>,<code>mkdir</code>,<code>rm</code>,<code>git</code>,<code>curl</code>,<code>unzip</code>,<code>which</code>
-</li>
+<li><code>bash</code>,<code>mkdir</code>,<code>rm</code>,<code>git</code>,<code>curl</code>,<code>unzip</code>,<code>which</code></li>
 </ul></li>
 </ul>
 
@@ -68,15 +67,17 @@
 
 <pre><code class="language-bash">$ cd ~/Study
 $ unzip ~/Desktop/flutter_macos_v0.5.1-beta.zip
-</code></pre></li>
-
-<li><p>添加<code>flutter</code>到你环境变量path：</p>
-
-<pre><code class="language-bash">$ export PATH=`pwd`/flutter/bin:$PATH
 </code></pre>
 
-<p><em>注：该方法只对当前终端进程有效，需要永久生效建议修改PATH文件</em></p></li>
+<ol>
+<li>添加<code>flutter</code>到你环境变量path：
+<code>bash
+$ export PATH=`pwd`/flutter/bin:$PATH
+</code></li>
+</ol></li>
 </ol>
+
+<p><em>注：该方法只对当前终端进程有效，需要永久生效建议修改PATH文件</em></p>
 
 <p>执行以上命令以后，就可以在命令行直接输入<code>flutter</code>命令了，运行<code>flutter doctor</code>来完成安装。得到系统需要更新，这里再次输入<code>flutter upgrade</code>。</p>
 

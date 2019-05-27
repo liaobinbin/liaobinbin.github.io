@@ -3,6 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://liaobinbin.com/</loc>
+    <lastmod>2019-05-27T20:21:58+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</loc>
+    <lastmod>2019-05-27T20:21:58+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</loc>
     <lastmod>2018-12-25T12:44:09+08:00</lastmod>
   </url>
@@ -30,12 +41,6 @@
   <url>
     <loc>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</loc>
     <lastmod>2018-05-14T10:04:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://liaobinbin.com/</loc>
-    <lastmod>2018-12-25T12:44:09+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

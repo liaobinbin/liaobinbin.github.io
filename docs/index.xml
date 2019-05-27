@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    <lastBuildDate>Tue, 25 Dec 2018 12:44:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2019 20:21:58 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>微信小程序原生富文本渲染和wxParse</title>
+      <link>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</link>
+      <pubDate>Mon, 27 May 2019 20:21:58 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</guid>
+      <description>&lt;h1 id=&#34;微信小程序-富文本渲染&#34;&gt;微信小程序 富文本渲染&lt;/h1&gt;
+
+&lt;p&gt;微信小程序本身提供&lt;code&gt;rich-text&lt;/code&gt;的组件，直接富文本字符串丢进&lt;code&gt;nodes&lt;/code&gt;属性即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你以为就这么就结束了？不，你错了。因为后台为了兼容&lt;code&gt;IE9&lt;/code&gt;，我选用&lt;code&gt;wangEditor2&lt;/code&gt;所
+编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>VScode 前端开发常用插件以及配置</title>
@@ -20,9 +36,7 @@
       <guid>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</guid>
       <description>&lt;h2 id=&#34;auto-rename-tag&#34;&gt;Auto Rename Tag&lt;/h2&gt;
 
-&lt;p&gt;自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,9 +45,7 @@
       <pubDate>Fri, 09 Nov 2018 09:15:50 +0800</pubDate>
       
       <guid>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
-      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,8 +55,7 @@
       
       <guid>https://liaobinbin.com/fix-unprotected-private-key-file-with-dropbox-sync/</guid>
       <description>&lt;p&gt;&lt;code&gt;ssh -Tv git@gitlab.com&lt;/code&gt;
-得到以下提示
-&lt;/p&gt;</description>
+得到以下提示&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,7 +72,9 @@
 &lt;li&gt;必备工具： 需要以下命令行工具的支持
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;</description>
+&lt;li&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -72,9 +85,7 @@
       <guid>https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -83,9 +94,7 @@
       <pubDate>Mon, 14 May 2018 10:04:24 +0800</pubDate>
       
       <guid>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</guid>
-      <description>&lt;p&gt;相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。&lt;/p&gt;</description>
     </item>
     
   </channel>
