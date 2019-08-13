@@ -12,8 +12,8 @@ publishdir = "docs"
 type = "valine"
 
 [params.comment.valine]
-id = "2xNbY1s8utVmugHB2Rd9q3SV-gzGzoHsz"
-key = "F0EWiD141auxM8QfxjA8FOdV"
+id = "E0lUSj6zDajetA3pKlP4h90b-MdYXbMMI"
+key = "k6dTtx4wkg0MfOodf4mO0Wy5"
 placeholder = "Write something ..."
 avatar = "retro"
 
