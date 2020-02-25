@@ -18,7 +18,7 @@ placeholder = "Write something ..."
 avatar = "retro"
 
 [params.highlight]
-style = "github"
+style = "atom-one-dark"
 languages = ["bash", "javascript", "go", "dockerfile"]
 
 [[params.social]]
