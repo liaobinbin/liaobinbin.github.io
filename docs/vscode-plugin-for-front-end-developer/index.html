@@ -42,129 +42,108 @@
     <h1 class="title">VScode 前端开发常用插件以及配置</h1>
     <div class="content">
       <h2 id="auto-rename-tag">Auto Rename Tag</h2>
-
 <p>自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。</p>
-
 <h2 id="breacket-pair-colorizer">Breacket Pair Colorizer</h2>
-
 <p>用于修改<code>()</code>,<code>[]</code>,<code>{}</code>的颜色，方便快速定位代码块</p>
-
 <h2 id="vetur">Vetur</h2>
-
 <p>Vue 语法高亮，格式化，自动补全等功能</p>
-
 <h2 id="setting-sync">Setting Sync</h2>
-
 <p>多台电脑开发的用户选用
 配置文件同步功能，利用 gist 进行多设备统一同步 vscode 配置文件</p>
-
 <h2 id="editorconfig-for-vs-code">EditorConfig for VS Code</h2>
-
 <p>用于同步整个项目的开发编辑统一。例如缩进定义等。</p>
-
 <h2 id="git-history">Git History</h2>
-
 <p>图形化查看 Git 的提交，详细文件修改等</p>
-
 <h2 id="gitlens">GitLens</h2>
-
 <p>增强 VsCode git 功能，并且可以在文件中的代码块显示修改记录，便于定位代码作者并联系。</p>
-
 <h2 id="guides">Guides</h2>
-
 <p>为代码块提高分割线， 可以快速定位代码块</p>
-
 <h2 id="path-authcomplete">Path Authcomplete</h2>
-
 <p>路径补全增强</p>
-
 <h2 id="prettier">Prettier</h2>
-
 <p>代码格式化工具，需要配置实现自动保存格式化代码。 并且可以配置<code>eslint</code>等工具进行规则配置。</p>
-
 <h3 id="我的常用配置文件">我的常用配置文件</h3>
-
-<pre><code class="language-json">{
-    /* 字体设置 */
-    &quot;editor.fontFamily&quot;: &quot;'Operator Mono','Fira Code', Menlo, Monaco, 'Courier New', monospace&quot;,
-    /* 取消类型检查js文件中 flow相关 */
-    &quot;javascript.validate.enable&quot;: false,
-    /* 字体大小设置 */
-    &quot;editor.fontSize&quot;: 12,
-    /* 字体行号设置 */
-    &quot;editor.lineHeight&quot;: 25,
-    /* 连体字支持，主要用于Fira Code中的大于等于小于等特殊符号 */
-    &quot;editor.fontLigatures&quot;: true,
-    /* 超出宽度自动换行 */
-    &quot;editor.wordWrap&quot;: &quot;on&quot;,
-    /* 当文件移动更新import的路径 */
-    &quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,
-    /* 确认删除提示 */
-    &quot;explorer.confirmDelete&quot;: false,
-    &quot;gitlens.advanced.messages&quot;: {
-        &quot;suppressLineUncommittedWarning&quot;: true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">字体设置</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;Operator Mono&#39;,&#39;Fira Code&#39;, Menlo, Monaco, &#39;Courier New&#39;, monospace&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">取消类型检查js文件中</span> <span style="color:#960050;background-color:#1e0010">flow相关</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;javascript.validate.enable&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">字体大小设置</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.fontSize&#34;</span>: <span style="color:#ae81ff">12</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">字体行号设置</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.lineHeight&#34;</span>: <span style="color:#ae81ff">25</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">连体字支持，主要用于Fira</span> <span style="color:#960050;background-color:#1e0010">Code中的大于等于小于等特殊符号</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.fontLigatures&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">超出宽度自动换行</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.wordWrap&#34;</span>: <span style="color:#e6db74">&#34;on&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">当文件移动更新import的路径</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;javascript.updateImportsOnFileMove.enabled&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">确认删除提示</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;explorer.confirmDelete&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;gitlens.advanced.messages&#34;</span>: {
+        <span style="color:#f92672">&#34;suppressLineUncommittedWarning&#34;</span>: <span style="color:#66d9ef">true</span>
     },
-    &quot;breadcrumbs.enabled&quot;: true,
-    /* 主题和文件图标主题 */
-    &quot;workbench.colorTheme&quot;: &quot;Dracula&quot;,
-    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,
-    &quot;files.associations&quot;: {
-        &quot;*.cjson&quot;: &quot;jsonc&quot;,
-        &quot;*.wxss&quot;: &quot;css&quot;,
-        &quot;*.wxs&quot;: &quot;javascript&quot;
+    <span style="color:#f92672">&#34;breadcrumbs.enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">主题和文件图标主题</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;workbench.colorTheme&#34;</span>: <span style="color:#e6db74">&#34;Dracula&#34;</span>,
+    <span style="color:#f92672">&#34;workbench.iconTheme&#34;</span>: <span style="color:#e6db74">&#34;vscode-icons&#34;</span>,
+    <span style="color:#f92672">&#34;files.associations&#34;</span>: {
+        <span style="color:#f92672">&#34;*.cjson&#34;</span>: <span style="color:#e6db74">&#34;jsonc&#34;</span>,
+        <span style="color:#f92672">&#34;*.wxss&#34;</span>: <span style="color:#e6db74">&#34;css&#34;</span>,
+        <span style="color:#f92672">&#34;*.wxs&#34;</span>: <span style="color:#e6db74">&#34;javascript&#34;</span>
     },
-    /* emmet的wxml语法支持 */
-    &quot;emmet.includeLanguages&quot;: {
-        &quot;wxml&quot;: &quot;html&quot;
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">emmet的wxml语法支持</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;emmet.includeLanguages&#34;</span>: {
+        <span style="color:#f92672">&#34;wxml&#34;</span>: <span style="color:#e6db74">&#34;html&#34;</span>
     },
-    &quot;minapp-vscode.disableAutoConfig&quot;: true,
-    /* 快速小地图关闭 节省空间 */
-    &quot;editor.minimap.enabled&quot;: false,
-    /*  启用eslint整合 */
-    &quot;prettier.eslintIntegration&quot;: true,
-    /* 自动格式化在保存后 */
-    &quot;eslint.autoFixOnSave&quot;: true,
-    /* 添加vue支持 */
-    &quot;eslint.validate&quot;: [
-        &quot;javascript&quot;,
-        &quot;javascriptreact&quot;,
+    <span style="color:#f92672">&#34;minapp-vscode.disableAutoConfig&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">快速小地图关闭</span> <span style="color:#960050;background-color:#1e0010">节省空间</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.minimap.enabled&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span>  <span style="color:#960050;background-color:#1e0010">启用eslint整合</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;prettier.eslintIntegration&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">自动格式化在保存后</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;eslint.autoFixOnSave&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">添加vue支持</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;eslint.validate&#34;</span>: [
+        <span style="color:#e6db74">&#34;javascript&#34;</span>,
+        <span style="color:#e6db74">&#34;javascriptreact&#34;</span>,
         {
-            &quot;language&quot;: &quot;vue&quot;,
-            &quot;autoFix&quot;: true
+            <span style="color:#f92672">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;vue&#34;</span>,
+            <span style="color:#f92672">&#34;autoFix&#34;</span>: <span style="color:#66d9ef">true</span>
         },
         {
-            &quot;language&quot;: &quot;html&quot;,
-            &quot;autoFix&quot;: true
+            <span style="color:#f92672">&#34;language&#34;</span>: <span style="color:#e6db74">&#34;html&#34;</span>,
+            <span style="color:#f92672">&#34;autoFix&#34;</span>: <span style="color:#66d9ef">true</span>
         }
     ],
-    /*  强制单引号 */
-    &quot;prettier.singleQuote&quot;: true,
-    /*  尽可能控制尾随逗号的打印 */
-    &quot;prettier.trailingComma&quot;: &quot;all&quot;,
-    /* 使用插件格式化 html */
-    &quot;vetur.format.defaultFormatter.html&quot;: &quot;js-beautify-html&quot;,
-    /*  格式化插件的配置 */
-    &quot;vetur.format.defaultFormatterOptions&quot;: {
-        &quot;js-beautify-html&quot;: {
-            /*    属性强制折行对齐 */
-            &quot;wrap_attributes&quot;: &quot;force-aligned&quot;
+    <span style="color:#960050;background-color:#1e0010">/*</span>  <span style="color:#960050;background-color:#1e0010">强制单引号</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;prettier.singleQuote&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span>  <span style="color:#960050;background-color:#1e0010">尽可能控制尾随逗号的打印</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;prettier.trailingComma&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">使用插件格式化</span> <span style="color:#960050;background-color:#1e0010">html</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;vetur.format.defaultFormatter.html&#34;</span>: <span style="color:#e6db74">&#34;js-beautify-html&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span>  <span style="color:#960050;background-color:#1e0010">格式化插件的配置</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;vetur.format.defaultFormatterOptions&#34;</span>: {
+        <span style="color:#f92672">&#34;js-beautify-html&#34;</span>: {
+            <span style="color:#960050;background-color:#1e0010">/*</span>    <span style="color:#960050;background-color:#1e0010">属性强制折行对齐</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+            <span style="color:#f92672">&#34;wrap_attributes&#34;</span>: <span style="color:#e6db74">&#34;force-aligned&#34;</span>
         }
     },
-    &quot;editor.renderIndentGuides&quot;: false,
-    &quot;editor.renderWhitespace&quot;: &quot;all&quot;,
-    /* 格式化工具的tab长度定义 */
-    &quot;prettier.tabWidth&quot;: 4,
-    /* vue的tab定义长度 */
-    &quot;vetur.format.options.tabSize&quot;: 4,
-    /* 编辑器配置 在保存的时候自动格式化代码 */
-    &quot;editor.formatOnSave&quot;: true,
-    /* 编辑器的缩进量，支持所有语言 */
-    &quot;editor.tabSize&quot;: 4,
-    &quot;python.pythonPath&quot;: &quot;/usr/local/opt/python/bin/python3.7&quot;,
-    /* 初始化路径 */
-    &quot;workbench.startupEditor&quot;: &quot;welcomePage&quot;
+    <span style="color:#f92672">&#34;editor.renderIndentGuides&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;editor.renderWhitespace&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">格式化工具的tab长度定义</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;prettier.tabWidth&#34;</span>: <span style="color:#ae81ff">4</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">vue的tab定义长度</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;vetur.format.options.tabSize&#34;</span>: <span style="color:#ae81ff">4</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">编辑器配置</span> <span style="color:#960050;background-color:#1e0010">在保存的时候自动格式化代码</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.formatOnSave&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">编辑器的缩进量，支持所有语言</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;editor.tabSize&#34;</span>: <span style="color:#ae81ff">4</span>,
+    <span style="color:#f92672">&#34;python.pythonPath&#34;</span>: <span style="color:#e6db74">&#34;/usr/local/opt/python/bin/python3.7&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">初始化路径</span> <span style="color:#960050;background-color:#1e0010">*/</span>
+    <span style="color:#f92672">&#34;workbench.startupEditor&#34;</span>: <span style="color:#e6db74">&#34;welcomePage&#34;</span>
 }
-</code></pre>
+</code></pre></div>
     </div>
   </div>
 </section>
@@ -191,7 +170,7 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
 
  
-<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
 <script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
  new Valine( {

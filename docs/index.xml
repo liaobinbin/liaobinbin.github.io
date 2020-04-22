@@ -19,9 +19,7 @@
       
       <guid>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</guid>
       <description>&lt;h1 id=&#34;微信小程序-富文本渲染&#34;&gt;微信小程序 富文本渲染&lt;/h1&gt;
-
 &lt;p&gt;微信小程序本身提供&lt;code&gt;rich-text&lt;/code&gt;的组件，直接富文本字符串丢进&lt;code&gt;nodes&lt;/code&gt;属性即可。&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;你以为就这么就结束了？不，你错了。因为后台为了兼容&lt;code&gt;IE9&lt;/code&gt;，我选用&lt;code&gt;wangEditor2&lt;/code&gt;所
 编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。&lt;/p&gt;
@@ -35,7 +33,6 @@
       
       <guid>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</guid>
       <description>&lt;h2 id=&#34;auto-rename-tag&#34;&gt;Auto Rename Tag&lt;/h2&gt;
-
 &lt;p&gt;自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。&lt;/p&gt;</description>
     </item>
     
@@ -65,15 +62,14 @@
       
       <guid>https://liaobinbin.com/install-flutter-on-macos/</guid>
       <description>&lt;h1 id=&#34;系统需求&#34;&gt;系统需求&lt;/h1&gt;
-
 &lt;ul&gt;
 &lt;li&gt;操作系统： MacOS(64位)&lt;/li&gt;
 &lt;li&gt;磁盘空间： 700MB(不包括IDE工具的磁盘占用)&lt;/li&gt;
 &lt;li&gt;必备工具： 需要以下命令行工具的支持
-
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
