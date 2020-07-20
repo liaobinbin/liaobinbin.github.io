@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    <lastBuildDate>Mon, 27 May 2019 20:21:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 23:04:02 +0800</lastBuildDate>
     
 	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git简易指南</title>
+      <link>https://liaobinbin.com/git-simple-guidelines/</link>
+      <pubDate>Mon, 20 Jul 2020 23:04:02 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/git-simple-guidelines/</guid>
+      <description>&lt;h1 id=&#34;git安装&#34;&gt;Git安装&lt;/h1&gt;
+&lt;h2 id=&#34;macos&#34;&gt;MacOS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;MacOS&lt;/code&gt;自带git命令，前提是需要安装&lt;code&gt;Xcode Command Line Tools&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
+&lt;p&gt;根据发行版的不同安装方式有差异，这里给出&lt;code&gt;debian&lt;/code&gt;系的安装方式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install git-all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多的安装方式请参考&lt;a href=&#34;https://git-scm.com/download/linux&#34;&gt;这里!!&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;windows&#34;&gt;Windows&lt;/h2&gt;
+&lt;p&gt;打开&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git - Downloading Package&lt;/a&gt; 该网址，下载适合自己系统位数的版本进行安装。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>微信小程序原生富文本渲染和wxParse</title>
