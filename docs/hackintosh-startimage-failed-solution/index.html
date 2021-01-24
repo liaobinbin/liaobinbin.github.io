@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hackintosh OCB：Startimage Failed 的解决方法 | Boiao Ch</title>
+<link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://liaobinbin.com/"><h1 class="title is-4">Boiao Ch</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/liaobinbin">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">January 24, 2021</h2>
+    <h1 class="title">Hackintosh OCB：Startimage Failed 的解决方法</h1>
+    <div class="content">
+      <p>如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。</p>
+<h2 id="多次尝试一次都未能进入系统">多次尝试一次都未能进入系统</h2>
+<p>Booter-&gt;Quirks-&gt;DevirtualiseMmio 设为true</p>
+<h2 id="多次尝试有几率进入系统">多次尝试有几率进入系统</h2>
+<p>Booter-&gt;Quirks-&gt;ProvideCustomSlide 设为true</p>
+<h3 id="z390-主板特殊处理">z390 主板特殊处理</h3>
+<p>Booter-&gt;Quirks-&gt;ProtectUefiServices 可能会需要设为true，具体自己测试</p>
+
+    </div>
+  </div>
+</section>
+ 
+<section class="section">
+  <div class="container">
+    <div id="comment"></div>
+</section>
+
+ 
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+
+ 
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+ new Valine( {
+     el: "#comment",
+     notify: false,
+     verify: false,
+     appId: "E0lUSj6zDajetA3pKlP4h90b-MdYXbMMI",
+     appKey: "k6dTtx4wkg0MfOodf4mO0Wy5",
+     placeholder: "Write something ...",
+     path: window.location.pathname,
+     avatar: "retro"
+ });
+</script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

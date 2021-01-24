@@ -6,10 +6,6 @@
     <description>Recent content in Categories on Boiao Ch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    
-	<atom:link href="https://liaobinbin.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

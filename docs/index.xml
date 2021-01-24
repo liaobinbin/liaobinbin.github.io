@@ -6,11 +6,18 @@
     <description>Recent content on Boiao Ch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright>
-    <lastBuildDate>Mon, 20 Jul 2020 23:04:02 +0800</lastBuildDate>
-    
-	<atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
-    
+    <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackintosh OCB：Startimage Failed 的解决方法</title>
+      <link>https://liaobinbin.com/hackintosh-startimage-failed-solution/</link>
+      <pubDate>Sun, 24 Jan 2021 22:44:15 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/hackintosh-startimage-failed-solution/</guid>
+      <description>如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。
+多次尝试一次都未能进入系统 Booter-&amp;gt;Quirks-&amp;gt;DevirtualiseMmio 设为true
+多次尝试有几率进入系统 Booter-&amp;gt;Quirks-&amp;gt;ProvideCustomSlide 设为true
+z390 主板特殊处理 Booter-&amp;gt;Quirks-&amp;gt;ProtectUefiServices 可能会需要设为true，具体自己测试</description>
+    </item>
     
     <item>
       <title>Git简易指南</title>
