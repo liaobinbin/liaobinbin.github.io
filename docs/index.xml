@@ -8,6 +8,20 @@
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>在两台macOS设备上切换同一个蓝牙键盘</title>
+      <link>https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/</link>
+      <pubDate>Sun, 14 Feb 2021 17:27:19 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/</guid>
+      <description>&lt;h1 id=&#34;设备&#34;&gt;设备&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;hackintosh (BCM943602CDP)&lt;/li&gt;
+&lt;li&gt;2015 Macbook Pro 15&lt;/li&gt;
+&lt;li&gt;YDKB for HHKB PRO 2&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Hackintosh OCB：Startimage Failed 的解决方法</title>
       <link>https://liaobinbin.com/hackintosh-startimage-failed-solution/</link>
       <pubDate>Sun, 24 Jan 2021 22:44:15 +0800</pubDate>

@@ -28,3 +28,6 @@ fa_icon = "fa-github"
 [[params.social]]
 url = "/index.xml"
 fa_icon = "fa-rss" 
+
+[markup.goldmark.renderer]
+unsafe = true

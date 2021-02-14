@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在两台macOS设备上切换同一个蓝牙键盘 | Boiao Ch</title>
+<link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://liaobinbin.com/"><h1 class="title is-4">Boiao Ch</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/liaobinbin">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">February 14, 2021</h2>
+    <h1 class="title">在两台macOS设备上切换同一个蓝牙键盘</h1>
+    <div class="content">
+      <h1 id="设备">设备</h1>
+<ul>
+<li>hackintosh (BCM943602CDP)</li>
+<li>2015 Macbook Pro 15</li>
+<li>YDKB for HHKB PRO 2</li>
+</ul>
+<h1 id="问题">问题</h1>
+<p>没有办法进行两台设备的自由切换，由于iCloud同步的问题，最开始键盘中只有一台设备的配对信息，导致另外可以自动连接上但是没有办法进行输入。</p>
+<h1 id="处理">处理</h1>
+<p>首先解决键盘中存储的设备信息</p>
+<p>从零开始使用<code>R Shift</code> + <code>L Shift</code> + <code>r</code> 进行重置键盘上的蓝牙配对信息</p>
+<h2 id="配对">配对</h2>
+<p>首先使用键盘和我的MacBook 进行配对，此时笔记本上的蓝牙键盘可以正常使用。</p>
+<p>然后关闭MacBook上的蓝牙开关</p>
+<p>使用<code>Fn</code> + <code>z</code> 进行锁定键盘，再使用长按<code>f</code>+<code>j</code>进行唤醒键盘。</p>
+<p>在Hackintosh上删除蓝牙设备上显示的HHKB BLE(该数据是通过iCloud同步过来，连接上键盘后会无法使用)，<em>将其删除</em>。</p>
+<p>重新在Hackintosh上进行连接蓝牙键盘。</p>
+<p>大功告成，这样就可以让键盘存储两台设备的蓝牙信息。两台设备都是可以连接并使用的。</p>
+<h1 id="注意">注意</h1>
+<p>设备切换依赖其中一个设备关闭蓝牙断开，并且重启键盘蓝牙，键盘才会自动连接上当前蓝牙打开的这台设备，相对来说还是比较麻烦。期待后续YDKB固件可以更新，使用快捷键进行设备切换。</p>
+    </div>
+  </div>
+</section>
+ 
+<section class="section">
+  <div class="container">
+    <div id="comment"></div>
+</section>
+
+ 
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+
+ 
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+ new Valine( {
+     el: "#comment",
+     notify: false,
+     verify: false,
+     appId: "E0lUSj6zDajetA3pKlP4h90b-MdYXbMMI",
+     appKey: "k6dTtx4wkg0MfOodf4mO0Wy5",
+     placeholder: "Write something ...",
+     path: window.location.pathname,
+     avatar: "retro"
+ });
+</script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
