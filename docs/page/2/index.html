@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>使用Haproxy转发内网其他主机的ssh端口到公网的指定端口 | Boiao Ch</title>
+<title>Boiao Ch</title>
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
@@ -38,37 +38,57 @@
 
 <section class="section">
   <div class="container">
-    <h2 class="subtitle is-6">June 13, 2018</h2>
-    <h1 class="title">使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</h1>
-    <div class="content">
-      <blockquote>
-<p>需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。</p>
-</blockquote>
-<p>首先作为反向代理的服务器需要如下准备：</p>
-<ul>
-<li>操作系统安装(*Linux)</li>
-<li>Haproxy软件安装</li>
-<li>双网卡，一个获取为公网IP地址，另一个为内网地址</li>
-</ul>
-<p>Haproxy软件安装很简单，因为我用的Ubuntu，安装命令如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install haproxy
-</code></pre></div><p>安装完成后直接编辑<code>/etc/haproxy/haproxy.cfg</code>，在其最后回车后添加如下参数：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">listen example <span style="color:#75715e">#example是为这条记录取的别名，任意起名，方便记录</span>
-    bind 0.0.0.0:2223 <span style="color:#75715e">#监听所有来源的2223端口请求</span>
-    mode tcp <span style="color:#75715e">#tcp模式</span>
-    server example-server 192.168.100.100:22 <span style="color:#75715e">#example-server 是自己本地所指向的服务器进行取名，同样是方便记录，后面的IP和端口是你想要转发的目标IP和端口。</span>
-</code></pre></div><p>保存退出后直接，<code>service haproxy restart</code> 即可生效。</p>
-<p>现在就可以通过公网IP（例如：203.33.13.24:2223）进行ssh访问，使用内网的用户名和密码，可正常登录。</p>
-    </div>
+    
+    <article>
+      <h2 class="subtitle is-6">May 14, 2018</h2>
+      <h1 class="title"><a href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/">git无法pull仓库refusing to merge unrelated histories</a></h1>
+      <div class="content">
+        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
+
+        
+        ...<a class="button is-link" href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
   </div>
 </section>
- 
 <section class="section">
   <div class="container">
-    <div id="comment"></div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          
+          <a class="button" href="/">
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-left"></i>
+            </span>
+            Newer
+          </a>
+          
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button is-disabled">
+            Older
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
 </section>
 
- 
 <section class="section">
   <div class="container has-text-centered">
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>

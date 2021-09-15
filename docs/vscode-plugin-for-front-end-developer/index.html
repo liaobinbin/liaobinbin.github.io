@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -63,7 +63,7 @@
 <h2 id="prettier">Prettier</h2>
 <p>代码格式化工具，需要配置实现自动保存格式化代码。 并且可以配置<code>eslint</code>等工具进行规则配置。</p>
 <h3 id="我的常用配置文件">我的常用配置文件</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">字体设置</span> <span style="color:#960050;background-color:#1e0010">*/</span>
     <span style="color:#f92672">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;Operator Mono&#39;,&#39;Fira Code&#39;, Menlo, Monaco, &#39;Courier New&#39;, monospace&#34;</span>,
     <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">取消类型检查js文件中</span> <span style="color:#960050;background-color:#1e0010">flow相关</span> <span style="color:#960050;background-color:#1e0010">*/</span>
@@ -159,15 +159,25 @@
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/json.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/c.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/cpp.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/css.min.js"></script>
 
  
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
@@ -186,6 +196,9 @@
 </script>
 
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+ hljs.configure({ ignoreUnescapedHTML: true });
+ hljs.highlightAll();
+</script>
 
 

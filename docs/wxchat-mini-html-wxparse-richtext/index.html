@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -52,10 +52,10 @@
 <p><code>rich-text</code>与<code>wangEditor2</code>的配合不怎么好，容易出现文字消失，文字布局消失，文字没有颜色之类的、图片不能放大预览等等奇奇怪怪的问题。</p>
 <p>总之微信小程序还是推荐<code>wxParse</code>这个库。用起来比较简单。</p>
 <h2 id="克隆最新仓库">克隆最新仓库</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git@github.com:icindy/wxParse.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git@github.com:icindy/wxParse.git
 </code></pre></div><h2 id="拷贝关键文件到你的项目内">拷贝关键文件到你的项目内</h2>
 <p>我放在<code>libs</code>目录下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── xxxxxxxx.js <span style="color:#75715e">#其他的库</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── xxxxxxxx.js <span style="color:#75715e">#其他的库</span>
 └── wxParse
     ├── html2json.js
     ├── htmlparser.js
@@ -69,7 +69,7 @@
 <h2 id="如何使用">如何使用</h2>
 <h3 id="某-page------xxxx">某 Page &mdash;- xxxx</h3>
 <h4 id="xxxxjs">xxxx.js</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//在使用的View中引入WxParse模块
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//在使用的View中引入WxParse模块
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">WxParse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../../wxParse/wxParse.js&#39;</span>)
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">article</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;div&gt;我是HTML代码&lt;/div&gt;&#39;</span>
@@ -81,15 +81,15 @@
 </span><span style="color:#75715e"> * 4.target为Page对象,一般为this(必填)
 </span><span style="color:#75715e"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
 </span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
-<span style="color:#a6e22e">WxParse</span>.<span style="color:#a6e22e">wxParse</span>(<span style="color:#e6db74">&#39;article&#39;</span>, <span style="color:#e6db74">&#39;html&#39;</span>, <span style="color:#a6e22e">article</span>, <span style="color:#a6e22e">_this</span>, <span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#ae81ff">_</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+<span style="color:#a6e22e">WxParse</span>.<span style="color:#a6e22e">wxParse</span>(<span style="color:#e6db74">&#39;article&#39;</span>, <span style="color:#e6db74">&#39;html&#39;</span>, <span style="color:#a6e22e">article</span>, <span style="color:#ae81ff">_</span><span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">5</span>)
 </code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/*
 </span><span style="color:#75715e">在使用的Wxss中引入WxParse.css,可以在app.wxss
 </span><span style="color:#75715e">*/</span>
 @<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;/wxParse/wxParse.wxss&#39;</span>;
 </code></pre></div><h4 id="xxxxwxml">xxxx.wxml</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 引入模板 --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 引入模板 --&gt;</span>
 &lt;<span style="color:#f92672">import</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的路径/wxParse/wxParse.wxml&#34;</span> /&gt;
 
 <span style="color:#75715e">&lt;!-- 这里data中article为bindName --&gt;</span>
@@ -104,16 +104,16 @@
 </ul>
 <h3 id="解决空格问题">解决空格问题</h3>
 <p>修改<code>wxDiscode.js</code>文件中加入</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/&amp;nbsp;/g</span>, <span style="color:#e6db74">&#39;\xa0&#39;</span>) <span style="color:#75715e">// 这行解决了空格不显示的问题
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/&amp;nbsp;/g</span>, <span style="color:#e6db74">&#39;\xa0&#39;</span>) <span style="color:#75715e">// 这行解决了空格不显示的问题
 </span></code></pre></div><h3 id="处理不被识别的属性">处理不被识别的属性</h3>
 <p>修改<code>html2json.js</code>中的</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;style&#39;</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;style&#39;</span>) {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">dir</span>(<span style="color:#a6e22e">value</span>)
   <span style="color:#75715e">//  value = value.join(&#34;&#34;)
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">styleStr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>
 }
 </code></pre></div><p>为</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;align&#39;</span>) {
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">styleStr</span>) <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">styleStr</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
   <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">styleStr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">styleStr</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;text-align: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;;&#39;</span>
@@ -141,15 +141,25 @@
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/json.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/c.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/cpp.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/css.min.js"></script>
 
  
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
@@ -168,6 +178,9 @@
 </script>
 
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+ hljs.configure({ ignoreUnescapedHTML: true });
+ hljs.highlightAll();
+</script>
 
 

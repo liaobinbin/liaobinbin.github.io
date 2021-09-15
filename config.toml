@@ -18,8 +18,8 @@ placeholder = "Write something ..."
 avatar = "retro"
 
 [params.highlight]
-style = "atom-one-dark"
-languages = ["bash", "javascript", "go", "dockerfile"]
+style = "base16/solarized-light"
+languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css"]
 
 [[params.social]]
 url = "https://github.com/liaobinbin"

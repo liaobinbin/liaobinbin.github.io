@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -43,12 +43,12 @@
     <div class="content">
       <p><code>ssh -Tv git@gitlab.com</code>
 得到以下提示</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Permissions <span style="color:#ae81ff">0644</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;/Users/boiao/.ssh/gitlab&#39;</span> are too open.
 </code></pre></div><h2 id="解决方法">解决方法</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">600</span> ~/.ssh/gitlab
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">600</span> ~/.ssh/gitlab
 </code></pre></div>
     </div>
   </div>
@@ -65,15 +65,25 @@ Permissions <span style="color:#ae81ff">0644</span> <span style="color:#66d9ef">
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/json.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/c.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/cpp.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/css.min.js"></script>
 
  
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
@@ -92,6 +102,9 @@ Permissions <span style="color:#ae81ff">0644</span> <span style="color:#66d9ef">
 </script>
 
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+ hljs.configure({ ignoreUnescapedHTML: true });
+ hljs.highlightAll();
+</script>
 
 

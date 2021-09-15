@@ -42,10 +42,10 @@ z390 主板特殊处理 Booter-&amp;gt;Quirks-&amp;gt;ProtectUefiServices 可能
       <description>&lt;h1 id=&#34;git安装&#34;&gt;Git安装&lt;/h1&gt;
 &lt;h2 id=&#34;macos&#34;&gt;MacOS&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;MacOS&lt;/code&gt;自带git命令，前提是需要安装&lt;code&gt;Xcode Command Line Tools&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git --version
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git --version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
 &lt;p&gt;根据发行版的不同安装方式有差异，这里给出&lt;code&gt;debian&lt;/code&gt;系的安装方式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install git-all
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install git-all
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多的安装方式请参考&lt;a href=&#34;https://git-scm.com/download/linux&#34;&gt;这里!!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;windows&#34;&gt;Windows&lt;/h2&gt;
 &lt;p&gt;打开&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git - Downloading Package&lt;/a&gt; 该网址，下载适合自己系统位数的版本进行安装。&lt;/p&gt;</description>
@@ -102,8 +102,8 @@ z390 主板特殊处理 Booter-&amp;gt;Quirks-&amp;gt;ProtectUefiServices 可能
       <guid>https://liaobinbin.com/install-flutter-on-macos/</guid>
       <description>&lt;h1 id=&#34;系统需求&#34;&gt;系统需求&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;操作系统： MacOS(64位)&lt;/li&gt;
-&lt;li&gt;磁盘空间： 700MB(不包括IDE工具的磁盘占用)&lt;/li&gt;
+&lt;li&gt;操作系统： MacOS(64 位)&lt;/li&gt;
+&lt;li&gt;磁盘空间： 700MB(不包括 IDE 工具的磁盘占用)&lt;/li&gt;
 &lt;li&gt;必备工具： 需要以下命令行工具的支持
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;&lt;/li&gt;
