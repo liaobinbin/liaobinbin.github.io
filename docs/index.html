@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/base16/solarized-light.min.css">
+<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -45,7 +45,14 @@
       <div class="content">
         因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 WenQuanYi Zen Hei Sharp;
 使用点阵字体可以获得更佳的体验效果，英文字体我使用的是Terminus
-;; Set font for chinese characters ;; Font should be twice the width of asci chars so that org tables align ;; This will break if run in terminal mode, so use conditional to only run for GUI. (if (display-graphic-p) (dolist (charset &#39;(kana han cjk-misc bopomofo)) (set-fontset-font (frame-parameter nil &#39;font) charset (font-spec :family &#34;Hiragino Sans GB&#34; :size 18)))) 预览效果:
+
+        
+        ...<a class="button is-link" href="https://liaobinbin.com/doom-emacs-set-chinese-font/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
         
       </div>
     </article>
@@ -238,36 +245,37 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/typescript.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/go.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/dockerfile.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/json.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/json.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/c.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/c.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/cpp.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/cpp.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/css.min.js"></script>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/css.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/lisp.min.js"></script>
 
  
-<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
  new Valine( {
      el: "#comment",
-     notify: false,
-     verify: false,
-     appId: "E0lUSj6zDajetA3pKlP4h90b-MdYXbMMI",
-     appKey: "k6dTtx4wkg0MfOodf4mO0Wy5",
+     visitor: true,
+     recordIP: true,
+     appId: "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz",
+     appKey: "6AGQbwYr9G7NhVKfqxiOnV4y",
      placeholder: "Write something ...",
      path: window.location.pathname,
      avatar: "retro"

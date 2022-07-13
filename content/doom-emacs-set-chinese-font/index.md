@@ -8,6 +8,8 @@ draft: false
 
 使用点阵字体可以获得更佳的体验效果，英文字体我使用的是`Terminus`
 
+<!--more-->
+
 ```lisp
 ;; Set font for chinese characters
 ;; Font should be twice the width of asci chars so that org tables align
@@ -20,4 +22,4 @@ draft: false
 
 预览效果:
 
-![图片](./2022-07-13_10-02.png)
+![预览图](./2022-07-13_10-02.png)

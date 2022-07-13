@@ -12,14 +12,14 @@ publishdir = "docs"
 type = "valine"
 
 [params.comment.valine]
-id = "E0lUSj6zDajetA3pKlP4h90b-MdYXbMMI"
-key = "k6dTtx4wkg0MfOodf4mO0Wy5"
+id = "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz"
+key = "6AGQbwYr9G7NhVKfqxiOnV4y"
 placeholder = "Write something ..."
 avatar = "retro"
 
 [params.highlight]
 style = "base16/solarized-light"
-languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css"]
+languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css", "lisp"]
 
 [[params.social]]
 url = "https://github.com/liaobinbin"
@@ -27,7 +27,7 @@ fa_icon = "fa-github"
 
 [[params.social]]
 url = "/index.xml"
-fa_icon = "fa-rss" 
+fa_icon = "fa-rss"
 
 [markup.goldmark.renderer]
 # unsafe = true
