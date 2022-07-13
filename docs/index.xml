@@ -8,6 +8,17 @@
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Doom Emacs 给中文指定字体</title>
+      <link>https://liaobinbin.com/doom-emacs-set-chinese-font/</link>
+      <pubDate>Wed, 13 Jul 2022 09:58:09 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/doom-emacs-set-chinese-font/</guid>
+      <description>因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 WenQuanYi Zen Hei Sharp;
+使用点阵字体可以获得更佳的体验效果，英文字体我使用的是Terminus
+;; Set font for chinese characters ;; Font should be twice the width of asci chars so that org tables align ;; This will break if run in terminal mode, so use conditional to only run for GUI. (if (display-graphic-p) (dolist (charset &amp;#39;(kana han cjk-misc bopomofo)) (set-fontset-font (frame-parameter nil &amp;#39;font) charset (font-spec :family &amp;#34;Hiragino Sans GB&amp;#34; :size 18)))) 预览效果:</description>
+    </item>
+    
+    <item>
       <title>在两台macOS设备上切换同一个蓝牙键盘</title>
       <link>https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/</link>
       <pubDate>Sun, 14 Feb 2021 17:27:19 +0800</pubDate>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/styles/base16/solarized-light.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -38,6 +38,17 @@
 
 <section class="section">
   <div class="container">
+    
+    <article>
+      <h2 class="subtitle is-6">July 13, 2022</h2>
+      <h1 class="title"><a href="https://liaobinbin.com/doom-emacs-set-chinese-font/">Doom Emacs 给中文指定字体</a></h1>
+      <div class="content">
+        因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 WenQuanYi Zen Hei Sharp;
+使用点阵字体可以获得更佳的体验效果，英文字体我使用的是Terminus
+;; Set font for chinese characters ;; Font should be twice the width of asci chars so that org tables align ;; This will break if run in terminal mode, so use conditional to only run for GUI. (if (display-graphic-p) (dolist (charset &#39;(kana han cjk-misc bopomofo)) (set-fontset-font (frame-parameter nil &#39;font) charset (font-spec :family &#34;Hiragino Sans GB&#34; :size 18)))) 预览效果:
+        
+      </div>
+    </article>
     
     <article>
       <h2 class="subtitle is-6">February 14, 2021</h2>
@@ -189,23 +200,6 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
       </div>
     </article>
     
-    <article>
-      <h2 class="subtitle is-6">May 14, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/">git无法pull仓库refusing to merge unrelated histories</a></h1>
-      <div class="content">
-        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
   </div>
 </section>
 <section class="section">
@@ -226,7 +220,7 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
       <div class="level-right is-marginless">
         <div class="level-item">
           
-          <a class="button is-disabled">
+          <a class="button" href="/page/2/">
             Older
             <span class="icon is-small is-marginless">
               <i class="fa fa-angle-right"></i>
@@ -244,28 +238,28 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/typescript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/json.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/json.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/c.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/c.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/cpp.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/cpp.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/css.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/css.min.js"></script>
 
  
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
  new Valine( {
@@ -281,11 +275,6 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
 </script>
 
 
-<script>
- 
- 
- hljs.highlightAll();
- 
-</script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 

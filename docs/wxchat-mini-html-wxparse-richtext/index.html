@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/styles/base16/solarized-light.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/base16/solarized-light.min.css">
 
 
 <section class="section">
@@ -81,8 +81,8 @@
 </span><span style="color:#75715e"> * 4.target为Page对象,一般为this(必填)
 </span><span style="color:#75715e"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
 </span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">const</span> <span style="color:#ae81ff">_</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
-<span style="color:#a6e22e">WxParse</span>.<span style="color:#a6e22e">wxParse</span>(<span style="color:#e6db74">&#39;article&#39;</span>, <span style="color:#e6db74">&#39;html&#39;</span>, <span style="color:#a6e22e">article</span>, <span style="color:#ae81ff">_</span><span style="color:#66d9ef">this</span>, <span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+<span style="color:#a6e22e">WxParse</span>.<span style="color:#a6e22e">wxParse</span>(<span style="color:#e6db74">&#39;article&#39;</span>, <span style="color:#e6db74">&#39;html&#39;</span>, <span style="color:#a6e22e">article</span>, <span style="color:#a6e22e">_this</span>, <span style="color:#ae81ff">5</span>)
 </code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/*
 </span><span style="color:#75715e">在使用的Wxss中引入WxParse.css,可以在app.wxss
@@ -141,28 +141,28 @@
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
   </div>
 </section>
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/bash.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/bash.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/typescript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/go.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/dockerfile.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/dockerfile.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/json.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/json.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/c.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/c.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/cpp.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/cpp.min.js"></script>
 
-<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.2.0/languages/css.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/css.min.js"></script>
 
  
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
  new Valine( {
@@ -178,11 +178,6 @@
 </script>
 
 
-<script>
- 
- 
- hljs.highlightAll();
- 
-</script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
