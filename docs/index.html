@@ -40,6 +40,19 @@
   <div class="container">
     
     <article>
+      <h2 class="subtitle is-6">July 18, 2022</h2>
+      <h1 class="title"><a href="https://liaobinbin.com/jest-e2e-puppeteer-comfirm-alert/">Jest e2e测试 Puppeteer 自动点击 Alert 确定</a></h1>
+      <div class="content">
+        在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。
+ 思路一 给page添加事件监听，当有对话框弹出的时候，自动进行对话框的确认。
+代码如下
+page.on(&#34;dialog&#34;, async (dialog) =&gt; { await dialog.accept(); }); 思路二 将自带的alert方法进行重写，在启动puppeteer的 page 后，将该 api 进行重写，让其不会调用原始的alert,也就可以保证不会弹出对话框来进行阻塞进程。
+同时还可以利用console.log来进行替换该方法，在控制台中打印警告信息。
+        
+      </div>
+    </article>
+    
+    <article>
       <h2 class="subtitle is-6">July 13, 2022</h2>
       <h1 class="title"><a href="https://liaobinbin.com/doom-emacs-set-chinese-font/">Doom Emacs 给中文指定字体</a></h1>
       <div class="content">
@@ -181,23 +194,6 @@ Windows 打开Git - Downloading Package 该网址，下载适合自己系统位�
         系统需求  操作系统： MacOS(64 位) 磁盘空间： 700MB(不包括 IDE 工具的磁盘占用) 必备工具： 需要以下命令行工具的支持  bash,mkdir,rm,git,curl,unzip,which   
         
         ...<a class="button is-link" href="https://liaobinbin.com/install-flutter-on-macos/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">June 13, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/">使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</a></h1>
-      <div class="content">
-         需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>

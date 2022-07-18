@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Boiao Ch</title>
+<title>Jest e2e测试 Puppeteer 自动点击 Alert 确定 | Boiao Ch</title>
 <link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
@@ -38,74 +38,32 @@
 
 <section class="section">
   <div class="container">
-    
-    <article>
-      <h2 class="subtitle is-6">June 13, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/">使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</a></h1>
-      <div class="content">
-         需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。
+    <h2 class="subtitle is-6">July 18, 2022</h2>
+    <h1 class="title">Jest e2e测试 Puppeteer 自动点击 Alert 确定</h1>
+    <div class="content">
+      <blockquote>
+<p>在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。</p>
+</blockquote>
+<h2 id="思路一">思路一</h2>
+<p>给<code>page</code>添加事件监听，当有对话框弹出的时候，自动进行对话框的确认。</p>
+<p>代码如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;dialog&#34;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">dialog</span>) =&gt; {
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">dialog</span>.<span style="color:#a6e22e">accept</span>();
+});
+</code></pre></div><h2 id="思路二">思路二</h2>
+<p>将自带的<code>alert</code>方法进行重写，在启动<code>puppeteer</code>的 page 后，将该 api 进行重写，让其不会调用原始的<code>alert</code>,也就可以保证不会弹出对话框来进行阻塞进程。</p>
+<p>同时还可以利用<code>console.log</code>来进行替换该方法，在控制台中打印警告信息。</p>
 
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">May 14, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/">git无法pull仓库refusing to merge unrelated histories</a></h1>
-      <div class="content">
-        相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
+    </div>
   </div>
 </section>
+ 
 <section class="section">
   <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-          <a class="button" href="/">
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-left"></i>
-            </span>
-            Newer
-          </a>
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            Older
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
-          
-        </div>
-      </div>
-    </nav>
-  </div>
+    <div id="comment"></div>
 </section>
 
+ 
 <section class="section">
   <div class="container has-text-centered">
     <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
