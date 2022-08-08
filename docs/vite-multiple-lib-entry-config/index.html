@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vite 多入口lib模式打包配置 | Boiao Ch</title>
+<link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/base16/solarized-light.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://liaobinbin.com/"><h1 class="title is-4">Boiao Ch</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/liaobinbin">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">August 8, 2022</h2>
+    <h1 class="title">Vite 多入口lib模式打包配置</h1>
+    <div class="content">
+      <blockquote>
+<p><em>Note:</em> 无法使用 vite.config.*</p>
+</blockquote>
+<p>无法在<code>vite.config.*</code>中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在<code>scripts/build.js</code>中。</p>
+<p>将 <code>vite</code> 中的 <code>build</code> 方法 import 进来。 手动执行打包;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">build</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vite&#34;</span>;
+
+<span style="color:#75715e">// make library list, the name for folder
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">components</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;text&#34;</span>, <span style="color:#e6db74">&#34;input&#34;</span>];
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">librarys</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">components</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">name</span>) =&gt; {
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">entry</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`src/components/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/index.ts`</span>,
+    <span style="color:#a6e22e">name</span>,
+    <span style="color:#75715e">// output filename;
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`xxx-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.js`</span>,
+  };
+});
+
+<span style="color:#a6e22e">librarys</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">lib</span>) =&gt; {
+  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">build</span>({
+    <span style="color:#a6e22e">configFile</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">sourcemap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">build</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">lib</span>,
+      <span style="color:#a6e22e">assetsDir</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">emptyOutDir</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+      <span style="color:#a6e22e">rollupOptions</span><span style="color:#f92672">:</span> {},
+    },
+  });
+});
+</code></pre></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="section">
+  <div class="container">
+    <div id="comment"></div>
+</section>
+
+ 
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
+  </div>
+</section>
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/bash.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/typescript.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/json.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/c.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/cpp.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/css.min.js"></script>
+
+<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/lisp.min.js"></script>
+
+ 
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+ new Valine( {
+     el: "#comment",
+     visitor: true,
+     recordIP: true,
+     appId: "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz",
+     appKey: "6AGQbwYr9G7NhVKfqxiOnV4y",
+     placeholder: "Write something ...",
+     path: window.location.pathname,
+     avatar: "retro"
+ });
+</script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

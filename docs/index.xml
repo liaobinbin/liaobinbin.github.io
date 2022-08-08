@@ -8,6 +8,18 @@
     <language>zh-cn</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Vite 多入口lib模式打包配置</title>
+      <link>https://liaobinbin.com/vite-multiple-lib-entry-config/</link>
+      <pubDate>Mon, 08 Aug 2022 10:20:31 +0800</pubDate>
+      
+      <guid>https://liaobinbin.com/vite-multiple-lib-entry-config/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; 无法使用 vite.config.*&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;无法在&lt;code&gt;vite.config.*&lt;/code&gt;中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在&lt;code&gt;scripts/build.js&lt;/code&gt;中。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Jest e2e测试 Puppeteer 自动点击 Alert 确定</title>
       <link>https://liaobinbin.com/jest-e2e-puppeteer-comfirm-alert/</link>
       <pubDate>Mon, 18 Jul 2022 10:02:54 +0800</pubDate>
