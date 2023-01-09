@@ -1,286 +1,146 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Boiao Ch</title>
-<link rel="stylesheet" href="https://liaobinbin.com//css/style.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <head>
+	<meta name="generator" content="Hugo 0.105.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="Boiao Ch" />
+<meta property="og:description" content="宁静致远" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://liaobinbin.com/" /><meta property="og:site_name" content="静" />
 
-<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/base16/solarized-light.min.css">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Boiao Ch"/>
+<meta name="twitter:description" content="宁静致远"/>
+<meta name="application-name" content="宁静致远">
+<meta name="apple-mobile-web-app-title" content="宁静致远"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://liaobinbin.com/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="Boiao Ch">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="Boiao Ch"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https:\/\/liaobinbin.com\/","inLanguage": "zh-cn","author": {
+                "@type": "Person",
+                "name": "Boiao Ch"
+            },"description": "宁静致远","license": "\u0026copy; \u003ca href=\u0022https:\/\/liaobinbin.com\u0022\u003e Boiao Ch\u003c\/a\u003e 2008 - 2018","name": "Boiao Ch"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-
-<section class="section">
-  <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://liaobinbin.com/"><h1 class="title is-4">Boiao Ch</h1></a>
-      </div>
-      <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/liaobinbin">
-            <span class="icon">
-              <i class="fa fa-github"></i>
-            </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
-      </div>
-    </nav>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    
-    <article>
-      <h2 class="subtitle is-6">August 8, 2022</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/vite-multiple-lib-entry-config/">Vite 多入口lib模式打包配置</a></h1>
-      <div class="content">
-         Note: 无法使用 vite.config.*
- 无法在vite.config.*中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在scripts/build.js中。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/vite-multiple-lib-entry-config/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">July 18, 2022</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/jest-e2e-puppeteer-comfirm-alert/">Jest e2e测试 Puppeteer 自动点击 Alert 确定</a></h1>
-      <div class="content">
-        在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。
- 思路一 给page添加事件监听，当有对话框弹出的时候，自动进行对话框的确认。
-代码如下
-page.on(&#34;dialog&#34;, async (dialog) =&gt; { await dialog.accept(); }); 思路二 将自带的alert方法进行重写，在启动puppeteer的 page 后，将该 api 进行重写，让其不会调用原始的alert,也就可以保证不会弹出对话框来进行阻塞进程。
-同时还可以利用console.log来进行替换该方法，在控制台中打印警告信息。
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">July 13, 2022</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/doom-emacs-set-chinese-font/">Doom Emacs 给中文指定字体</a></h1>
-      <div class="content">
-        因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 WenQuanYi Zen Hei Sharp;
-使用点阵字体可以获得更佳的体验效果，英文字体我使用的是Terminus
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/doom-emacs-set-chinese-font/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">February 14, 2021</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/">在两台macOS设备上切换同一个蓝牙键盘</a></h1>
-      <div class="content">
-        设备  hackintosh (BCM943602CDP) 2015 Macbook Pro 15 YDKB for HHKB PRO 2 
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">January 24, 2021</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/hackintosh-startimage-failed-solution/">Hackintosh OCB：Startimage Failed 的解决方法</a></h1>
-      <div class="content">
-        如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。
-多次尝试一次都未能进入系统 Booter-&gt;Quirks-&gt;DevirtualiseMmio 设为true
-多次尝试有几率进入系统 Booter-&gt;Quirks-&gt;ProvideCustomSlide 设为true
-z390 主板特殊处理 Booter-&gt;Quirks-&gt;ProtectUefiServices 可能会需要设为true，具体自己测试
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">July 20, 2020</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/git-simple-guidelines/">Git简易指南</a></h1>
-      <div class="content">
-        Git安装 MacOS MacOS自带git命令，前提是需要安装Xcode Command Line Tools
-git --version Linux 根据发行版的不同安装方式有差异，这里给出debian系的安装方式：
-sudo apt install git-all 更多的安装方式请参考这里!!
-Windows 打开Git - Downloading Package 该网址，下载适合自己系统位数的版本进行安装。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/git-simple-guidelines/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">May 27, 2019</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/">微信小程序原生富文本渲染和wxParse</a></h1>
-      <div class="content">
-        微信小程序 富文本渲染 微信小程序本身提供rich-text的组件，直接富文本字符串丢进nodes属性即可。
- 你以为就这么就结束了？不，你错了。因为后台为了兼容IE9，我选用wangEditor2所 编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">December 25, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/vscode-plugin-for-front-end-developer/">VScode 前端开发常用插件以及配置</a></h1>
-      <div class="content">
-        Auto Rename Tag 自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/vscode-plugin-for-front-end-developer/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">November 9, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/">关于微信小程序onReachBottom上拉触底事件</a></h1>
-      <div class="content">
-        onReachBottom事件触发有延迟，快速下拉的话有几率不会触发事件
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h2 class="subtitle is-6">November 7, 2018</h2>
-      <h1 class="title"><a href="https://liaobinbin.com/fix-unprotected-private-key-file-with-dropbox-sync/">修复DropBox同步到导致的SSH密钥文件权限丢失</a></h1>
-      <div class="content">
-        ssh -Tv git@gitlab.com 得到以下提示
-
-        
-        ...<a class="button is-link" href="https://liaobinbin.com/fix-unprotected-private-key-file-with-dropbox-sync/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-left"></i>
-            </span>
-            Newer
-          </a>
-          
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Boiao Ch">静</a>
         </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-          <a class="button" href="/page/2/">
-            Older
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
-          
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
-      </div>
-    </nav>
-  </div>
-</section>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Boiao Ch">静</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="文章"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp, https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/c9e817b8406a30bf65711d99b5e139f8?s=240&amp;d=mp" /></a></div><h1 class="home-title">Boiao Ch</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/liaobinbin" target="_blank" rel="noopener noreffer me"></a><a href="/index.xml" rel="me"></a></div></div>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/vite-multiple-lib-entry-config/">Vite 多入口lib模式打包配置</a>
+    </h1><div class="post-meta">&nbsp;<span class="post-publish">写于 <time datetime="2022-08-08">2022-08-08</time></span></div><div class="content"><blockquote>
+<p><em>Note:</em> 无法使用 vite.config.*</p>
+</blockquote>
+<p>无法在<code>vite.config.*</code>中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在<code>scripts/build.js</code>中。</p></div><div class="post-footer">
+        <a href="/posts/vite-multiple-lib-entry-config/">阅读全文</a></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/jest-e2e-puppeteer-comfirm-alert/">Jest e2e测试 Puppeteer 自动点击 Alert 确定</a>
+    </h1><div class="post-meta">&nbsp;<span class="post-publish">写于 <time datetime="2022-07-18">2022-07-18</time></span></div><div class="content">在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。 思路一 给page添加事件监听，当有对话框弹出的时候，自动进行对</div><div class="post-footer">
+        <a href="/posts/jest-e2e-puppeteer-comfirm-alert/">阅读全文</a></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/doom-emacs-set-chinese-font/">Doom Emacs 给中文指定字体</a>
+    </h1><div class="post-meta">&nbsp;<span class="post-publish">写于 <time datetime="2022-07-13">2022-07-13</time></span></div><div class="content"><p>因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 <code>WenQuanYi Zen Hei Sharp</code>;</p>
+<p>使用点阵字体可以获得更佳的体验效果，英文字体我使用的是<code>Terminus</code></p></div><div class="post-footer">
+        <a href="/posts/doom-emacs-set-chinese-font/">阅读全文</a></div>
+</article><ul class="pagination"><li class="page-item active">
+                    <span class="page-link">
+                        <a href="/">1</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/2/">2</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/5/">5</a>
+                    </span>
+                </li></ul></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
+        </div>
+    </footer></div>
 
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://liaobinbin.com"> Boiao Ch</a> 2008 - 2018</p>
-  </div>
-</section>
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/bash.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/typescript.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/javascript.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/go.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/dockerfile.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/json.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/c.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/cpp.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/css.min.js"></script>
-
-<script type="text/javascript" src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/lisp.min.js"></script>
-
- 
-<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
- new Valine( {
-     el: "#comment",
-     visitor: true,
-     recordIP: true,
-     appId: "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz",
-     appKey: "6AGQbwYr9G7NhVKfqxiOnV4y",
-     placeholder: "Write something ...",
-     path: window.location.pathname,
-     avatar: "retro"
- });
-</script>
-
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"data":{"id-1":"人生如戏, Life is fucking movie!"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

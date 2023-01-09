@@ -1,171 +1,115 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Boiao Ch</title>
-    <link>https://liaobinbin.com/</link>
-    <description>Recent content on Boiao Ch</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Vite 多入口lib模式打包配置</title>
-      <link>https://liaobinbin.com/vite-multiple-lib-entry-config/</link>
-      <pubDate>Mon, 08 Aug 2022 10:20:31 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/vite-multiple-lib-entry-config/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; 无法使用 vite.config.*&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;无法在&lt;code&gt;vite.config.*&lt;/code&gt;中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在&lt;code&gt;scripts/build.js&lt;/code&gt;中。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Jest e2e测试 Puppeteer 自动点击 Alert 确定</title>
-      <link>https://liaobinbin.com/jest-e2e-puppeteer-comfirm-alert/</link>
-      <pubDate>Mon, 18 Jul 2022 10:02:54 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/jest-e2e-puppeteer-comfirm-alert/</guid>
-      <description>在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。
- 思路一 给page添加事件监听，当有对话框弹出的时候，自动进行对话框的确认。
-代码如下
-page.on(&amp;#34;dialog&amp;#34;, async (dialog) =&amp;gt; { await dialog.accept(); }); 思路二 将自带的alert方法进行重写，在启动puppeteer的 page 后，将该 api 进行重写，让其不会调用原始的alert,也就可以保证不会弹出对话框来进行阻塞进程。
-同时还可以利用console.log来进行替换该方法，在控制台中打印警告信息。</description>
-    </item>
-    
-    <item>
-      <title>Doom Emacs 给中文指定字体</title>
-      <link>https://liaobinbin.com/doom-emacs-set-chinese-font/</link>
-      <pubDate>Wed, 13 Jul 2022 09:58:09 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/doom-emacs-set-chinese-font/</guid>
-      <description>&lt;p&gt;因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 &lt;code&gt;WenQuanYi Zen Hei Sharp&lt;/code&gt;;&lt;/p&gt;
-&lt;p&gt;使用点阵字体可以获得更佳的体验效果，英文字体我使用的是&lt;code&gt;Terminus&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在两台macOS设备上切换同一个蓝牙键盘</title>
-      <link>https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/</link>
-      <pubDate>Sun, 14 Feb 2021 17:27:19 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/switch-bluetooth-keyboard-on-two-macos-device/</guid>
-      <description>&lt;h1 id=&#34;设备&#34;&gt;设备&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;hackintosh (BCM943602CDP)&lt;/li&gt;
-&lt;li&gt;2015 Macbook Pro 15&lt;/li&gt;
-&lt;li&gt;YDKB for HHKB PRO 2&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hackintosh OCB：Startimage Failed 的解决方法</title>
-      <link>https://liaobinbin.com/hackintosh-startimage-failed-solution/</link>
-      <pubDate>Sun, 24 Jan 2021 22:44:15 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/hackintosh-startimage-failed-solution/</guid>
-      <description>如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。
-多次尝试一次都未能进入系统 Booter-&amp;gt;Quirks-&amp;gt;DevirtualiseMmio 设为true
-多次尝试有几率进入系统 Booter-&amp;gt;Quirks-&amp;gt;ProvideCustomSlide 设为true
-z390 主板特殊处理 Booter-&amp;gt;Quirks-&amp;gt;ProtectUefiServices 可能会需要设为true，具体自己测试</description>
-    </item>
-    
-    <item>
-      <title>Git简易指南</title>
-      <link>https://liaobinbin.com/git-simple-guidelines/</link>
-      <pubDate>Mon, 20 Jul 2020 23:04:02 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/git-simple-guidelines/</guid>
-      <description>&lt;h1 id=&#34;git安装&#34;&gt;Git安装&lt;/h1&gt;
-&lt;h2 id=&#34;macos&#34;&gt;MacOS&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;MacOS&lt;/code&gt;自带git命令，前提是需要安装&lt;code&gt;Xcode Command Line Tools&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git --version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
-&lt;p&gt;根据发行版的不同安装方式有差异，这里给出&lt;code&gt;debian&lt;/code&gt;系的安装方式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install git-all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多的安装方式请参考&lt;a href=&#34;https://git-scm.com/download/linux&#34;&gt;这里!!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;windows&#34;&gt;Windows&lt;/h2&gt;
-&lt;p&gt;打开&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git - Downloading Package&lt;/a&gt; 该网址，下载适合自己系统位数的版本进行安装。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>微信小程序原生富文本渲染和wxParse</title>
-      <link>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</link>
-      <pubDate>Mon, 27 May 2019 20:21:58 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/wxchat-mini-html-wxparse-richtext/</guid>
-      <description>&lt;h1 id=&#34;微信小程序-富文本渲染&#34;&gt;微信小程序 富文本渲染&lt;/h1&gt;
-&lt;p&gt;微信小程序本身提供&lt;code&gt;rich-text&lt;/code&gt;的组件，直接富文本字符串丢进&lt;code&gt;nodes&lt;/code&gt;属性即可。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你以为就这么就结束了？不，你错了。因为后台为了兼容&lt;code&gt;IE9&lt;/code&gt;，我选用&lt;code&gt;wangEditor2&lt;/code&gt;所
-编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>VScode 前端开发常用插件以及配置</title>
-      <link>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</link>
-      <pubDate>Tue, 25 Dec 2018 12:44:09 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/vscode-plugin-for-front-end-developer/</guid>
-      <description>&lt;h2 id=&#34;auto-rename-tag&#34;&gt;Auto Rename Tag&lt;/h2&gt;
-&lt;p&gt;自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>关于微信小程序onReachBottom上拉触底事件</title>
-      <link>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</link>
-      <pubDate>Fri, 09 Nov 2018 09:15:50 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
-      <description>&lt;p&gt;&lt;code&gt;onReachBottom&lt;/code&gt;事件触发有延迟，快速下拉的话有几率不会触发事件&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>修复DropBox同步到导致的SSH密钥文件权限丢失</title>
-      <link>https://liaobinbin.com/fix-unprotected-private-key-file-with-dropbox-sync/</link>
-      <pubDate>Wed, 07 Nov 2018 21:29:51 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/fix-unprotected-private-key-file-with-dropbox-sync/</guid>
-      <description>&lt;p&gt;&lt;code&gt;ssh -Tv git@gitlab.com&lt;/code&gt;
-得到以下提示&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在MacOS上安装Flutter环境</title>
-      <link>https://liaobinbin.com/install-flutter-on-macos/</link>
-      <pubDate>Thu, 12 Jul 2018 11:15:04 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/install-flutter-on-macos/</guid>
-      <description>&lt;h1 id=&#34;系统需求&#34;&gt;系统需求&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;操作系统： MacOS(64 位)&lt;/li&gt;
-&lt;li&gt;磁盘空间： 700MB(不包括 IDE 工具的磁盘占用)&lt;/li&gt;
-&lt;li&gt;必备工具： 需要以下命令行工具的支持
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;bash&lt;/code&gt;,&lt;code&gt;mkdir&lt;/code&gt;,&lt;code&gt;rm&lt;/code&gt;,&lt;code&gt;git&lt;/code&gt;,&lt;code&gt;curl&lt;/code&gt;,&lt;code&gt;unzip&lt;/code&gt;,&lt;code&gt;which&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</title>
-      <link>https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/</link>
-      <pubDate>Wed, 13 Jun 2018 16:19:51 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/using-haproxy-forward-ssh-to-other-port/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>git无法pull仓库refusing to merge unrelated histories</title>
-      <link>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</link>
-      <pubDate>Mon, 14 May 2018 10:04:24 +0800</pubDate>
-      
-      <guid>https://liaobinbin.com/fixed-refusing-to-merge-unrelated-histories-for-git/</guid>
-      <description>&lt;p&gt;相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Boiao Ch</title>
+        <link>https://liaobinbin.com/</link>
+        <description>宁静致远</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</lastBuildDate>
+            <atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Vite 多入口lib模式打包配置</title>
+    <link>https://liaobinbin.com/posts/vite-multiple-lib-entry-config/</link>
+    <pubDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/vite-multiple-lib-entry-config/</guid>
+    <description><![CDATA[<blockquote>
+<p><em>Note:</em> 无法使用 vite.config.*</p>
+</blockquote>
+<p>无法在<code>vite.config.*</code>中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在<code>scripts/build.js</code>中。</p>]]></description>
+</item>
+<item>
+    <title>Jest e2e测试 Puppeteer 自动点击 Alert 确定</title>
+    <link>https://liaobinbin.com/posts/jest-e2e-puppeteer-comfirm-alert/</link>
+    <pubDate>Mon, 18 Jul 2022 10:02:54 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/jest-e2e-puppeteer-comfirm-alert/</guid>
+    <description><![CDATA[在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。 思路一 给page添加事件监听，当有对话框弹出的时候，自动进行对]]></description>
+</item>
+<item>
+    <title>Doom Emacs 给中文指定字体</title>
+    <link>https://liaobinbin.com/posts/doom-emacs-set-chinese-font/</link>
+    <pubDate>Wed, 13 Jul 2022 09:58:09 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/doom-emacs-set-chinese-font/</guid>
+    <description><![CDATA[<p>因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 <code>WenQuanYi Zen Hei Sharp</code>;</p>
+<p>使用点阵字体可以获得更佳的体验效果，英文字体我使用的是<code>Terminus</code></p>]]></description>
+</item>
+<item>
+    <title>在两台macOS设备上切换同一个蓝牙键盘</title>
+    <link>https://liaobinbin.com/posts/switch-bluetooth-keyboard-on-two-macos-device/</link>
+    <pubDate>Sun, 14 Feb 2021 17:27:19 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/switch-bluetooth-keyboard-on-two-macos-device/</guid>
+    <description><![CDATA[<h2 id="设备">设备</h2>
+<ul>
+<li>hackintosh (BCM943602CDP)</li>
+<li>2015 Macbook Pro 15</li>
+<li>YDKB for HHKB PRO 2</li>
+</ul>]]></description>
+</item>
+<item>
+    <title>Hackintosh OCB：Startimage Failed 的解决方法</title>
+    <link>https://liaobinbin.com/posts/hackintosh-startimage-failed-solution/</link>
+    <pubDate>Sun, 24 Jan 2021 22:44:15 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/hackintosh-startimage-failed-solution/</guid>
+    <description><![CDATA[如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。]]></description>
+</item>
+<item>
+    <title>Git简易指南</title>
+    <link>https://liaobinbin.com/posts/git-simple-guidelines/</link>
+    <pubDate>Mon, 20 Jul 2020 23:04:02 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/git-simple-guidelines/</guid>
+    <description><![CDATA[<h1 id="git安装">Git安装</h1>
+<h2 id="macos">MacOS</h2>
+<p><code>MacOS</code>自带git命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
+</span></span></code></pre></div><h2 id="linux">Linux</h2>
+<p>根据发行版的不同安装方式有差异，这里给出<code>debian</code>系的安装方式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git-all
+</span></span></code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
+<h2 id="windows">Windows</h2>
+<p>打开<a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreffer ">Git - Downloading Package</a> 该网址，下载适合自己系统位数的版本进行安装。</p>]]></description>
+</item>
+<item>
+    <title>微信小程序原生富文本渲染和wxParse</title>
+    <link>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</link>
+    <pubDate>Mon, 27 May 2019 20:21:58 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</guid>
+    <description><![CDATA[<h1 id="微信小程序-富文本渲染">微信小程序 富文本渲染</h1>
+<p>微信小程序本身提供<code>rich-text</code>的组件，直接富文本字符串丢进<code>nodes</code>属性即可。</p>
+<blockquote>
+<p>你以为就这么就结束了？不，你错了。因为后台为了兼容<code>IE9</code>，我选用<code>wangEditor2</code>所
+编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。</p>
+</blockquote>]]></description>
+</item>
+<item>
+    <title>VScode 前端开发常用插件以及配置</title>
+    <link>https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/</link>
+    <pubDate>Tue, 25 Dec 2018 12:44:09 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/</guid>
+    <description><![CDATA[<h2 id="auto-rename-tag">Auto Rename Tag</h2>
+<p>自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。</p>]]></description>
+</item>
+<item>
+    <title>关于微信小程序onReachBottom上拉触底事件</title>
+    <link>https://liaobinbin.com/posts/about-wechat-miniprogram-onreachbottom-event-bug/</link>
+    <pubDate>Fri, 09 Nov 2018 09:15:50 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
+    <description><![CDATA[<p><code>onReachBottom</code>事件触发有延迟，快速下拉的话有几率不会触发事件</p>]]></description>
+</item>
+<item>
+    <title>修复DropBox同步到导致的SSH密钥文件权限丢失</title>
+    <link>https://liaobinbin.com/posts/fix-unprotected-private-key-file-with-dropbox-sync/</link>
+    <pubDate>Wed, 07 Nov 2018 21:29:51 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/fix-unprotected-private-key-file-with-dropbox-sync/</guid>
+    <description><![CDATA[<p><code>ssh -Tv git@gitlab.com</code>
+得到以下提示</p>]]></description>
+</item>
+</channel>
 </rss>
