@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Git简易指南 - Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="Git简易指南" />
-<meta property="og:description" content="Git安装
+<meta property="og:description" content="Git 安装
 MacOS
-MacOS自带git命令，前提是需要安装Xcode Command Line Tools
+MacOS自带 git 命令，前提是需要安装Xcode Command Line Tools
 git --version
 Linux
 根据发行版的不同安装方式有差异，这里给出debian系的安装方式：
@@ -19,12 +19,11 @@ Windows
 <meta property="og:url" content="https://liaobinbin.com/posts/git-simple-guidelines/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-07-20T23:04:02+08:00" />
 <meta property="article:modified_time" content="2020-07-20T23:04:02+08:00" /><meta property="og:site_name" content="静" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git简易指南"/>
-<meta name="twitter:description" content="Git安装
+<meta name="twitter:description" content="Git 安装
 MacOS
-MacOS自带git命令，前提是需要安装Xcode Command Line Tools
+MacOS自带 git 命令，前提是需要安装Xcode Command Line Tools
 git --version
 Linux
 根据发行版的不同安装方式有差异，这里给出debian系的安装方式：
@@ -46,7 +45,7 @@ Windows
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/git-simple-guidelines\/"
-        },"genre": "posts","wordcount":  2071 ,
+        },"genre": "posts","wordcount":  1957 ,
         "url": "https:\/\/liaobinbin.com\/posts\/git-simple-guidelines\/","datePublished": "2020-07-20T23:04:02+08:00","dateModified": "2020-07-20T23:04:02+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -63,7 +62,7 @@ Windows
             <a href="/" title="Boiao Ch">静</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -105,7 +104,7 @@ Windows
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -119,9 +118,8 @@ Windows
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git简易指南</h1><div class="post-meta">
-            <div class="post-meta-line"></div>
             <div class="post-meta-line"><time datetime="2020-07-20">2020-07-20</time>&nbsp;<span id="/posts/git-simple-guidelines/" class="leancloud_visitors" data-flag-title="Git简易指南">
-                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -140,14 +138,14 @@ Windows
     <li><a href="#ssh">SSH</a>
       <ul>
         <li><a href="#首先创建一个自己密钥">首先创建一个自己密钥</a></li>
-        <li><a href="#添加ssh-key到服务器">添加SSH KEY到服务器</a></li>
+        <li><a href="#添加-ssh-key-到服务器">添加 SSH KEY 到服务器</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="git安装">Git安装</h1>
+            </div><div class="content" id="content"><h1 id="git-安装">Git 安装</h1>
 <h2 id="macos">MacOS</h2>
-<p><code>MacOS</code>自带git命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
+<p><code>MacOS</code>自带 git 命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
 </span></span></code></pre></div><h2 id="linux">Linux</h2>
 <p>根据发行版的不同安装方式有差异，这里给出<code>debian</code>系的安装方式：</p>
@@ -155,31 +153,31 @@ Windows
 </span></span></code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
 <h2 id="windows">Windows</h2>
 <p>打开<a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreffer ">Git - Downloading Package</a> 该网址，下载适合自己系统位数的版本进行安装。</p>
-<h1 id="http-和-ssh-方式连接远程git">HTTP 和 SSH 方式连接远程GIT</h1>
+<h1 id="http-和-ssh-方式连接远程-git">HTTP 和 SSH 方式连接远程 GIT</h1>
 <h2 id="http">HTTP</h2>
-<p>该方式相交于SSH连接，安全性有所降低，但使用起来都是没有什么差距的</p>
-<p>不方便的点是在于每次本地git和远端git进行数据来往时，都会询问要账号密码，相对于SSH验证的话会比较麻烦，但是有些第三方的git工具会帮你进行该操作，可以帮你保存账号和密码。</p>
+<p>该方式相交于 SSH 连接，安全性有所降低，但使用起来都是没有什么差距的</p>
+<p>不方便的点是在于每次本地 git 和远端 git 进行数据来往时，都会询问要账号密码，相对于 SSH 验证的话会比较麻烦，但是有些第三方的 git 工具会帮你进行该操作，可以帮你保存账号和密码。</p>
 <h2 id="ssh">SSH</h2>
-<p>初次使用会比较麻烦，需要配置openssh密钥对</p>
+<p>初次使用会比较麻烦，需要配置 openssh 密钥对</p>
 <h3 id="首先创建一个自己密钥">首先创建一个自己密钥</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;你的email地址&#34;</span> <span class="c1">#高级用法自己看帮助</span>
-</span></span></code></pre></div><h3 id="添加ssh-key到服务器">添加SSH KEY到服务器</h3>
-<p>以gitlab为例，<code>User Settings</code> &ndash;&gt; <code>SSH Keys</code> &ndash;&gt;  将<code>id_rsa.pub</code>里面的内容拷贝到key的输入框里面，title自己随便写一个(建议写自己的电脑名称，方便多台电脑记录key的使用),点击<code>Add key</code>进行添加。</p>
-<p>然后就可以愉快的进行Git操作了。</p>
-<p><em>至于ssh config的高级用法，请自行查找资料(便于多远端git地址验证和使用)</em></p>
+</span></span></code></pre></div><h3 id="添加-ssh-key-到服务器">添加 SSH KEY 到服务器</h3>
+<p>以 gitlab 为例，<code>User Settings</code> &ndash;&gt; <code>SSH Keys</code> &ndash;&gt; 将<code>id_rsa.pub</code>里面的内容拷贝到 key 的输入框里面，title 自己随便写一个(建议写自己的电脑名称，方便多台电脑记录 key 的使用),点击<code>Add key</code>进行添加。</p>
+<p>然后就可以愉快的进行 Git 操作了。</p>
+<p><em>至于 ssh config 的高级用法，请自行查找资料(便于多远端 git 地址验证和使用)</em></p>
 <h1 id="clone-克隆">Clone 克隆</h1>
 <p>第一件要做的事情就是克隆代码仓库到本地，使用的命令是</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone http地址或者ssh地址
 </span></span></code></pre></div><h1 id="push-推送">Push 推送</h1>
-<p>如果是远端仓库为空的仓库，本地有了git仓库，要本地推送到远端，使用push指令</p>
+<p>如果是远端仓库为空的仓库，本地有了 git 仓库，要本地推送到远端，使用 push 指令</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push
 </span></span></code></pre></div><blockquote>
-<p>push之前需要绑定一次远端和本地的关联
+<p>push 之前需要绑定一次远端和本地的关联
 使用<code>git remote add</code>进行添加
 例如：</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add origin xxx.git
-</span></span></code></pre></div><p>其中origin可以任意取名称作为识别区分，作为一个本地仓库多个远端仓库的情况使用，默认情况夏还是建议使用<code>origin</code></p>
+</span></span></code></pre></div><p>其中 origin 可以任意取名称作为识别区分，作为一个本地仓库多个远端仓库的情况使用，默认情况夏还是建议使用<code>origin</code></p>
 <h1 id="fetch-获取">Fetch 获取</h1>
 <p>用于获取远端分支的更新</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git fetch
@@ -197,15 +195,15 @@ Windows
 <p>将暂存区的内容进行保存为一次提交，有点类似于保存文件并打上记号</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s1">&#39;提交信息&#39;</span> <span class="c1">#</span>
 </span></span><span class="line"><span class="cl">git commit —amend <span class="c1"># 会把当前暂存的文件直接添加到上一次的commit中，不会增加多的commit，用于补充修改上次commit的少量内容使用，可以让commit保持干净</span>
-</span></span></code></pre></div><p><em>题外话:Commit规范</em></p>
+</span></span></code></pre></div><p><em>题外话:Commit 规范</em></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install commitizen -g
 </span></span><span class="line"><span class="cl">git cz
 </span></span></code></pre></div><h1 id="merge-合并">Merge 合并</h1>
 <p>合并分支的目的是为了团队协作之间，将不同的代码分支进行合并</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git merge 目标分支名 <span class="c1">#可以是远端分支 例如 origin/dev</span>
 </span></span></code></pre></div><p>首先在当前分支下，使用该命令，会将目标分支合并到当前分支，如果有冲突的情况下，会有冲突文件的特殊标识。
-git并会说明冲突部分的代码块是当前分支(current)还是输入(incomming)的内容，需要解决冲突，也就是在冲突的部分，二者选其中一个。对文件进行修改后保存，进行commit提交,并推送远端分支，完成合并</p>
-<p><em>注：如果没有冲突的情况下，直接合并会将当前的head指到两个分支里面最新的commit,并且所有的commit将会合并到一个分支，可以通过<code>git log</code>进行查看</em></p>
+git 并会说明冲突部分的代码块是当前分支(current)还是输入(incomming)的内容，需要解决冲突，也就是在冲突的部分，二者选其中一个。对文件进行修改后保存，进行 commit 提交,并推送远端分支，完成合并</p>
+<p><em>注：如果没有冲突的情况下，直接合并会将当前的 head 指到两个分支里面最新的 commit,并且所有的 commit 将会合并到一个分支，可以通过<code>git log</code>进行查看</em></p>
 <h1 id="status-状态">Status 状态</h1>
 <p>用于查看当前工作区的状体，查看文件新增 更新 删除，该指令会将文件的变化列在命令输出的结果里面</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git status
@@ -218,17 +216,17 @@ git并会说明冲突部分的代码块是当前分支(current)还是输入(inco
 <p>用于切换当前分支，以及创建分支</p>
 <blockquote>
 <p>还有恢复文件的功能
-如果是删除文件已经commit了，需要通过<code>git checkout #commitID 文件名</code>,这时候<code>git status</code>可以看到会将该文件列为新增文件，你需要重新创建一个commit来将他保存到git中
+如果是删除文件已经 commit 了，需要通过<code>git checkout #commitID 文件名</code>,这时候<code>git status</code>可以看到会将该文件列为新增文件，你需要重新创建一个 commit 来将他保存到 git 中
 如果是还没有进行提交的文件<code>git checkout HEAD -- 文件名</code> 即可。</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout 分支名
 </span></span><span class="line"><span class="cl">git checkout -b dev origin/dev <span class="c1"># 直接基于远程dev分支 创建一个本地dev分支，并且切换到dev分支</span>
-</span></span></code></pre></div><p><em>新版本git已经将checkout拆分为<code>switch</code>和<code>restore</code>,具体用法可以自行了解</em></p>
+</span></span></code></pre></div><p><em>新版本 git 已经将 checkout 拆分为<code>switch</code>和<code>restore</code>,具体用法可以自行了解</em></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git switch 分支名 <span class="c1">#切换分支</span>
 </span></span><span class="line"><span class="cl">git switch -c 分支名 <span class="c1">#创建一个分支并切换过去</span>
 </span></span></code></pre></div><h1 id="stash-草稿">Stash 草稿</h1>
-<p>用于在进行修改后，但是却不需要进行commit，这个时候需要一个干净的工作区的情况下，例如在不提交的的时候进行合并代码等操作</p>
-<p>注意stash的文件必须是被add到git工作区了的文件才可以(该文件要被git所控制)</p>
+<p>用于在进行修改后，但是却不需要进行 commit，这个时候需要一个干净的工作区的情况下，例如在不提交的的时候进行合并代码等操作</p>
+<p>注意 stash 的文件必须是被 add 到 git 工作区了的文件才可以(该文件要被 git 所控制)</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git stash <span class="o">[</span>save message<span class="o">]</span> <span class="c1">#message代表的是自己写的注释，以便还原该stash 建议使用工具</span>
 </span></span><span class="line"><span class="cl">git stash list <span class="c1">#查看草稿列表</span>
 </span></span><span class="line"><span class="cl">git stash clear <span class="c1">#删除所有草稿</span>
@@ -244,11 +242,11 @@ git并会说明冲突部分的代码块是当前分支(current)还是输入(inco
 </span></span><span class="line"><span class="cl">git rm --cached 文件名 <span class="c1">#从索引中删除文件。但是本地文件还存在， 只是不希望这个文件被版本控制。</span>
 </span></span><span class="line"><span class="cl">git rm -r 文件夹名 <span class="c1"># 删除文件夹</span>
 </span></span></code></pre></div><h1 id="log-日志">Log 日志</h1>
-<p>用于查看commit提交的记录</p>
+<p>用于查看 commit 提交的记录</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
 </span></span></code></pre></div><h1 id="init-初始化">Init 初始化</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
-</span></span></code></pre></div><p>该指令可以在一个空文件夹下创建一个git环境，会再当前目录下创建一个<code>.git</code>文件夹作为git的工作目录</p></div><div class="post-footer" id="post-footer">
+</span></span></code></pre></div><p>该指令可以在一个空文件夹下创建一个 git 环境，会再当前目录下创建一个<code>.git</code>文件夹作为 git 的工作目录</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

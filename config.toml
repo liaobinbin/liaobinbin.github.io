@@ -5,6 +5,7 @@ theme = "LoveIt"
 copyright = "&copy; <a href=\"https://liaobinbin.com\"> Boiao Ch</a> 2008 - 2018"
 publishdir = "docs"
 hasCJKLanguage = true
+enableEmoji = true
 
 
 defaultContentLanguage = "zh-cn"
@@ -25,6 +26,14 @@ defaultContentLanguage = "zh-cn"
    title = ""
   [[menu.main]]
    weight = 2
+   identifier = "categories"
+   pre = ""
+   post = ""
+   name = "分类"
+   url = "/categories/"
+   title = ""
+  [[menu.main]]
+   weight = 3
    identifier = ""
    pre = ""
    post = ""
