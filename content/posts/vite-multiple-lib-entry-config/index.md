@@ -1,7 +1,11 @@
 ---
 title: "Vite 多入口lib模式打包配置"
 date: 2022-08-08T10:20:31+08:00
+categories: ["前端"]
+tags: ["vite", "build"]
 ---
+
+## 注意
 
 > _Note:_ 无法使用 vite.config.\*
 
@@ -10,6 +14,8 @@ date: 2022-08-08T10:20:31+08:00
 <!--more-->
 
 将 `vite` 中的 `build` 方法 import 进来。 手动执行打包;
+
+## 代码演示
 
 ```javascript
 import { build } from "vite";

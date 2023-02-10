@@ -5,14 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>git无法pull仓库refusing to merge unrelated histories - Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="git无法pull仓库refusing to merge unrelated histories" />
-<meta property="og:description" content="相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。" />
+<meta property="og:description" content="相信很多童鞋都遇到过，在 Github 创建仓库的时候，勾选上了创建 License。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaobinbin.com/posts/fixed-refusing-to-merge-unrelated-histories-for-git/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-05-14T10:04:24+08:00" />
 <meta property="article:modified_time" content="2018-05-14T10:04:24+08:00" /><meta property="og:site_name" content="静" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git无法pull仓库refusing to merge unrelated histories"/>
-<meta name="twitter:description" content="相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。"/>
+<meta name="twitter:description" content="相信很多童鞋都遇到过，在 Github 创建仓库的时候，勾选上了创建 License。"/>
 <meta name="application-name" content="宁静致远">
 <meta name="apple-mobile-web-app-title" content="宁静致远"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/fixed-refusing-to-merge-unrelated-histories-for-git\/"
-        },"genre": "posts","wordcount":  162 ,
+        },"genre": "posts","keywords": "git, github","wordcount":  157 ,
         "url": "https:\/\/liaobinbin.com\/posts\/fixed-refusing-to-merge-unrelated-histories-for-git\/","datePublished": "2018-05-14T10:04:24+08:00","dateModified": "2018-05-14T10:04:24+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -100,7 +101,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">git无法pull仓库refusing to merge unrelated histories</h1><div class="post-meta">
-            <div class="post-meta-line"><time datetime="2018-05-14">2018-05-14</time>&nbsp;&nbsp;&nbsp;<span id="/posts/fixed-refusing-to-merge-unrelated-histories-for-git/" class="leancloud_visitors" data-flag-title="git无法pull仓库refusing to merge unrelated histories">
+            <div class="post-meta-line"><time datetime="2018-05-14">2018-05-14</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>工具</a></span>&nbsp;&nbsp;<span id="/posts/fixed-refusing-to-merge-unrelated-histories-for-git/" class="leancloud_visitors" data-flag-title="git无法pull仓库refusing to merge unrelated histories">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -109,12 +110,12 @@
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>相信很多童鞋都遇到过，在Github创建仓库的时候，勾选上了创建License。</p>
-<p>然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行pull，把远端的内容拉取下来，然后和并提交。</p>
-<p>但是却发现<code>refusing to merge unrelated histories</code>这个错误，无法进行pull。</p>
+            </div><div class="content" id="content"><p>相信很多童鞋都遇到过，在 Github 创建仓库的时候，勾选上了创建 License。</p>
+<p>然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行 pull，把远端的内容拉取下来，然后和并提交。</p>
+<p>但是却发现<code>refusing to merge unrelated histories</code>这个错误，无法进行 pull。</p>
 <p>所以就需要用到以下的参数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin master --allow-unrelated-histories
-</span></span></code></pre></div><p>剩下的操作得以继续进行。</p></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git pull origin master --allow-unrelated-histories
+</code></pre></div><p>剩下的操作得以继续进行。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -129,7 +130,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">git</a>,&nbsp;<a href="/tags/github/">github</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

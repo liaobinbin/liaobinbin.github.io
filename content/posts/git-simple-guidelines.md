@@ -2,6 +2,8 @@
 title: "Git简易指南"
 date: 2020-07-20T23:04:02+08:00
 draft: false
+categories: ["工具"]
+tags: ["git", "教程"]
 ---
 
 # Git 安装

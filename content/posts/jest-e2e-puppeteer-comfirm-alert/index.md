@@ -2,6 +2,8 @@
 title: "Jest e2e测试 Puppeteer 自动点击 Alert 确定"
 date: 2022-07-18T10:02:54+08:00
 draft: false
+categories: ["前端"]
+tags: ["unit-test", "puppeteer"]
 ---
 
 > 在编写 e2e 测试的时候，有的业务会有浏览器自带的 alert 弹出，利用 puppeteer 的按键点击事件无效。

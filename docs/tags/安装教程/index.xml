@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>安装教程 - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+        <description>安装教程 - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Thu, 12 Jul 2018 11:15:04 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>在MacOS上安装Flutter环境</title>
+    <link>https://liaobinbin.com/posts/install-flutter-on-macos/</link>
+    <pubDate>Thu, 12 Jul 2018 11:15:04 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/install-flutter-on-macos/</guid>
+    <description><![CDATA[<h2 id="系统需求">系统需求</h2>
+<ul>
+<li>操作系统： MacOS(64 位)</li>
+<li>磁盘空间： 700MB(不包括 IDE 工具的磁盘占用)</li>
+<li>必备工具： 需要以下命令行工具的支持
+<ul>
+<li><code>bash</code>,<code>mkdir</code>,<code>rm</code>,<code>git</code>,<code>curl</code>,<code>unzip</code>,<code>which</code></li>
+</ul>
+</li>
+</ul>]]></description>
+</item>
+</channel>
+</rss>

@@ -6,16 +6,17 @@
         <meta name="robots" content="noodp" />
         <title>使用Haproxy转发内网其他主机的ssh端口到公网的指定端口 - Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="使用Haproxy转发内网其他主机的ssh端口到公网的指定端口" />
 <meta property="og:description" content="
-需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。
+需求情况如下，公司公网 IP 只有一个，为了充分利用这个 IP 实现多个内部服务器可以进行外部访问。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaobinbin.com/posts/using-haproxy-forward-ssh-to-other-port/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-13T16:19:51+08:00" />
 <meta property="article:modified_time" content="2018-06-13T16:19:51+08:00" /><meta property="og:site_name" content="静" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Haproxy转发内网其他主机的ssh端口到公网的指定端口"/>
 <meta name="twitter:description" content="
-需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。
+需求情况如下，公司公网 IP 只有一个，为了充分利用这个 IP 实现多个内部服务器可以进行外部访问。
 "/>
 <meta name="application-name" content="宁静致远">
 <meta name="apple-mobile-web-app-title" content="宁静致远"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -31,7 +32,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/using-haproxy-forward-ssh-to-other-port\/"
-        },"genre": "posts","wordcount":  389 ,
+        },"genre": "posts","keywords": "代理, 端口转发","wordcount":  372 ,
         "url": "https:\/\/liaobinbin.com\/posts\/using-haproxy-forward-ssh-to-other-port\/","datePublished": "2018-06-13T16:19:51+08:00","dateModified": "2018-06-13T16:19:51+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +105,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用Haproxy转发内网其他主机的ssh端口到公网的指定端口</h1><div class="post-meta">
-            <div class="post-meta-line"><time datetime="2018-06-13">2018-06-13</time>&nbsp;&nbsp;&nbsp;<span id="/posts/using-haproxy-forward-ssh-to-other-port/" class="leancloud_visitors" data-flag-title="使用Haproxy转发内网其他主机的ssh端口到公网的指定端口">
+            <div class="post-meta-line"><time datetime="2018-06-13">2018-06-13</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/%E7%BD%91%E7%AE%A1/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>网管</a></span>&nbsp;&nbsp;<span id="/posts/using-haproxy-forward-ssh-to-other-port/" class="leancloud_visitors" data-flag-title="使用Haproxy转发内网其他主机的ssh端口到公网的指定端口">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -114,23 +115,23 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><blockquote>
-<p>需求情况如下，公司公网IP只有一个，为了充分利用这个IP实现多个内部服务器可以进行外部访问。</p>
+<p>需求情况如下，公司公网 IP 只有一个，为了充分利用这个 IP 实现多个内部服务器可以进行外部访问。</p>
 </blockquote>
 <p>首先作为反向代理的服务器需要如下准备：</p>
 <ul>
 <li>操作系统安装(*Linux)</li>
-<li>Haproxy软件安装</li>
-<li>双网卡，一个获取为公网IP地址，另一个为内网地址</li>
+<li>Haproxy 软件安装</li>
+<li>双网卡，一个获取为公网 IP 地址，另一个为内网地址</li>
 </ul>
-<p>Haproxy软件安装很简单，因为我用的Ubuntu，安装命令如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install haproxy
-</span></span></code></pre></div><p>安装完成后直接编辑<code>/etc/haproxy/haproxy.cfg</code>，在其最后回车后添加如下参数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">listen example <span class="c1">#example是为这条记录取的别名，任意起名，方便记录</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">bind</span> 0.0.0.0:2223 <span class="c1">#监听所有来源的2223端口请求</span>
-</span></span><span class="line"><span class="cl">    mode tcp <span class="c1">#tcp模式</span>
-</span></span><span class="line"><span class="cl">    server example-server 192.168.100.100:22 <span class="c1">#example-server 是自己本地所指向的服务器进行取名，同样是方便记录，后面的IP和端口是你想要转发的目标IP和端口。</span>
-</span></span></code></pre></div><p>保存退出后直接，<code>service haproxy restart</code> 即可生效。</p>
-<p>现在就可以通过公网IP（例如：203.33.13.24:2223）进行ssh访问，使用内网的用户名和密码，可正常登录。</p></div><div class="post-footer" id="post-footer">
+<p>Haproxy 软件安装很简单，因为我用的 Ubuntu，安装命令如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install haproxy
+</code></pre></div><p>安装完成后直接编辑<code>/etc/haproxy/haproxy.cfg</code>，在其最后回车后添加如下参数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">listen example <span class="c1">#example是为这条记录取的别名，任意起名，方便记录</span>
+    <span class="nb">bind</span> 0.0.0.0:2223 <span class="c1">#监听所有来源的2223端口请求</span>
+    mode tcp <span class="c1">#tcp模式</span>
+    server example-server 192.168.100.100:22 <span class="c1">#example-server 是自己本地所指向的服务器进行取名，同样是方便记录，后面的IP和端口是你想要转发的目标IP和端口。</span>
+</code></pre></div><p>保存退出后直接，<code>service haproxy restart</code> 即可生效。</p>
+<p>现在就可以通过公网 IP（例如：203.33.13.24:2223）进行 ssh 访问，使用内网的用户名和密码，可正常登录。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -145,7 +146,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E4%BB%A3%E7%90%86/">代理</a>,&nbsp;<a href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">端口转发</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

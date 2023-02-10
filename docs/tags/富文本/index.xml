@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>富文本 - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</link>
+        <description>富文本 - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Mon, 27 May 2019 20:21:58 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>微信小程序原生富文本渲染和wxParse</title>
+    <link>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</link>
+    <pubDate>Mon, 27 May 2019 20:21:58 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</guid>
+    <description><![CDATA[<h1 id="微信小程序-富文本渲染">微信小程序 富文本渲染</h1>
+<p>微信小程序本身提供<code>rich-text</code>的组件，直接富文本字符串丢进<code>nodes</code>属性即可。</p>
+<blockquote>
+<p>你以为就这么就结束了？不，你错了。因为后台为了兼容<code>IE9</code>，我选用<code>wangEditor2</code>所
+编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。</p>
+</blockquote>]]></description>
+</item>
+</channel>
+</rss>
