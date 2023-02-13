@@ -1,9 +1,11 @@
 ---
 title: "在MacOS上安装Flutter环境"
 date: 2018-07-12T11:15:04+08:00
+categories: ["Flutter"]
+tags: ["开发环境", "安装教程"]
 ---
 
-# 系统需求
+## 系统需求
 
 - 操作系统： MacOS(64 位)
 - 磁盘空间： 700MB(不包括 IDE 工具的磁盘占用)
@@ -11,7 +13,7 @@ date: 2018-07-12T11:15:04+08:00
   - `bash`,`mkdir`,`rm`,`git`,`curl`,`unzip`,`which`
   <!--more-->
 
-# 获取 FLutter SDK
+## 获取 FLutter SDK
 
 1. 跟随以下链接下载到最新的 Beta 版本的 Flutter SDK(寻找其他发布版本，或者一些旧的版本编译，请查看[SDK 归档](https://flutter.io/sdk-archive/)页面。)：
 

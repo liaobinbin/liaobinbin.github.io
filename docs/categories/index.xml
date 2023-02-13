@@ -4,12 +4,44 @@
         <link>https://liaobinbin.com/categories/</link>
         <description>Categories - 分类 - Boiao Ch</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 09 Nov 2018 09:15:50 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/categories/" rel="self" type="application/rss+xml" /><item>
     <title>前端</title>
     <link>https://liaobinbin.com/categories/%E5%89%8D%E7%AB%AF/</link>
-    <pubDate>Fri, 09 Nov 2018 09:15:50 &#43;0800</pubDate>
+    <pubDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</pubDate>
     <author>Boiao Ch</author>
     <guid>https://liaobinbin.com/categories/%E5%89%8D%E7%AB%AF/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>工具</title>
+    <link>https://liaobinbin.com/categories/%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Wed, 13 Jul 2022 09:58:09 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/categories/%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>系统</title>
+    <link>https://liaobinbin.com/categories/%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Sun, 24 Jan 2021 22:44:15 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/categories/%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Flutter</title>
+    <link>https://liaobinbin.com/categories/flutter/</link>
+    <pubDate>Thu, 12 Jul 2018 11:15:04 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/categories/flutter/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>网管</title>
+    <link>https://liaobinbin.com/categories/%E7%BD%91%E7%AE%A1/</link>
+    <pubDate>Wed, 13 Jun 2018 16:19:51 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/categories/%E7%BD%91%E7%AE%A1/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

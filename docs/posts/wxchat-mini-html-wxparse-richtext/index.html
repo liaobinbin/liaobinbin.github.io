@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-05-27T20:21:58+08:00" />
 <meta property="article:modified_time" content="2019-05-27T20:21:58+08:00" /><meta property="og:site_name" content="静" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="微信小程序原生富文本渲染和wxParse"/>
 <meta name="twitter:description" content="微信小程序 富文本渲染
@@ -37,7 +38,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/wxchat-mini-html-wxparse-richtext\/"
-        },"genre": "posts","wordcount":  997 ,
+        },"genre": "posts","keywords": "微信小程序, 富文本","wordcount":  998 ,
         "url": "https:\/\/liaobinbin.com\/posts\/wxchat-mini-html-wxparse-richtext\/","datePublished": "2019-05-27T20:21:58+08:00","dateModified": "2019-05-27T20:21:58+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +111,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">微信小程序原生富文本渲染和wxParse</h1><div class="post-meta">
-            <div class="post-meta-line"><time datetime="2019-05-27">2019-05-27</time>&nbsp;&nbsp;&nbsp;<span id="/posts/wxchat-mini-html-wxparse-richtext/" class="leancloud_visitors" data-flag-title="微信小程序原生富文本渲染和wxParse">
+            <div class="post-meta-line"><time datetime="2019-05-27">2019-05-27</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端</a></span>&nbsp;&nbsp;<span id="/posts/wxchat-mini-html-wxparse-richtext/" class="leancloud_visitors" data-flag-title="微信小程序原生富文本渲染和wxParse">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -144,48 +145,49 @@
 <p><code>rich-text</code>与<code>wangEditor2</code>的配合不怎么好，容易出现文字消失，文字布局消失，文字没有颜色之类的、图片不能放大预览等等奇奇怪怪的问题。</p>
 <p>总之微信小程序还是推荐<code>wxParse</code>这个库。用起来比较简单。</p>
 <h2 id="克隆最新仓库">克隆最新仓库</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:icindy/wxParse.git
-</span></span></code></pre></div><h2 id="拷贝关键文件到你的项目内">拷贝关键文件到你的项目内</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone git@github.com:icindy/wxParse.git
+</code></pre></div><h2 id="拷贝关键文件到你的项目内">拷贝关键文件到你的项目内</h2>
 <p>我放在<code>libs</code>目录下</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├── xxxxxxxx.js <span class="c1">#其他的库</span>
-</span></span><span class="line"><span class="cl">└── wxParse
-</span></span><span class="line"><span class="cl">    ├── html2json.js
-</span></span><span class="line"><span class="cl">    ├── htmlparser.js
-</span></span><span class="line"><span class="cl">    ├── showdown.js
-</span></span><span class="line"><span class="cl">    ├── wxDiscode.js
-</span></span><span class="line"><span class="cl">    ├── wxParse.js
-</span></span><span class="line"><span class="cl">    ├── wxParse.wxml
-</span></span><span class="line"><span class="cl">    └── wxParse.wxss
-</span></span></code></pre></div><p>本来还有个<code>emoji</code>文件夹的。里面全是图片，洁癖患者直接删掉即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">├── xxxxxxxx.js <span class="c1">#其他的库</span>
+└── wxParse
+    ├── html2json.js
+    ├── htmlparser.js
+    ├── showdown.js
+    ├── wxDiscode.js
+    ├── wxParse.js
+    ├── wxParse.wxml
+    └── wxParse.wxss
+
+</code></pre></div><p>本来还有个<code>emoji</code>文件夹的。里面全是图片，洁癖患者直接删掉即可。</p>
 <h2 id="如何使用">如何使用</h2>
 <h3 id="某-page------xxxx">某 Page &mdash;- xxxx</h3>
 <h4 id="xxxxjs">xxxx.js</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">//在使用的View中引入WxParse模块
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">WxParse</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../wxParse/wxParse.js&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">article</span> <span class="o">=</span> <span class="s1">&#39;&lt;div&gt;我是HTML代码&lt;/div&gt;&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * WxParse.wxParse(bindName , type, data, target,imagePadding)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 1.bindName绑定的数据名(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 2.type可以为html或者md(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 3.data为传入的具体数据(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 4.target为Page对象,一般为this(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span>
-</span></span><span class="line"><span class="cl"><span class="nx">WxParse</span><span class="p">.</span><span class="nx">wxParse</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="nx">_this</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/*
-</span></span></span><span class="line"><span class="cl"><span class="c">在使用的Wxss中引入WxParse.css,可以在app.wxss
-</span></span></span><span class="line"><span class="cl"><span class="c">*/</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="s1">&#39;/wxParse/wxParse.wxss&#39;</span><span class="p">;</span>
-</span></span></code></pre></div><h4 id="xxxxwxml">xxxx.wxml</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 引入模板 --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">import</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;你的路径/wxParse/wxParse.wxml&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 这里data中article为bindName --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;wxParse&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;{{wxParseData:article.nodes}}&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//在使用的View中引入WxParse模块
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">WxParse</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;../../wxParse/wxParse.js&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">article</span> <span class="o">=</span> <span class="s2">&#34;&lt;div&gt;我是HTML代码&lt;/div&gt;&#34;</span><span class="p">;</span>
+<span class="cm">/**
+</span><span class="cm"> * WxParse.wxParse(bindName , type, data, target,imagePadding)
+</span><span class="cm"> * 1.bindName绑定的数据名(必填)
+</span><span class="cm"> * 2.type可以为html或者md(必填)
+</span><span class="cm"> * 3.data为传入的具体数据(必填)
+</span><span class="cm"> * 4.target为Page对象,一般为this(必填)
+</span><span class="cm"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+</span><span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<span class="nx">WxParse</span><span class="p">.</span><span class="nx">wxParse</span><span class="p">(</span><span class="s2">&#34;article&#34;</span><span class="p">,</span> <span class="s2">&#34;html&#34;</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="nx">_this</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="c">/*
+</span><span class="c">在使用的Wxss中引入WxParse.css,可以在app.wxss
+</span><span class="c">*/</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&#34;/wxParse/wxParse.wxss&#34;</span><span class="p">;</span>
+</code></pre></div><h4 id="xxxxwxml">xxxx.wxml</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 引入模板 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">import</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;你的路径/wxParse/wxParse.wxml&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 这里data中article为bindName --&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;wxParse&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;{{wxParseData:article.nodes}}&#34;</span> <span class="p">/&gt;</span>
+</code></pre></div><blockquote>
 <p>注：更多详细用法请参考<a href="https://github.com/icindy/wxParse" target="_blank" rel="noopener noreffer ">github</a></p>
 </blockquote>
 <h3 id="wxparse-的坑">wxParse 的坑</h3>
@@ -195,27 +197,27 @@
 </ul>
 <h3 id="解决空格问题">解决空格问题</h3>
 <p>修改<code>wxDiscode.js</code>文件中加入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;nbsp;/g</span><span class="p">,</span> <span class="s1">&#39;\xa0&#39;</span><span class="p">)</span> <span class="c1">// 这行解决了空格不显示的问题
-</span></span></span></code></pre></div><h3 id="处理不被识别的属性">处理不被识别的属性</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;nbsp;/g</span><span class="p">,</span> <span class="s2">&#34;\xa0&#34;</span><span class="p">);</span> <span class="c1">// 这行解决了空格不显示的问题
+</span></code></pre></div><h3 id="处理不被识别的属性">处理不被识别的属性</h3>
 <p>修改<code>html2json.js</code>中的</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s1">&#39;style&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">//  value = value.join(&#34;&#34;)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">value</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>为</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s1">&#39;align&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span><span class="p">)</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+</span> <span class="s1">&#39;text-align: &#39;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;;&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s1">&#39;style&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">//  value = value.join(&#34;&#34;)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+=</span> <span class="nx">value</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="最后">最后</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="c1">//  value = value.join(&#34;&#34;)
+</span><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;align&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span><span class="p">)</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+</span> <span class="s2">&#34;text-align: &#34;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s2">&#34;;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="c1">//  value = value.join(&#34;&#34;)
+</span><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="最后">最后</h2>
 <p>下回写改<code>wangEditor2</code>的一些小 BUG。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -231,7 +233,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a>,&nbsp;<a href="/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/">富文本</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

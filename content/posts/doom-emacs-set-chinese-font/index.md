@@ -2,6 +2,8 @@
 title: "Doom Emacs 给中文指定字体"
 date: 2022-07-13T09:58:09+08:00
 draft: false
+categories: ["工具"]
+tags: ["emacs", "lisp", "font", "chinese"]
 ---
 
 因为我使用的是 1080p 的屏幕，所以这里我设置的是中文字体是 `WenQuanYi Zen Hei Sharp`;

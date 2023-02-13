@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Vite 多入口lib模式打包配置 - Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="Vite 多入口lib模式打包配置" />
-<meta property="og:description" content="
+<meta property="og:description" content="注意
+
 Note: 无法使用 vite.config.*
 
 无法在vite.config.*中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在scripts/build.js中。" />
@@ -13,9 +14,11 @@ Note: 无法使用 vite.config.*
 <meta property="og:url" content="https://liaobinbin.com/posts/vite-multiple-lib-entry-config/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-08T10:20:31+08:00" />
 <meta property="article:modified_time" content="2022-08-08T10:20:31+08:00" /><meta property="og:site_name" content="静" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vite 多入口lib模式打包配置"/>
-<meta name="twitter:description" content="
+<meta name="twitter:description" content="注意
+
 Note: 无法使用 vite.config.*
 
 无法在vite.config.*中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在scripts/build.js中。"/>
@@ -33,7 +36,7 @@ Note: 无法使用 vite.config.*
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/vite-multiple-lib-entry-config\/"
-        },"genre": "posts","wordcount":  151 ,
+        },"genre": "posts","keywords": "vite, build","wordcount":  157 ,
         "url": "https:\/\/liaobinbin.com\/posts\/vite-multiple-lib-entry-config\/","datePublished": "2022-08-08T10:20:31+08:00","dateModified": "2022-08-08T10:20:31+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +109,7 @@ Note: 无法使用 vite.config.*
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vite 多入口lib模式打包配置</h1><div class="post-meta">
-            <div class="post-meta-line"><time datetime="2022-08-08">2022-08-08</time>&nbsp;&nbsp;&nbsp;<span id="/posts/vite-multiple-lib-entry-config/" class="leancloud_visitors" data-flag-title="Vite 多入口lib模式打包配置">
+            <div class="post-meta-line"><time datetime="2022-08-08">2022-08-08</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端</a></span>&nbsp;&nbsp;<span id="/posts/vite-multiple-lib-entry-config/" class="leancloud_visitors" data-flag-title="Vite 多入口lib模式打包配置">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -114,39 +117,46 @@ Note: 无法使用 vite.config.*
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><blockquote>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#代码演示">代码演示</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="注意">注意</h2>
+<blockquote>
 <p><em>Note:</em> 无法使用 vite.config.*</p>
 </blockquote>
 <p>无法在<code>vite.config.*</code>中构建多个打包的入口，这时候需要自己编写一个打包的脚本，我将其放置在<code>scripts/build.js</code>中。</p>
 <p>将 <code>vite</code> 中的 <code>build</code> 方法 import 进来。 手动执行打包;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">build</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;vite&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// make library list, the name for folder
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">components</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">,</span> <span class="s2">&#34;input&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">librarys</span> <span class="o">=</span> <span class="nx">components</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">entry</span><span class="o">:</span> <span class="sb">`src/components/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">/index.ts`</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// output filename;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">filename</span><span class="o">:</span> <span class="sb">`xxx-</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.js`</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">librarys</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kr">async</span> <span class="p">(</span><span class="nx">lib</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">build</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">configFile</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">lib</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">assetsDir</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">emptyOutDir</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">rollupOptions</span><span class="o">:</span> <span class="p">{},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+<h2 id="代码演示">代码演示</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">build</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;vite&#34;</span><span class="p">;</span>
+
+<span class="c1">// make library list, the name for folder
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">components</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">,</span> <span class="s2">&#34;input&#34;</span><span class="p">];</span>
+
+<span class="kr">const</span> <span class="nx">librarys</span> <span class="o">=</span> <span class="nx">components</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="sb">`src/components/</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">/index.ts`</span><span class="p">,</span>
+    <span class="nx">name</span><span class="p">,</span>
+    <span class="c1">// output filename;
+</span><span class="c1"></span>    <span class="nx">filename</span><span class="o">:</span> <span class="sb">`xxx-</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.js`</span><span class="p">,</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">librarys</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kr">async</span> <span class="p">(</span><span class="nx">lib</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">await</span> <span class="nx">build</span><span class="p">({</span>
+    <span class="nx">configFile</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">sourcemap</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">lib</span><span class="p">,</span>
+      <span class="nx">assetsDir</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">emptyOutDir</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">rollupOptions</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="p">},</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -161,7 +171,7 @@ Note: 无法使用 vite.config.*
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vite/">vite</a>,&nbsp;<a href="/tags/build/">build</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

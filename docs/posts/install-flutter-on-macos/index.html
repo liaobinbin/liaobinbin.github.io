@@ -19,6 +19,7 @@ bash,mkdir,rm,git,curl,unzip,which
 <meta property="og:url" content="https://liaobinbin.com/posts/install-flutter-on-macos/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-07-12T11:15:04+08:00" />
 <meta property="article:modified_time" content="2018-07-12T11:15:04+08:00" /><meta property="og:site_name" content="静" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在MacOS上安装Flutter环境"/>
 <meta name="twitter:description" content="系统需求
@@ -45,7 +46,7 @@ bash,mkdir,rm,git,curl,unzip,which
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaobinbin.com\/posts\/install-flutter-on-macos\/"
-        },"genre": "posts","wordcount":  773 ,
+        },"genre": "posts","keywords": "开发环境, 安装教程","wordcount":  773 ,
         "url": "https:\/\/liaobinbin.com\/posts\/install-flutter-on-macos\/","datePublished": "2018-07-12T11:15:04+08:00","dateModified": "2018-07-12T11:15:04+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -118,7 +119,7 @@ bash,mkdir,rm,git,curl,unzip,which
             <h2 class="toc-title">目录</h2>
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">在MacOS上安装Flutter环境</h1><div class="post-meta">
-            <div class="post-meta-line"><time datetime="2018-07-12">2018-07-12</time>&nbsp;&nbsp;&nbsp;<span id="/posts/install-flutter-on-macos/" class="leancloud_visitors" data-flag-title="在MacOS上安装Flutter环境">
+            <div class="post-meta-line"><time datetime="2018-07-12">2018-07-12</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/flutter/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Flutter</a></span>&nbsp;&nbsp;<span id="/posts/install-flutter-on-macos/" class="leancloud_visitors" data-flag-title="在MacOS上安装Flutter环境">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -126,8 +127,13 @@ bash,mkdir,rm,git,curl,unzip,which
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><h1 id="系统需求">系统需求</h1>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#系统需求">系统需求</a></li>
+    <li><a href="#获取-flutter-sdk">获取 FLutter SDK</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="系统需求">系统需求</h2>
 <ul>
 <li>操作系统： MacOS(64 位)</li>
 <li>磁盘空间： 700MB(不包括 IDE 工具的磁盘占用)</li>
@@ -137,7 +143,7 @@ bash,mkdir,rm,git,curl,unzip,which
 </ul>
 </li>
 </ul>
-<h1 id="获取-flutter-sdk">获取 FLutter SDK</h1>
+<h2 id="获取-flutter-sdk">获取 FLutter SDK</h2>
 <ol>
 <li>跟随以下链接下载到最新的 Beta 版本的 Flutter SDK(寻找其他发布版本，或者一些旧的版本编译，请查看<a href="https://flutter.io/sdk-archive/" target="_blank" rel="noopener noreffer ">SDK 归档</a>页面。)：</li>
 </ol>
@@ -147,63 +153,63 @@ bash,mkdir,rm,git,curl,unzip,which
 <ol start="2">
 <li>解压这个文件在你想要的目录，例如：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">cd</span> ~/Study
-</span></span><span class="line"><span class="cl">$ unzip ~/Desktop/flutter_macos_v0.5.1-beta.zip
-</span></span></code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> ~/Study
+$ unzip ~/Desktop/flutter_macos_v0.5.1-beta.zip
+</code></pre></div><ol start="3">
 <li>添加<code>flutter</code>到你环境变量 path：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/flutter/bin:<span class="nv">$PATH</span>
-</span></span></code></pre></div><p><em>注：该方法只对当前终端进程有效，需要永久生效建议修改 PATH 文件</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/flutter/bin:<span class="nv">$PATH</span>
+</code></pre></div><p><em>注：该方法只对当前终端进程有效，需要永久生效建议修改 PATH 文件</em></p>
 <p>执行以上命令以后，就可以在命令行直接输入<code>flutter</code>命令了，运行<code>flutter doctor</code>来完成安装。得到系统需要更新，这里再次输入<code>flutter upgrade</code>。</p>
 <p>执行完后会自动执行<code>flutter doctor</code>，会检测当前系统缺少的依赖环境。如下所示：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="o">[</span>✓<span class="o">]</span> Flutter <span class="o">(</span>Channel beta, v0.5.1, on Mac OS X 10.13.5 17F77, locale en-CN<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> Android toolchain - develop <span class="k">for</span> Android devices <span class="o">(</span>Android SDK 27.0.3<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> iOS toolchain - develop <span class="k">for</span> iOS devices <span class="o">(</span>Xcode 9.4.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ✗ Missing Xcode dependency: Python module <span class="s2">&#34;six&#34;</span>.
-</span></span><span class="line"><span class="cl">      Install via <span class="s1">&#39;pip install six&#39;</span> or <span class="s1">&#39;sudo easy_install six&#39;</span>.
-</span></span><span class="line"><span class="cl">    ✗ libimobiledevice and ideviceinstaller are not installed. To install, run:
-</span></span><span class="line"><span class="cl">        brew install --HEAD libimobiledevice
-</span></span><span class="line"><span class="cl">        brew install ideviceinstaller
-</span></span><span class="line"><span class="cl">    ✗ ios-deploy not installed. To install:
-</span></span><span class="line"><span class="cl">        brew install ios-deploy
-</span></span><span class="line"><span class="cl">    ✗ CocoaPods not installed.
-</span></span><span class="line"><span class="cl">        CocoaPods is used to retrieve the iOS platform side<span class="err">&#39;</span>s plugin code that responds to your plugin usage on the Dart side.
-</span></span><span class="line"><span class="cl">        Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
-</span></span><span class="line"><span class="cl">        For more info, see https://flutter.io/platform-plugins
-</span></span><span class="line"><span class="cl">      To install:
-</span></span><span class="line"><span class="cl">        brew install cocoapods
-</span></span><span class="line"><span class="cl">        pod setup
-</span></span><span class="line"><span class="cl"><span class="o">[</span>✓<span class="o">]</span> Android Studio <span class="o">(</span>version 3.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
-</span></span><span class="line"><span class="cl">    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> IntelliJ IDEA Ultimate Edition <span class="o">(</span>version 2017.3.5<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
-</span></span><span class="line"><span class="cl">    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> VS Code <span class="o">(</span>version 1.23.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> Connected devices
-</span></span><span class="line"><span class="cl">    ! No devices available
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">! Doctor found issues in <span class="m">5</span> categories.
-</span></span></code></pre></div><p>明显<code>✓</code>代表是满足依赖，<code>✗</code>代表不满足依赖，<code>!</code>是警告。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"> <span class="o">[</span>✓<span class="o">]</span> Flutter <span class="o">(</span>Channel beta, v0.5.1, on Mac OS X 10.13.5 17F77, locale en-CN<span class="o">)</span>
+<span class="o">[</span>!<span class="o">]</span> Android toolchain - develop <span class="k">for</span> Android devices <span class="o">(</span>Android SDK 27.0.3<span class="o">)</span>
+    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+<span class="o">[</span>!<span class="o">]</span> iOS toolchain - develop <span class="k">for</span> iOS devices <span class="o">(</span>Xcode 9.4.1<span class="o">)</span>
+    ✗ Missing Xcode dependency: Python module <span class="s2">&#34;six&#34;</span>.
+      Install via <span class="s1">&#39;pip install six&#39;</span> or <span class="s1">&#39;sudo easy_install six&#39;</span>.
+    ✗ libimobiledevice and ideviceinstaller are not installed. To install, run:
+        brew install --HEAD libimobiledevice
+        brew install ideviceinstaller
+    ✗ ios-deploy not installed. To install:
+        brew install ios-deploy
+    ✗ CocoaPods not installed.
+        CocoaPods is used to retrieve the iOS platform side<span class="err">&#39;</span>s plugin code that responds to your plugin usage on the Dart side.
+        Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
+        For more info, see https://flutter.io/platform-plugins
+      To install:
+        brew install cocoapods
+        pod setup
+<span class="o">[</span>✓<span class="o">]</span> Android Studio <span class="o">(</span>version 3.1<span class="o">)</span>
+    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
+    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
+<span class="o">[</span>!<span class="o">]</span> IntelliJ IDEA Ultimate Edition <span class="o">(</span>version 2017.3.5<span class="o">)</span>
+    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
+    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
+<span class="o">[</span>!<span class="o">]</span> VS Code <span class="o">(</span>version 1.23.1<span class="o">)</span>
+<span class="o">[</span>!<span class="o">]</span> Connected devices
+    ! No devices available
+
+! Doctor found issues in <span class="m">5</span> categories.
+</code></pre></div><p>明显<code>✓</code>代表是满足依赖，<code>✗</code>代表不满足依赖，<code>!</code>是警告。
 每行后面都包含了解决问题的方式和方法。</p>
 <p>根据提示方法解决依赖不足的问题。如下是解决后<code>flutter doctor</code>所提供的报告：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Doctor summary <span class="o">(</span>to see all details, run flutter doctor -v<span class="o">)</span>:
-</span></span><span class="line"><span class="cl"><span class="o">[</span>✓<span class="o">]</span> Flutter <span class="o">(</span>Channel beta, v0.5.1, on Mac OS X 10.13.5 17F77, locale en-CN<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>✓<span class="o">]</span> Android toolchain - develop <span class="k">for</span> Android devices <span class="o">(</span>Android SDK 27.0.3<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>✓<span class="o">]</span> iOS toolchain - develop <span class="k">for</span> iOS devices <span class="o">(</span>Xcode 9.4.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>✓<span class="o">]</span> Android Studio <span class="o">(</span>version 3.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
-</span></span><span class="line"><span class="cl">    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> IntelliJ IDEA Ultimate Edition <span class="o">(</span>version 2017.3.5<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
-</span></span><span class="line"><span class="cl">    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> VS Code <span class="o">(</span>version 1.23.1<span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> Connected devices
-</span></span><span class="line"><span class="cl">    ! No devices available
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">! Doctor found issues in <span class="m">3</span> categories.
-</span></span></code></pre></div><p>到此环境安装已结束。可以在<code>Android Studio</code>新建工程并开始体验热更新。</p></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Doctor summary <span class="o">(</span>to see all details, run flutter doctor -v<span class="o">)</span>:
+<span class="o">[</span>✓<span class="o">]</span> Flutter <span class="o">(</span>Channel beta, v0.5.1, on Mac OS X 10.13.5 17F77, locale en-CN<span class="o">)</span>
+<span class="o">[</span>✓<span class="o">]</span> Android toolchain - develop <span class="k">for</span> Android devices <span class="o">(</span>Android SDK 27.0.3<span class="o">)</span>
+<span class="o">[</span>✓<span class="o">]</span> iOS toolchain - develop <span class="k">for</span> iOS devices <span class="o">(</span>Xcode 9.4.1<span class="o">)</span>
+<span class="o">[</span>✓<span class="o">]</span> Android Studio <span class="o">(</span>version 3.1<span class="o">)</span>
+    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
+    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
+<span class="o">[</span>!<span class="o">]</span> IntelliJ IDEA Ultimate Edition <span class="o">(</span>version 2017.3.5<span class="o">)</span>
+    ✗ Flutter plugin not installed<span class="p">;</span> this adds Flutter specific functionality.
+    ✗ Dart plugin not installed<span class="p">;</span> this adds Dart specific functionality.
+<span class="o">[</span>!<span class="o">]</span> VS Code <span class="o">(</span>version 1.23.1<span class="o">)</span>
+<span class="o">[</span>!<span class="o">]</span> Connected devices
+    ! No devices available
+
+! Doctor found issues in <span class="m">3</span> categories.
+</code></pre></div><p>到此环境安装已结束。可以在<code>Android Studio</code>新建工程并开始体验热更新。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -218,7 +224,7 @@ bash,mkdir,rm,git,curl,unzip,which
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>,&nbsp;<a href="/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">安装教程</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

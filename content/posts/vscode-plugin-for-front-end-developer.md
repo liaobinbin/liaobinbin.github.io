@@ -1,7 +1,9 @@
 ---
-title: 'VScode 前端开发常用插件以及配置'
+title: "VScode 前端开发常用插件以及配置"
 date: 2018-12-25T12:44:09+08:00
 toc: true
+categories: ["工具"]
+tags: ["vscode", "前端开发"]
 ---
 
 ## Auto Rename Tag
@@ -51,83 +53,83 @@ Vue 语法高亮，格式化，自动补全等功能
 
 ```json
 {
-    /* 字体设置 */
-    "editor.fontFamily": "'Operator Mono','Fira Code', Menlo, Monaco, 'Courier New', monospace",
-    /* 取消类型检查js文件中 flow相关 */
-    "javascript.validate.enable": false,
-    /* 字体大小设置 */
-    "editor.fontSize": 12,
-    /* 字体行号设置 */
-    "editor.lineHeight": 25,
-    /* 连体字支持，主要用于Fira Code中的大于等于小于等特殊符号 */
-    "editor.fontLigatures": true,
-    /* 超出宽度自动换行 */
-    "editor.wordWrap": "on",
-    /* 当文件移动更新import的路径 */
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    /* 确认删除提示 */
-    "explorer.confirmDelete": false,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
+  /* 字体设置 */
+  "editor.fontFamily": "'Operator Mono','Fira Code', Menlo, Monaco, 'Courier New', monospace",
+  /* 取消类型检查js文件中 flow相关 */
+  "javascript.validate.enable": false,
+  /* 字体大小设置 */
+  "editor.fontSize": 12,
+  /* 字体行号设置 */
+  "editor.lineHeight": 25,
+  /* 连体字支持，主要用于Fira Code中的大于等于小于等特殊符号 */
+  "editor.fontLigatures": true,
+  /* 超出宽度自动换行 */
+  "editor.wordWrap": "on",
+  /* 当文件移动更新import的路径 */
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  /* 确认删除提示 */
+  "explorer.confirmDelete": false,
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  },
+  "breadcrumbs.enabled": true,
+  /* 主题和文件图标主题 */
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "vscode-icons",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  /* emmet的wxml语法支持 */
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  /* 快速小地图关闭 节省空间 */
+  "editor.minimap.enabled": false,
+  /*  启用eslint整合 */
+  "prettier.eslintIntegration": true,
+  /* 自动格式化在保存后 */
+  "eslint.autoFixOnSave": true,
+  /* 添加vue支持 */
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
     },
-    "breadcrumbs.enabled": true,
-    /* 主题和文件图标主题 */
-    "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "vscode-icons",
-    "files.associations": {
-        "*.cjson": "jsonc",
-        "*.wxss": "css",
-        "*.wxs": "javascript"
-    },
-    /* emmet的wxml语法支持 */
-    "emmet.includeLanguages": {
-        "wxml": "html"
-    },
-    "minapp-vscode.disableAutoConfig": true,
-    /* 快速小地图关闭 节省空间 */
-    "editor.minimap.enabled": false,
-    /*  启用eslint整合 */
-    "prettier.eslintIntegration": true,
-    /* 自动格式化在保存后 */
-    "eslint.autoFixOnSave": true,
-    /* 添加vue支持 */
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        {
-            "language": "vue",
-            "autoFix": true
-        },
-        {
-            "language": "html",
-            "autoFix": true
-        }
-    ],
-    /*  强制单引号 */
-    "prettier.singleQuote": true,
-    /*  尽可能控制尾随逗号的打印 */
-    "prettier.trailingComma": "all",
-    /* 使用插件格式化 html */
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    /*  格式化插件的配置 */
-    "vetur.format.defaultFormatterOptions": {
-        "js-beautify-html": {
-            /*    属性强制折行对齐 */
-            "wrap_attributes": "force-aligned"
-        }
-    },
-    "editor.renderIndentGuides": false,
-    "editor.renderWhitespace": "all",
-    /* 格式化工具的tab长度定义 */
-    "prettier.tabWidth": 4,
-    /* vue的tab定义长度 */
-    "vetur.format.options.tabSize": 4,
-    /* 编辑器配置 在保存的时候自动格式化代码 */
-    "editor.formatOnSave": true,
-    /* 编辑器的缩进量，支持所有语言 */
-    "editor.tabSize": 4,
-    "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
-    /* 初始化路径 */
-    "workbench.startupEditor": "welcomePage"
+    {
+      "language": "html",
+      "autoFix": true
+    }
+  ],
+  /*  强制单引号 */
+  "prettier.singleQuote": true,
+  /*  尽可能控制尾随逗号的打印 */
+  "prettier.trailingComma": "all",
+  /* 使用插件格式化 html */
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  /*  格式化插件的配置 */
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      /*    属性强制折行对齐 */
+      "wrap_attributes": "force-aligned"
+    }
+  },
+  "editor.renderIndentGuides": false,
+  "editor.renderWhitespace": "all",
+  /* 格式化工具的tab长度定义 */
+  "prettier.tabWidth": 4,
+  /* vue的tab定义长度 */
+  "vetur.format.options.tabSize": 4,
+  /* 编辑器配置 在保存的时候自动格式化代码 */
+  "editor.formatOnSave": true,
+  /* 编辑器的缩进量，支持所有语言 */
+  "editor.tabSize": 4,
+  "python.pythonPath": "/usr/local/opt/python/bin/python3.7",
+  /* 初始化路径 */
+  "workbench.startupEditor": "welcomePage"
 }
 ```

@@ -1,6 +1,8 @@
 ---
-title: '微信小程序原生富文本渲染和wxParse'
+title: "微信小程序原生富文本渲染和wxParse"
 date: 2019-05-27T20:21:58+08:00
+categories: ["前端"]
+tags: ["微信小程序", "富文本"]
 ---
 
 # 微信小程序 富文本渲染
@@ -53,9 +55,9 @@ git clone git@github.com:icindy/wxParse.git
 
 ```javascript
 //在使用的View中引入WxParse模块
-const WxParse = require('../../wxParse/wxParse.js')
+const WxParse = require("../../wxParse/wxParse.js");
 
-const article = '<div>我是HTML代码</div>'
+const article = "<div>我是HTML代码</div>";
 /**
  * WxParse.wxParse(bindName , type, data, target,imagePadding)
  * 1.bindName绑定的数据名(必填)
@@ -64,8 +66,8 @@ const article = '<div>我是HTML代码</div>'
  * 4.target为Page对象,一般为this(必填)
  * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
  */
-const _this = this
-WxParse.wxParse('article', 'html', article, _this, 5)
+const _this = this;
+WxParse.wxParse("article", "html", article, _this, 5);
 ```
 
 #### xxxx.wxss
@@ -74,7 +76,7 @@ WxParse.wxParse('article', 'html', article, _this, 5)
 /*
 在使用的Wxss中引入WxParse.css,可以在app.wxss
 */
-@import '/wxParse/wxParse.wxss';
+@import "/wxParse/wxParse.wxss";
 ```
 
 #### xxxx.wxml
@@ -99,7 +101,7 @@ WxParse.wxParse('article', 'html', article, _this, 5)
 修改`wxDiscode.js`文件中加入
 
 ```javascript
-str = str.replace(/&nbsp;/g, '\xa0') // 这行解决了空格不显示的问题
+str = str.replace(/&nbsp;/g, "\xa0"); // 这行解决了空格不显示的问题
 ```
 
 ### 处理不被识别的属性
@@ -107,10 +109,10 @@ str = str.replace(/&nbsp;/g, '\xa0') // 这行解决了空格不显示的问题
 修改`html2json.js`中的
 
 ```javascript
-if (name == 'style') {
-  console.dir(value)
+if (name == "style") {
+  console.dir(value);
   //  value = value.join("")
-  node.styleStr = value
+  node.styleStr = value;
 }
 ```
 
@@ -118,15 +120,15 @@ if (name == 'style') {
 
 ```javascript
 // 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
-if (name == 'align') {
-  if (!node.styleStr) node.styleStr = ''
-  node.styleStr = node.styleStr + 'text-align: ' + value + ';'
+if (name == "align") {
+  if (!node.styleStr) node.styleStr = "";
+  node.styleStr = node.styleStr + "text-align: " + value + ";";
 }
 
-if (name == 'style') {
-  console.dir(value)
+if (name == "style") {
+  console.dir(value);
   //  value = value.join("")
-  node.styleStr += value
+  node.styleStr += value;
 }
 ```
 

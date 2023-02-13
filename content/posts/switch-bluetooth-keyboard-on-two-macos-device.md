@@ -2,6 +2,8 @@
 title: "在两台macOS设备上切换同一个蓝牙键盘"
 date: 2021-02-14T17:27:19+08:00
 draft: false
+categories: ["工具"]
+tags: ["mac", "bluetooch", "keyboard"]
 ---
 
 ## 设备
