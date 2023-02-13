@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>学习 - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/%E5%AD%A6%E4%B9%A0/</link>
+        <description>学习 - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>如何写好一篇技术博文</title>
+    <link>https://liaobinbin.com/posts/how-to-write-a-good-blog/</link>
+    <pubDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/how-to-write-a-good-blog/</guid>
+    <description><![CDATA[开始 明确目标 需要明确该文章的受众群体，也就是目标人群。博文是用于记录或者传播信息的，那么信息的价值和被需求性则可以作为编写文章的目的。或者也]]></description>
+</item>
+</channel>
+</rss>

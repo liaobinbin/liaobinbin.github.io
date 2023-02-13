@@ -4,7 +4,23 @@
         <link>https://liaobinbin.com/tags/</link>
         <description>Tags - 标签 - Boiao Ch</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>写作</title>
+    <link>https://liaobinbin.com/tags/%E5%86%99%E4%BD%9C/</link>
+    <pubDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/tags/%E5%86%99%E4%BD%9C/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>学习</title>
+    <link>https://liaobinbin.com/tags/%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/tags/%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>build</title>
     <link>https://liaobinbin.com/tags/build/</link>
     <pubDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Wed, 13 Jul 2022 09:58:09 &#43;0800</pubDate>
     <author>Boiao Ch</author>
     <guid>https://liaobinbin.com/tags/lisp/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>bluetooch</title>
-    <link>https://liaobinbin.com/tags/bluetooch/</link>
-    <pubDate>Sun, 14 Feb 2021 17:27:19 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/tags/bluetooch/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>keyboard</title>
-    <link>https://liaobinbin.com/tags/keyboard/</link>
-    <pubDate>Sun, 14 Feb 2021 17:27:19 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/tags/keyboard/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

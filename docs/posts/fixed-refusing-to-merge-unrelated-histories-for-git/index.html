@@ -10,7 +10,6 @@
 <meta property="og:url" content="https://liaobinbin.com/posts/fixed-refusing-to-merge-unrelated-histories-for-git/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-05-14T10:04:24+08:00" />
 <meta property="article:modified_time" content="2018-05-14T10:04:24+08:00" /><meta property="og:site_name" content="静" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git无法pull仓库refusing to merge unrelated histories"/>
 <meta name="twitter:description" content="相信很多童鞋都遇到过，在 Github 创建仓库的时候，勾选上了创建 License。"/>
@@ -114,8 +113,8 @@
 <p>然后为了把本地的仓库上传。因为两个仓库内容不一致，首先要进行 pull，把远端的内容拉取下来，然后和并提交。</p>
 <p>但是却发现<code>refusing to merge unrelated histories</code>这个错误，无法进行 pull。</p>
 <p>所以就需要用到以下的参数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git pull origin master --allow-unrelated-histories
-</code></pre></div><p>剩下的操作得以继续进行。</p></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin master --allow-unrelated-histories
+</span></span></code></pre></div><p>剩下的操作得以继续进行。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

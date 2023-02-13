@@ -13,11 +13,11 @@
     <description><![CDATA[<h1 id="git-安装">Git 安装</h1>
 <h2 id="macos">MacOS</h2>
 <p><code>MacOS</code>自带 git 命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git --version
-</code></pre></div><h2 id="linux">Linux</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
+</span></span></code></pre></div><h2 id="linux">Linux</h2>
 <p>根据发行版的不同安装方式有差异，这里给出<code>debian</code>系的安装方式：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install git-all
-</code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git-all
+</span></span></code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
 <h2 id="windows">Windows</h2>
 <p>打开<a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreffer ">Git - Downloading Package</a> 该网址，下载适合自己系统位数的版本进行安装。</p>]]></description>
 </item>
