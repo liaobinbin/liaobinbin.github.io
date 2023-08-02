@@ -20,10 +20,10 @@
   dateFormat = "2006-01-02"
   # website title for Open Graph and Twitter Cards
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "静"
+  title = "Boiao Ch"
   # website description for RSS, SEO, Open Graph and Twitter Cards
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "宁静致远"
+  description = "Keep Focus!"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = []
@@ -45,7 +45,7 @@
       logo = ""
       # title name
       # 标题名称
-      name = "静"
+      name = "Boiao Ch's Blog"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
@@ -54,7 +54,7 @@
       post = ""
       # whether to use typeit animation for title name
       # 是否为标题显示打字机动画
-      typeit = false
+      typeit = true
 
   # Footer config
   # 页面底部信息配置
@@ -65,7 +65,7 @@
     custom = ""
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
-    hugo = false
+    hugo = true
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
@@ -113,7 +113,7 @@
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-    title = "宁静致远"
+    title = "Boiao Ch's Blog"
     # whether to omit favicon resource links
     # 是否隐藏网站图标资源链接
     noFavicon = false
@@ -172,19 +172,19 @@
       enable = true
       # Gravatar Email for preferred avatar in home page
       # Gravatar 邮箱，用于优先在主页显示的头像
-      gravatarEmail = "doubiliao@gmail.com"
+      gravatarEmail = ""
       # URL of avatar shown in home page
       # 主页显示头像的 URL
       avatarURL = ""
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
-      title = "Boiao Ch"
+      title = ""
       # subtitle shown in home page (HTML format is supported)
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "人生如戏, Life is fucking movie!"
+      subtitle = "Keep, Focus, and Love!"
       # whether to use typeit animation for subtitle
       # 是否为副标题显示打字机动画
-      typeit = true
+      typeit = false
       # whether to show social links
       # 是否显示社交账号
       social = true
@@ -202,11 +202,11 @@
   # 主页的社交信息设置
   [params.social]
     GitHub = "liaobinbin"
-    Linkedin = "liaobinbin"
+    Linkedin = ""
     Twitter = "liaobinbin"
-    Instagram = ""
-    Facebook = ""
-    Telegram = ""
+    Instagram = "doubiliao"
+    Facebook = "doubiliao"
+    Telegram = "liaobinbin"
     Medium = ""
     Gitlab = ""
     Youtubelegacy = ""
@@ -218,7 +218,7 @@
     Pinterest = ""
     Reddit = ""
     Codepen = ""
-    FreeCodeCamp = ""
+    FreeCodeCamp = "liaobinbin"
     Bitbucket = ""
     Stackoverflow = ""
     Weibo = ""
@@ -262,7 +262,7 @@
     Gitea = ""
     XMPP = ""
     Matrix = ""
-    Bilibili = ""
+    Bilibili = "5895642"
     Discord = ""
     DiscordInvite = ""
     Lichess = ""
@@ -275,7 +275,7 @@
     RootMe= ""
     Email = "doubiliao@gmail.com"
     Phone = ""
-    RSS = ""
+    RSS = "index.xml"
 
   # Page global config
   # 文章页面全局配置

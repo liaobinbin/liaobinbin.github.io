@@ -60,13 +60,5 @@ avatar = "retro"
 style = "base16/solarized-light"
 languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css", "lisp"]
 
-[[params.social]]
-url = "https://github.com/liaobinbin"
-fa_icon = "fa-github"
-
-[[params.social]]
-url = "/index.xml"
-fa_icon = "fa-rss"
-
 #[markup.goldmark.renderer]
 # unsafe = true

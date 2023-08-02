@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>微信小程序原生富文本渲染和wxParse - Boiao Ch</title><meta name="Description" content="宁静致远"><meta property="og:title" content="微信小程序原生富文本渲染和wxParse" />
+        <title>微信小程序原生富文本渲染和wxParse - Boiao Ch</title><meta name="Description" content="Keep Focus!"><meta property="og:title" content="微信小程序原生富文本渲染和wxParse" />
 <meta property="og:description" content="微信小程序 富文本渲染
 微信小程序本身提供rich-text的组件，直接富文本字符串丢进nodes属性即可。
 
@@ -14,7 +14,8 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-05-27T20:21:58+08:00" />
-<meta property="article:modified_time" content="2019-05-27T20:21:58+08:00" /><meta property="og:site_name" content="静" />
+<meta property="article:modified_time" content="2019-05-27T20:21:58+08:00" /><meta property="og:site_name" content="Boiao Ch" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="微信小程序原生富文本渲染和wxParse"/>
 <meta name="twitter:description" content="微信小程序 富文本渲染
@@ -23,8 +24,8 @@
 你以为就这么就结束了？不，你错了。因为后台为了兼容IE9，我选用wangEditor2所
 编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。
 "/>
-<meta name="application-name" content="宁静致远">
-<meta name="apple-mobile-web-app-title" content="宁静致远"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Boiao Ch&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Boiao Ch&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/" /><link rel="prev" href="https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/" /><link rel="next" href="https://liaobinbin.com/posts/git-simple-guidelines/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -51,7 +52,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="Boiao Ch">静</a>
+            <a href="/" title="Boiao Ch"><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -74,7 +75,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="Boiao Ch">静</a>
+                <a href="/" title="Boiao Ch"><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -144,48 +145,49 @@
 <p><code>rich-text</code>与<code>wangEditor2</code>的配合不怎么好，容易出现文字消失，文字布局消失，文字没有颜色之类的、图片不能放大预览等等奇奇怪怪的问题。</p>
 <p>总之微信小程序还是推荐<code>wxParse</code>这个库。用起来比较简单。</p>
 <h2 id="克隆最新仓库">克隆最新仓库</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:icindy/wxParse.git
-</span></span></code></pre></div><h2 id="拷贝关键文件到你的项目内">拷贝关键文件到你的项目内</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone git@github.com:icindy/wxParse.git
+</code></pre></div><h2 id="拷贝关键文件到你的项目内">拷贝关键文件到你的项目内</h2>
 <p>我放在<code>libs</code>目录下</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├── xxxxxxxx.js <span class="c1">#其他的库</span>
-</span></span><span class="line"><span class="cl">└── wxParse
-</span></span><span class="line"><span class="cl">    ├── html2json.js
-</span></span><span class="line"><span class="cl">    ├── htmlparser.js
-</span></span><span class="line"><span class="cl">    ├── showdown.js
-</span></span><span class="line"><span class="cl">    ├── wxDiscode.js
-</span></span><span class="line"><span class="cl">    ├── wxParse.js
-</span></span><span class="line"><span class="cl">    ├── wxParse.wxml
-</span></span><span class="line"><span class="cl">    └── wxParse.wxss
-</span></span></code></pre></div><p>本来还有个<code>emoji</code>文件夹的。里面全是图片，洁癖患者直接删掉即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">├── xxxxxxxx.js <span class="c1">#其他的库</span>
+└── wxParse
+    ├── html2json.js
+    ├── htmlparser.js
+    ├── showdown.js
+    ├── wxDiscode.js
+    ├── wxParse.js
+    ├── wxParse.wxml
+    └── wxParse.wxss
+
+</code></pre></div><p>本来还有个<code>emoji</code>文件夹的。里面全是图片，洁癖患者直接删掉即可。</p>
 <h2 id="如何使用">如何使用</h2>
 <h3 id="某-page------xxxx">某 Page &mdash;- xxxx</h3>
 <h4 id="xxxxjs">xxxx.js</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">//在使用的View中引入WxParse模块
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">WxParse</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;../../wxParse/wxParse.js&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">article</span> <span class="o">=</span> <span class="s2">&#34;&lt;div&gt;我是HTML代码&lt;/div&gt;&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * WxParse.wxParse(bindName , type, data, target,imagePadding)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 1.bindName绑定的数据名(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 2.type可以为html或者md(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 3.data为传入的具体数据(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 4.target为Page对象,一般为this(必填)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">WxParse</span><span class="p">.</span><span class="nx">wxParse</span><span class="p">(</span><span class="s2">&#34;article&#34;</span><span class="p">,</span> <span class="s2">&#34;html&#34;</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="nx">_this</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-</span></span></code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/*
-</span></span></span><span class="line"><span class="cl"><span class="c">在使用的Wxss中引入WxParse.css,可以在app.wxss
-</span></span></span><span class="line"><span class="cl"><span class="c">*/</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="s2">&#34;/wxParse/wxParse.wxss&#34;</span><span class="p">;</span>
-</span></span></code></pre></div><h4 id="xxxxwxml">xxxx.wxml</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 引入模板 --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">import</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;你的路径/wxParse/wxParse.wxml&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 这里data中article为bindName --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;wxParse&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;{{wxParseData:article.nodes}}&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//在使用的View中引入WxParse模块
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">WxParse</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;../../wxParse/wxParse.js&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">article</span> <span class="o">=</span> <span class="s2">&#34;&lt;div&gt;我是HTML代码&lt;/div&gt;&#34;</span><span class="p">;</span>
+<span class="cm">/**
+</span><span class="cm"> * WxParse.wxParse(bindName , type, data, target,imagePadding)
+</span><span class="cm"> * 1.bindName绑定的数据名(必填)
+</span><span class="cm"> * 2.type可以为html或者md(必填)
+</span><span class="cm"> * 3.data为传入的具体数据(必填)
+</span><span class="cm"> * 4.target为Page对象,一般为this(必填)
+</span><span class="cm"> * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+</span><span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+<span class="nx">WxParse</span><span class="p">.</span><span class="nx">wxParse</span><span class="p">(</span><span class="s2">&#34;article&#34;</span><span class="p">,</span> <span class="s2">&#34;html&#34;</span><span class="p">,</span> <span class="nx">article</span><span class="p">,</span> <span class="nx">_this</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div><h4 id="xxxxwxss">xxxx.wxss</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="c">/*
+</span><span class="c">在使用的Wxss中引入WxParse.css,可以在app.wxss
+</span><span class="c">*/</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&#34;/wxParse/wxParse.wxss&#34;</span><span class="p">;</span>
+</code></pre></div><h4 id="xxxxwxml">xxxx.wxml</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 引入模板 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">import</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;你的路径/wxParse/wxParse.wxml&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 这里data中article为bindName --&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;wxParse&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;{{wxParseData:article.nodes}}&#34;</span> <span class="p">/&gt;</span>
+</code></pre></div><blockquote>
 <p>注：更多详细用法请参考<a href="https://github.com/icindy/wxParse" target="_blank" rel="noopener noreffer ">github</a></p>
 </blockquote>
 <h3 id="wxparse-的坑">wxParse 的坑</h3>
@@ -195,27 +197,27 @@
 </ul>
 <h3 id="解决空格问题">解决空格问题</h3>
 <p>修改<code>wxDiscode.js</code>文件中加入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;nbsp;/g</span><span class="p">,</span> <span class="s2">&#34;\xa0&#34;</span><span class="p">);</span> <span class="c1">// 这行解决了空格不显示的问题
-</span></span></span></code></pre></div><h3 id="处理不被识别的属性">处理不被识别的属性</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;nbsp;/g</span><span class="p">,</span> <span class="s2">&#34;\xa0&#34;</span><span class="p">);</span> <span class="c1">// 这行解决了空格不显示的问题
+</span></code></pre></div><h3 id="处理不被识别的属性">处理不被识别的属性</h3>
 <p>修改<code>html2json.js</code>中的</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">//  value = value.join(&#34;&#34;)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>为</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;align&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span><span class="p">)</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+</span> <span class="s2">&#34;text-align: &#34;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s2">&#34;;&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">//  value = value.join(&#34;&#34;)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="最后">最后</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="c1">//  value = value.join(&#34;&#34;)
+</span><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>为</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 这个属性可以根据自己富文本内容进行修改。来配合自己的富文本编辑器达到最好的效果
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;align&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span><span class="p">)</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+</span> <span class="s2">&#34;text-align: &#34;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s2">&#34;;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;style&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="c1">//  value = value.join(&#34;&#34;)
+</span><span class="c1"></span>  <span class="nx">node</span><span class="p">.</span><span class="nx">styleStr</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="最后">最后</h2>
 <p>下回写改<code>wangEditor2</code>的一些小 BUG。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -245,7 +247,8 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
         </div>
     </footer></div>
 
@@ -254,5 +257,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz","appKey":"6AGQbwYr9G7NhVKfqxiOnV4y","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"Write something ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz","appKey":"6AGQbwYr9G7NhVKfqxiOnV4y","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"Write something ...","recordIP":true,"visitor":true}},"data":{"id-1":"Boiao Ch's Blog","id-2":"Boiao Ch's Blog"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
