@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>路由器 - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</link>
+        <description>路由器 - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>获取 ZXHN F4600T 光猫超级管理密码(抓包)</title>
+    <link>https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/</link>
+    <pubDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/</guid>
+    <description><![CDATA[准备 抓包工具 - whistle 小翼管家手机 app 原理 利用小翼管家的远程控制路由器的功能，通过开关网关上设置进行触发网络请求，该请求会发送到小翼管家的内部的服务]]></description>
+</item>
+</channel>
+</rss>
