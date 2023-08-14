@@ -4,9 +4,17 @@
         <link>https://liaobinbin.com/</link>
         <description>Keep Focus!</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</lastBuildDate>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</lastBuildDate>
             <atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>获取 ZXHN F4600T 光猫超级管理密码(抓包)</title>
+    <link>https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/</link>
+    <pubDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/</guid>
+    <description><![CDATA[准备 抓包工具 - whistle 小翼管家手机 app 原理 利用小翼管家的远程控制路由器的功能，通过开关网关上设置进行触发网络请求，该请求会发送到小翼管家的内部的服务]]></description>
+</item>
+<item>
     <title>如何写好一篇技术博文</title>
     <link>https://liaobinbin.com/posts/how-to-write-a-good-blog/</link>
     <pubDate>Tue, 10 Jan 2023 23:49:43 &#43;0800</pubDate>
@@ -73,11 +81,11 @@
     <description><![CDATA[<h1 id="git-安装">Git 安装</h1>
 <h2 id="macos">MacOS</h2>
 <p><code>MacOS</code>自带 git 命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git --version
-</code></pre></div><h2 id="linux">Linux</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
+</span></span></code></pre></div><h2 id="linux">Linux</h2>
 <p>根据发行版的不同安装方式有差异，这里给出<code>debian</code>系的安装方式：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install git-all
-</code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git-all
+</span></span></code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
 <h2 id="windows">Windows</h2>
 <p>打开<a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreffer ">Git - Downloading Package</a> 该网址，下载适合自己系统位数的版本进行安装。</p>]]></description>
 </item>
@@ -102,14 +110,6 @@
     <guid>https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/</guid>
     <description><![CDATA[<h2 id="auto-rename-tag">Auto Rename Tag</h2>
 <p>自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。</p>]]></description>
-</item>
-<item>
-    <title>关于微信小程序onReachBottom上拉触底事件</title>
-    <link>https://liaobinbin.com/posts/about-wechat-miniprogram-onreachbottom-event-bug/</link>
-    <pubDate>Fri, 09 Nov 2018 09:15:50 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/posts/about-wechat-miniprogram-onreachbottom-event-bug/</guid>
-    <description><![CDATA[<p><code>onReachBottom</code>事件触发有延迟，快速下拉的话有几率不会触发事件</p>]]></description>
 </item>
 </channel>
 </rss>

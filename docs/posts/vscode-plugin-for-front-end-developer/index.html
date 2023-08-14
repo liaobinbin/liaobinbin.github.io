@@ -11,7 +11,6 @@
 <meta property="og:url" content="https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-12-25T12:44:09+08:00" />
 <meta property="article:modified_time" content="2018-12-25T12:44:09+08:00" /><meta property="og:site_name" content="Boiao Ch" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VScode 前端开发常用插件以及配置"/>
 <meta name="twitter:description" content="Auto Rename Tag
@@ -151,87 +150,87 @@
 <h2 id="prettier">Prettier</h2>
 <p>代码格式化工具，需要配置实现自动保存格式化代码。 并且可以配置<code>eslint</code>等工具进行规则配置。</p>
 <h3 id="我的常用配置文件">我的常用配置文件</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="err">/*</span> <span class="err">字体设置</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.fontFamily&#34;</span><span class="p">:</span> <span class="s2">&#34;&#39;Operator Mono&#39;,&#39;Fira Code&#39;, Menlo, Monaco, &#39;Courier New&#39;, monospace&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">取消类型检查js文件中</span> <span class="err">flow相关</span> <span class="err">*/</span>
-  <span class="nt">&#34;javascript.validate.enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">字体大小设置</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.fontSize&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">字体行号设置</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.lineHeight&#34;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">连体字支持，主要用于Fira</span> <span class="err">Code中的大于等于小于等特殊符号</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.fontLigatures&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">超出宽度自动换行</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.wordWrap&#34;</span><span class="p">:</span> <span class="s2">&#34;on&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">当文件移动更新import的路径</span> <span class="err">*/</span>
-  <span class="nt">&#34;javascript.updateImportsOnFileMove.enabled&#34;</span><span class="p">:</span> <span class="s2">&#34;always&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">确认删除提示</span> <span class="err">*/</span>
-  <span class="nt">&#34;explorer.confirmDelete&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nt">&#34;gitlens.advanced.messages&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;suppressLineUncommittedWarning&#34;</span><span class="p">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="nt">&#34;breadcrumbs.enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">主题和文件图标主题</span> <span class="err">*/</span>
-  <span class="nt">&#34;workbench.colorTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;Dracula&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;workbench.iconTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;vscode-icons&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;files.associations&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;*.cjson&#34;</span><span class="p">:</span> <span class="s2">&#34;jsonc&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;*.wxss&#34;</span><span class="p">:</span> <span class="s2">&#34;css&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;*.wxs&#34;</span><span class="p">:</span> <span class="s2">&#34;javascript&#34;</span>
-  <span class="p">},</span>
-  <span class="err">/*</span> <span class="err">emmet的wxml语法支持</span> <span class="err">*/</span>
-  <span class="nt">&#34;emmet.includeLanguages&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;wxml&#34;</span><span class="p">:</span> <span class="s2">&#34;html&#34;</span>
-  <span class="p">},</span>
-  <span class="nt">&#34;minapp-vscode.disableAutoConfig&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">快速小地图关闭</span> <span class="err">节省空间</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.minimap.enabled&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="err">/*</span>  <span class="err">启用eslint整合</span> <span class="err">*/</span>
-  <span class="nt">&#34;prettier.eslintIntegration&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">自动格式化在保存后</span> <span class="err">*/</span>
-  <span class="nt">&#34;eslint.autoFixOnSave&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">添加vue支持</span> <span class="err">*/</span>
-  <span class="nt">&#34;eslint.validate&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&#34;javascript&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;javascriptreact&#34;</span><span class="p">,</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;vue&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;autoFix&#34;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;html&#34;</span><span class="p">,</span>
-      <span class="nt">&#34;autoFix&#34;</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="err">/*</span>  <span class="err">强制单引号</span> <span class="err">*/</span>
-  <span class="nt">&#34;prettier.singleQuote&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span>  <span class="err">尽可能控制尾随逗号的打印</span> <span class="err">*/</span>
-  <span class="nt">&#34;prettier.trailingComma&#34;</span><span class="p">:</span> <span class="s2">&#34;all&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">使用插件格式化</span> <span class="err">html</span> <span class="err">*/</span>
-  <span class="nt">&#34;vetur.format.defaultFormatter.html&#34;</span><span class="p">:</span> <span class="s2">&#34;js-beautify-html&#34;</span><span class="p">,</span>
-  <span class="err">/*</span>  <span class="err">格式化插件的配置</span> <span class="err">*/</span>
-  <span class="nt">&#34;vetur.format.defaultFormatterOptions&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;js-beautify-html&#34;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="err">/*</span>    <span class="err">属性强制折行对齐</span> <span class="err">*/</span>
-      <span class="nt">&#34;wrap_attributes&#34;</span><span class="p">:</span> <span class="s2">&#34;force-aligned&#34;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&#34;editor.renderIndentGuides&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nt">&#34;editor.renderWhitespace&#34;</span><span class="p">:</span> <span class="s2">&#34;all&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">格式化工具的tab长度定义</span> <span class="err">*/</span>
-  <span class="nt">&#34;prettier.tabWidth&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">vue的tab定义长度</span> <span class="err">*/</span>
-  <span class="nt">&#34;vetur.format.options.tabSize&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">编辑器配置</span> <span class="err">在保存的时候自动格式化代码</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.formatOnSave&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">编辑器的缩进量，支持所有语言</span> <span class="err">*/</span>
-  <span class="nt">&#34;editor.tabSize&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="nt">&#34;python.pythonPath&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/local/opt/python/bin/python3.7&#34;</span><span class="p">,</span>
-  <span class="err">/*</span> <span class="err">初始化路径</span> <span class="err">*/</span>
-  <span class="nt">&#34;workbench.startupEditor&#34;</span><span class="p">:</span> <span class="s2">&#34;welcomePage&#34;</span>
-<span class="p">}</span>
-</code></pre></div></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">字体设置</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.fontFamily&#34;</span><span class="p">:</span> <span class="s2">&#34;&#39;Operator Mono&#39;,&#39;Fira Code&#39;, Menlo, Monaco, &#39;Courier New&#39;, monospace&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">取消类型检查js文件中</span> <span class="err">flow相关</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;javascript.validate.enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">字体大小设置</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.fontSize&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">字体行号设置</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.lineHeight&#34;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">连体字支持，主要用于Fira</span> <span class="err">Code中的大于等于小于等特殊符号</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.fontLigatures&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">超出宽度自动换行</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.wordWrap&#34;</span><span class="p">:</span> <span class="s2">&#34;on&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">当文件移动更新import的路径</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;javascript.updateImportsOnFileMove.enabled&#34;</span><span class="p">:</span> <span class="s2">&#34;always&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">确认删除提示</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;explorer.confirmDelete&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;gitlens.advanced.messages&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;suppressLineUncommittedWarning&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;breadcrumbs.enabled&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">主题和文件图标主题</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;workbench.colorTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;Dracula&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;workbench.iconTheme&#34;</span><span class="p">:</span> <span class="s2">&#34;vscode-icons&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;files.associations&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;*.cjson&#34;</span><span class="p">:</span> <span class="s2">&#34;jsonc&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;*.wxss&#34;</span><span class="p">:</span> <span class="s2">&#34;css&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;*.wxs&#34;</span><span class="p">:</span> <span class="s2">&#34;javascript&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">emmet的wxml语法支持</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;emmet.includeLanguages&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;wxml&#34;</span><span class="p">:</span> <span class="s2">&#34;html&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;minapp-vscode.disableAutoConfig&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">快速小地图关闭</span> <span class="err">节省空间</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.minimap.enabled&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span>  <span class="err">启用eslint整合</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;prettier.eslintIntegration&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">自动格式化在保存后</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;eslint.autoFixOnSave&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">添加vue支持</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;eslint.validate&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;javascript&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;javascriptreact&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;vue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;autoFix&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;language&#34;</span><span class="p">:</span> <span class="s2">&#34;html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;autoFix&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span>  <span class="err">强制单引号</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;prettier.singleQuote&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span>  <span class="err">尽可能控制尾随逗号的打印</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;prettier.trailingComma&#34;</span><span class="p">:</span> <span class="s2">&#34;all&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">使用插件格式化</span> <span class="err">html</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vetur.format.defaultFormatter.html&#34;</span><span class="p">:</span> <span class="s2">&#34;js-beautify-html&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span>  <span class="err">格式化插件的配置</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vetur.format.defaultFormatterOptions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;js-beautify-html&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="err">/*</span>    <span class="err">属性强制折行对齐</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;wrap_attributes&#34;</span><span class="p">:</span> <span class="s2">&#34;force-aligned&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.renderIndentGuides&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.renderWhitespace&#34;</span><span class="p">:</span> <span class="s2">&#34;all&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">格式化工具的tab长度定义</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;prettier.tabWidth&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">vue的tab定义长度</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vetur.format.options.tabSize&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">编辑器配置</span> <span class="err">在保存的时候自动格式化代码</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.formatOnSave&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">编辑器的缩进量，支持所有语言</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor.tabSize&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;python.pythonPath&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/local/opt/python/bin/python3.7&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="err">/*</span> <span class="err">初始化路径</span> <span class="err">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;workbench.startupEditor&#34;</span><span class="p">:</span> <span class="s2">&#34;welcomePage&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -260,7 +259,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
         </div>
     </footer></div>

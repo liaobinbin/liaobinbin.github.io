@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>获取 ZXHN F4600T 光猫超级管理密码(抓包) - Boiao Ch</title><meta name="Description" content="Keep Focus!"><meta property="og:title" content="获取 ZXHN F4600T 光猫超级管理密码(抓包)" />
+<meta property="og:description" content="准备 抓包工具 - whistle 小翼管家手机 app 原理 利用小翼管家的远程控制路由器的功能，通过开关网关上设置进行触发网络请求，该请求会发送到小翼管家的内部的服务" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-11T23:03:29+08:00" />
+<meta property="article:modified_time" content="2023-08-11T23:03:29+08:00" /><meta property="og:site_name" content="Boiao Ch" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="获取 ZXHN F4600T 光猫超级管理密码(抓包)"/>
+<meta name="twitter:description" content="准备 抓包工具 - whistle 小翼管家手机 app 原理 利用小翼管家的远程控制路由器的功能，通过开关网关上设置进行触发网络请求，该请求会发送到小翼管家的内部的服务"/>
+<meta name="application-name" content="Boiao Ch&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Boiao Ch&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/" /><link rel="prev" href="https://liaobinbin.com/posts/how-to-write-a-good-blog/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "获取 ZXHN F4600T 光猫超级管理密码(抓包)",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/liaobinbin.com\/posts\/get-zxhn-f4600t-telcomadmin-password\/"
+        },"genre": "posts","wordcount":  886 ,
+        "url": "https:\/\/liaobinbin.com\/posts\/get-zxhn-f4600t-telcomadmin-password\/","datePublished": "2023-08-11T23:03:29+08:00","dateModified": "2023-08-11T23:03:29+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Boiao Ch"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Boiao Ch"><span id="id-3" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Boiao Ch"><span id="id-4" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">获取 ZXHN F4600T 光猫超级管理密码(抓包)</h1><div class="post-meta">
+            <div class="post-meta-line"><time datetime="2023-08-11">2023-08-11</time>&nbsp;&nbsp;&nbsp;<span id="/posts/get-zxhn-f4600t-telcomadmin-password/" class="leancloud_visitors" data-flag-title="获取 ZXHN F4600T 光猫超级管理密码(抓包)">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#准备">准备</a></li>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#过程">过程</a>
+      <ul>
+        <li><a href="#手机网络设置">手机网络设置</a></li>
+        <li><a href="#重发请求">重发请求</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="准备">准备</h2>
+<ul>
+<li>抓包工具 - whistle</li>
+<li>小翼管家手机 app</li>
+</ul>
+<h2 id="原理">原理</h2>
+<p>利用小翼管家的远程控制路由器的功能，通过开关网关上设置进行触发网络请求，该请求会发送到小翼管家的内部的服务器，然后服务器进行对应的设备的指令的下发。</p>
+<p>主要是获取该接口相关的请求中的认证信息，具体是什么认证信息我们不用追究。只需要篡改其请求的请求参数，将参数改为获取光猫的超级密码即可。</p>
+<p>请求参数:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Params&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;MethodName&#34;</span><span class="p">:</span> <span class="s2">&#34;GetTAPasswd&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;RPCMethod&#34;</span><span class="p">:</span> <span class="s2">&#34;CallMethod&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ObjectPath&#34;</span><span class="p">:</span> <span class="s2">&#34;/com/ctc/igd1/Telecom/System&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;InterfaceName&#34;</span><span class="p">:</span> <span class="s2">&#34;com.ctc.igd1.SysCmd&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ServiceName&#34;</span><span class="p">:</span> <span class="s2">&#34;com.ctc.igd1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="过程">过程</h2>
+<p>由于 <code>whistle</code> 是一个 <code>npm</code> 的包， 所以请提前准备 <code>npm</code> 环境。
+通过 <code>npm install -g whistle</code> 进行安装，安装完毕后使用 <code>w2 start</code> 进行启动。</p>
+<p><figure><a class="lightgallery" href="./whistle-start.png" title="whistle启动" data-thumbnail="./whistle-start.png" data-sub-html="<h2>whistle启动</h2><p>whistle启动</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-start.png"
+            data-srcset="./whistle-start.png, ./whistle-start.png 1.5x, ./whistle-start.png 2x"
+            data-sizes="auto"
+            alt="./whistle-start.png" />
+    </a><figcaption class="image-caption">whistle启动</figcaption>
+    </figure></p>
+<p>接下来我们可以通过其中返回的地址在浏览器进行访问，可见如下界面:</p>
+<p><figure><a class="lightgallery" href="./whistle-network.png" title="whistle网络" data-thumbnail="./whistle-network.png" data-sub-html="<h2>whistle网络</h2><p>whistle网络</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-network.png"
+            data-srcset="./whistle-network.png, ./whistle-network.png 1.5x, ./whistle-network.png 2x"
+            data-sizes="auto"
+            alt="./whistle-network.png" />
+    </a><figcaption class="image-caption">whistle网络</figcaption>
+    </figure></p>
+<p>首先配置 <code>https</code> 的启用，否则到时候抓到的连接的数据里面没有办法查看请求参数，也就没有办法进行篡改。</p>
+<p><figure><a class="lightgallery" href="./whistle-https-1.png" title="whistle https" data-thumbnail="./whistle-https-1.png" data-sub-html="<h2>whistel https 入口</h2><p>whistle https</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-https-1.png"
+            data-srcset="./whistle-https-1.png, ./whistle-https-1.png 1.5x, ./whistle-https-1.png 2x"
+            data-sizes="auto"
+            alt="./whistle-https-1.png" />
+    </a><figcaption class="image-caption">whistel https 入口</figcaption>
+    </figure></p>
+<div id="id-1"><p><figure><a class="lightgallery" href="./whistle-https-2.png" title="whistle https" data-thumbnail="./whistle-https-2.png" data-sub-html="<h2>whistel https 配置项</h2><p>whistle https</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-https-2.png"
+            data-srcset="./whistle-https-2.png, ./whistle-https-2.png 1.5x, ./whistle-https-2.png 2x"
+            data-sizes="auto"
+            alt="./whistle-https-2.png" />
+    </a><figcaption class="image-caption">whistel https 配置项</figcaption>
+    </figure></p>
+</div>
+<h3 id="手机网络设置">手机网络设置</h3>
+<p>将手机连入与电脑同一网络的局域网中，然后打开网络设置，找到代理设置。这里以 <code>iPhone</code> 进行举例：</p>
+<div class="mermaid" id="id-2"></div>
+<p>默认情况下 <code>whistle</code> 是已经在进行数据的监听，如果未进行监听数据则可以打开 <code>Network</code> 下的 <code>Record</code> 开关，使其打开监听，如果太多杂乱的数据可以先进行点击 <code>Clear</code> 进行清除。</p>
+<p>设置完成过后就可以打开手机上的小翼管家, 进行触发接口调用的操作</p>
+<p>确保能够正确进入到网关的设置界面，先断开 WiFi 使用移动流量进行访问， 然后找到自己的网关详情，点击网关设置按钮进入设置页面。</p>
+<p>这时候我们连接我们的 WiFi ，等待 WiFi 成功连接后，点击指示灯的切换。</p>
+<p>就可以在 <code>whistle</code> 中查看到捕获到的接口请求数据:</p>
+<p><figure><a class="lightgallery" href="./whistle-get-data.png" title="whistle data" data-thumbnail="./whistle-get-data.png" data-sub-html="<h2>获取到的数据</h2><p>whistle data</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-get-data.png"
+            data-srcset="./whistle-get-data.png, ./whistle-get-data.png 1.5x, ./whistle-get-data.png 2x"
+            data-sizes="auto"
+            alt="./whistle-get-data.png" />
+    </a><figcaption class="image-caption">获取到的数据</figcaption>
+    </figure></p>
+<p>其中 <code>Host</code> 为 <code>nos9.189.cube.com</code> 则是我们想要的接口请求。</p>
+<h3 id="重发请求">重发请求</h3>
+<p>首先我们进行编辑该请求，将其中的 body 参数改为本文提供的参数</p>
+<p><figure><a class="lightgallery" href="./whistle-edit.png" title="whistle edit" data-thumbnail="./whistle-edit.png" data-sub-html="<h2>编辑请求</h2><p>whistle edit</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-edit.png"
+            data-srcset="./whistle-edit.png, ./whistle-edit.png 1.5x, ./whistle-edit.png 2x"
+            data-sizes="auto"
+            alt="./whistle-edit.png" />
+    </a><figcaption class="image-caption">编辑请求</figcaption>
+    </figure></p>
+<p>将 body 参数进行如下替换后，点击右上角的蓝色纸飞机按钮进行发送请求。</p>
+<p><figure><a class="lightgallery" href="./whistle-body.png" title="whistle body" data-thumbnail="./whistle-body.png" data-sub-html="<h2>编辑body参数并且发送</h2><p>whistle body</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-body.png"
+            data-srcset="./whistle-body.png, ./whistle-body.png 1.5x, ./whistle-body.png 2x"
+            data-sizes="auto"
+            alt="./whistle-body.png" />
+    </a><figcaption class="image-caption">编辑body参数并且发送</figcaption>
+    </figure></p>
+<p>其中在 <code>Response</code> 中的 <code>Body</code> 中的内容则包含你的网关的超级密码，不同地区可能有些许不同。
+成都地区的密码在 <code>Params</code> 字段的 数组的第一个字符串。</p>
+<p><figure><a class="lightgallery" href="./whistle-result.png" title="whistle result" data-thumbnail="./whistle-result.png" data-sub-html="<h2>接口请求结果</h2><p>whistle result</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./whistle-result.png"
+            data-srcset="./whistle-result.png, ./whistle-result.png 1.5x, ./whistle-result.png 2x"
+            data-sizes="auto"
+            alt="./whistle-result.png" />
+    </a><figcaption class="image-caption">接口请求结果</figcaption>
+    </figure></p>
+<h2 id="总结">总结</h2>
+<p>成功获取密码后则可以通过 <code>网关地址:8080</code>进行访问管理页面，输入帐号<code>telecomadmin</code>，使用上面获取到的密码即可登录。</p>
+<p><code>whistle</code> 是一个非常棒的库，对于<code>IOS</code>端的抓包非常方便，并且该软件是免费且跨平台的，只要有<code>node</code>环境的都可以使用。</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>参考<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li><a href="https://blog.wenfxl.com/w-f-x-l-20221022-ty-centos-7x.html" target="_blank" rel="noopener noreffer ">电信光猫抓包获取超级密码</a></li>
+</ul>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-08-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section class="post-button">
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/how-to-write-a-good-blog/" class="prev" rel="prev" title="如何写好一篇技术博文"><i class="fas fa-angle-left fa-fw"
+                aria-hidden="true"></i>如何写好一篇技术博文</a></div>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="/css/85d00c.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz","appKey":"6AGQbwYr9G7NhVKfqxiOnV4y","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"Write something ...","recordIP":true,"visitor":true}},"data":{"id-2":"graph TB;\nA[WiFi] --\u003e B[已连接电脑热点的详情]\nB --\u003e C[ HTTP 代理 ]\nC --\u003e D[ 手动 ]\nD --\u003e E[ 服务器 填写电脑的局域网 IP 地址 ]\nE --\u003e F[ 端口 填写 whistle 所提供的端口 8899 ]","id-3":"Boiao Ch's Blog","id-4":"Boiao Ch's Blog"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-3":["id-3"],"id-4":["id-4"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

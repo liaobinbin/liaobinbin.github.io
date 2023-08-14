@@ -12,7 +12,6 @@
 <meta property="og:url" content="https://liaobinbin.com/posts/using-haproxy-forward-ssh-to-other-port/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-13T16:19:51+08:00" />
 <meta property="article:modified_time" content="2018-06-13T16:19:51+08:00" /><meta property="og:site_name" content="Boiao Ch" />
-
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Haproxy转发内网其他主机的ssh端口到公网的指定端口"/>
 <meta name="twitter:description" content="
@@ -124,13 +123,13 @@
 <li>双网卡，一个获取为公网 IP 地址，另一个为内网地址</li>
 </ul>
 <p>Haproxy 软件安装很简单，因为我用的 Ubuntu，安装命令如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install haproxy
-</code></pre></div><p>安装完成后直接编辑<code>/etc/haproxy/haproxy.cfg</code>，在其最后回车后添加如下参数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">listen example <span class="c1">#example是为这条记录取的别名，任意起名，方便记录</span>
-    <span class="nb">bind</span> 0.0.0.0:2223 <span class="c1">#监听所有来源的2223端口请求</span>
-    mode tcp <span class="c1">#tcp模式</span>
-    server example-server 192.168.100.100:22 <span class="c1">#example-server 是自己本地所指向的服务器进行取名，同样是方便记录，后面的IP和端口是你想要转发的目标IP和端口。</span>
-</code></pre></div><p>保存退出后直接，<code>service haproxy restart</code> 即可生效。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install haproxy
+</span></span></code></pre></div><p>安装完成后直接编辑<code>/etc/haproxy/haproxy.cfg</code>，在其最后回车后添加如下参数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">listen example <span class="c1">#example是为这条记录取的别名，任意起名，方便记录</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">bind</span> 0.0.0.0:2223 <span class="c1">#监听所有来源的2223端口请求</span>
+</span></span><span class="line"><span class="cl">    mode tcp <span class="c1">#tcp模式</span>
+</span></span><span class="line"><span class="cl">    server example-server 192.168.100.100:22 <span class="c1">#example-server 是自己本地所指向的服务器进行取名，同样是方便记录，后面的IP和端口是你想要转发的目标IP和端口。</span>
+</span></span></code></pre></div><p>保存退出后直接，<code>service haproxy restart</code> 即可生效。</p>
 <p>现在就可以通过公网 IP（例如：203.33.13.24:2223）进行 ssh 访问，使用内网的用户名和密码，可正常登录。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -160,7 +159,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
         </div>
     </footer></div>
