@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>full-screen - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/full-screen/</link>
+        <description>full-screen - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/full-screen/" rel="self" type="application/rss+xml" /><item>
+    <title>Awesome Wm Virtualbox Full Screen</title>
+    <link>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</link>
+    <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</guid>
+    <description><![CDATA[通常在 AwesomeWM 拥有 top 栏的情况下，如果使用 Virtualbox 的虚拟机的时候，没有办法获得沉浸式的体验。 正常情况下我们会利用 Virtualbox -&gt; View -&gt; Full-Screen Mode 进行全屏，但是 top 栏仍然会存在于]]></description>
+</item>
+</channel>
+</rss>

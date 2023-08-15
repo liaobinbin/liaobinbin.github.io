@@ -4,9 +4,17 @@
         <link>https://liaobinbin.com/</link>
         <description>Keep Focus!</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</lastBuildDate>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</lastBuildDate>
             <atom:link href="https://liaobinbin.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Awesome Wm Virtualbox Full Screen</title>
+    <link>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</link>
+    <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</guid>
+    <description><![CDATA[通常在 AwesomeWM 拥有 top 栏的情况下，如果使用 Virtualbox 的虚拟机的时候，没有办法获得沉浸式的体验。 正常情况下我们会利用 Virtualbox -&gt; View -&gt; Full-Screen Mode 进行全屏，但是 top 栏仍然会存在于]]></description>
+</item>
+<item>
     <title>获取 ZXHN F4600T 光猫超级管理密码(抓包)</title>
     <link>https://liaobinbin.com/posts/get-zxhn-f4600t-telcomadmin-password/</link>
     <pubDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</pubDate>
@@ -101,15 +109,6 @@
 <p>你以为就这么就结束了？不，你错了。因为后台为了兼容<code>IE9</code>，我选用<code>wangEditor2</code>所
 编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。</p>
 </blockquote>]]></description>
-</item>
-<item>
-    <title>VScode 前端开发常用插件以及配置</title>
-    <link>https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/</link>
-    <pubDate>Tue, 25 Dec 2018 12:44:09 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/posts/vscode-plugin-for-front-end-developer/</guid>
-    <description><![CDATA[<h2 id="auto-rename-tag">Auto Rename Tag</h2>
-<p>自动重命名标签插件，html 标签使成对存在的，通常修改表签名的时候希望改一个会自动修改两个标签，以提交开发效率， 并且减少错误的发生。</p>]]></description>
 </item>
 </channel>
 </rss>

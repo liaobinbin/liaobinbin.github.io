@@ -4,7 +4,31 @@
         <link>https://liaobinbin.com/tags/</link>
         <description>Tags - 标签 - Boiao Ch</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>AwesomeWM</title>
+    <link>https://liaobinbin.com/tags/awesomewm/</link>
+    <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/tags/awesomewm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>full-screen</title>
+    <link>https://liaobinbin.com/tags/full-screen/</link>
+    <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/tags/full-screen/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Virtualbox</title>
+    <link>https://liaobinbin.com/tags/virtualbox/</link>
+    <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/tags/virtualbox/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>超级管理密码</title>
     <link>https://liaobinbin.com/tags/%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%AF%86%E7%A0%81/</link>
     <pubDate>Fri, 11 Aug 2023 23:03:29 &#43;0800</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</pubDate>
     <author>Boiao Ch</author>
     <guid>https://liaobinbin.com/tags/build/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>vite</title>
-    <link>https://liaobinbin.com/tags/vite/</link>
-    <pubDate>Mon, 08 Aug 2022 10:20:31 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/tags/vite/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>puppeteer</title>
-    <link>https://liaobinbin.com/tags/puppeteer/</link>
-    <pubDate>Mon, 18 Jul 2022 10:02:54 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/tags/puppeteer/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>unit-test</title>
-    <link>https://liaobinbin.com/tags/unit-test/</link>
-    <pubDate>Mon, 18 Jul 2022 10:02:54 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/tags/unit-test/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
