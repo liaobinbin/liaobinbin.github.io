@@ -27,3 +27,5 @@ tags: ["AwesomeWM", "Virtualbox", "full-screen"]
 - 最终可以获得一个 `tag` 利用虚拟机进行独占显示，可以把该 `tag` 看作为单独的系统进行使用。
 - 更加沉浸的体验，当完全希望是在弄外的系统内进行学习的时候
 - 除非是触发 `Right Ctrl + Home` 或者其他基于 `Right Ctrl` 的快捷键的情况下，在全屏模式下可以更好的进行虚拟机内部的快捷键的使用
+
+> 由于我的 `HHKB` 键盘没有 `Right Ctrl` 按键， 所以只能在 `Perferences` 中将 `Input` 的 `Virtual Machine` 里的 `Host Key` 改为 `Right Shift` 即可
