@@ -155,10 +155,10 @@
     # whether to use the absolute URL based on the baseURL in search index
     # 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
-    [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
+    #[params.search.algolia]
+    #  index = ""
+    #  appID = ""
+    #  searchKey = ""
 
   # Home page config
   # 主页信息设置
@@ -197,7 +197,7 @@
       enable = true
       # special amount of posts in each home posts page
       # 主页每页显示文章数量
-      paginate = 3 
+      paginate = 5
   # Social config in home page
   # 主页的社交信息设置
   [params.social]

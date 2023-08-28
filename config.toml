@@ -45,20 +45,21 @@ defaultContentLanguage = "zh-cn"
   [markup.highlight]
     noClasses = false
 
-[parames]
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [params.comment]
-type = "valine"
+  type = "valine"
 
 [params.comment.valine]
-id = "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz"
-key = "6AGQbwYr9G7NhVKfqxiOnV4y"
-placeholder = "Write something ..."
-avatar = "retro"
+  id = "XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz"
+  key = "6AGQbwYr9G7NhVKfqxiOnV4y"
+  placeholder = "Write something ..."
+  avatar = "retro"
 
 [params.highlight]
-style = "base16/solarized-light"
-languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css", "lisp"]
+  style = "base16/solarized-light"
+  languages = ["bash", "typescript", "javascript", "go", "dockerfile", "json", "c", "cpp", "css", "lisp"]
 
 #[markup.goldmark.renderer]
 # unsafe = true
