@@ -4,7 +4,7 @@ prefix:
   simpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/
 libFiles:
   # fontawesome-free@6.1.1 https://fontawesome.com/
-  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@6.1.1/css/all.min.css'
+  fontawesomeFreeCSS: "@fortawesome/fontawesome-free@6.1.1/css/all.min.css"
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
   # autocomplete.js@0.38.1 https://github.com/algolia/autocomplete.js
@@ -52,7 +52,7 @@ libFiles:
   gitalkCSS: gitalk@1.7.2/dist/gitalk.min.css
   gitalkJS: gitalk@1.7.2/dist/gitalk.min.js
   # valine@1.5.0 https://valine.js.org/
-  valineJS: valine@1.5.0/dist/Valine.min.js
+  valineJS: valine@1.5.1/dist/Valine.min.js
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js

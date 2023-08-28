@@ -48,7 +48,7 @@ libFiles:
   gitalkCSS: gitalk/1.7.2/gitalk.min.css
   gitalkJS: gitalk/1.7.2/gitalk.min.js
   # valine@1.5.0 https://valine.js.org/
-  valineJS: valine/1.5.0/Valine.min.js
+  valineJS: valine/1.5.1/Valine.min.js
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent/3.1.1/cookieconsent.min.css
   cookieconsentJS: cookieconsent/3.1.1/cookieconsent.min.js
