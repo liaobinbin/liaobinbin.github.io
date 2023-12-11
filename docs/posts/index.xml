@@ -4,7 +4,15 @@
         <link>https://liaobinbin.com/posts/</link>
         <description>所有文章 | Boiao Ch</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
-            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Fri, 01 Dec 2023 16:24:09 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>[译]原始WebGPU - Raw WebGPU</title>
+    <link>https://liaobinbin.com/posts/raw-webgpu/</link>
+    <pubDate>Fri, 01 Dec 2023 16:24:09 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/raw-webgpu/</guid>
+    <description><![CDATA[作者： &#8201;Alain Galvan 一份如何编写 WebGPU 应用程序的概述， 学习 WebGPU 在绘制中所需的关键数据结构和类型。 Github Repo | Codepen WebGPU 是一种用于 Web 的新的图形 API，它遵循现代计算图形 API]]></description>
+</item>
+<item>
     <title>Awesome Wm Virtualbox Full Screen</title>
     <link>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</link>
     <pubDate>Tue, 15 Aug 2023 22:56:34 &#43;0800</pubDate>
@@ -58,6 +66,14 @@
 <p>使用点阵字体可以获得更佳的体验效果，英文字体我使用的是<code>Terminus</code></p>]]></description>
 </item>
 <item>
+    <title>项目开发到部署，流程总结</title>
+    <link>https://liaobinbin.com/posts/project-development-to-deployment-flow/</link>
+    <pubDate>Tue, 28 Dec 2021 09:43:43 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/project-development-to-deployment-flow/</guid>
+    <description><![CDATA[开发 第一个阶段就是开发的阶段，首先要考虑的是做哪些功能或者调整 BUG 的顺序，根据任务的紧急程度进行划分 需求安排 紧急程度 应有个整体的需求清单的列表]]></description>
+</item>
+<item>
     <title>在两台macOS设备上切换同一个蓝牙键盘</title>
     <link>https://liaobinbin.com/posts/switch-bluetooth-keyboard-on-two-macos-device/</link>
     <pubDate>Sun, 14 Feb 2021 17:27:19 &#43;0800</pubDate>
@@ -77,36 +93,6 @@
     <author>Boiao Ch</author>
     <guid>https://liaobinbin.com/posts/hackintosh-startimage-failed-solution/</guid>
     <description><![CDATA[如果你的黑苹果，在进入系统的时候，出现该错误，而且该错误并不是每次都会发生，当你继续回到主菜单，多次重新尝试的时候，你可能可以成功进入系统。]]></description>
-</item>
-<item>
-    <title>Git简易指南</title>
-    <link>https://liaobinbin.com/posts/git-simple-guidelines/</link>
-    <pubDate>Mon, 20 Jul 2020 23:04:02 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/posts/git-simple-guidelines/</guid>
-    <description><![CDATA[<h1 id="git-安装">Git 安装</h1>
-<h2 id="macos">MacOS</h2>
-<p><code>MacOS</code>自带 git 命令，前提是需要安装<code>Xcode Command Line Tools</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
-</span></span></code></pre></div><h2 id="linux">Linux</h2>
-<p>根据发行版的不同安装方式有差异，这里给出<code>debian</code>系的安装方式：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install git-all
-</span></span></code></pre></div><p>更多的安装方式请参考<a href="https://git-scm.com/download/linux" target="_blank" rel="noopener noreffer ">这里!!</a></p>
-<h2 id="windows">Windows</h2>
-<p>打开<a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreffer ">Git - Downloading Package</a> 该网址，下载适合自己系统位数的版本进行安装。</p>]]></description>
-</item>
-<item>
-    <title>微信小程序原生富文本渲染和wxParse</title>
-    <link>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</link>
-    <pubDate>Mon, 27 May 2019 20:21:58 &#43;0800</pubDate>
-    <author>Boiao Ch</author>
-    <guid>https://liaobinbin.com/posts/wxchat-mini-html-wxparse-richtext/</guid>
-    <description><![CDATA[<h1 id="微信小程序-富文本渲染">微信小程序 富文本渲染</h1>
-<p>微信小程序本身提供<code>rich-text</code>的组件，直接富文本字符串丢进<code>nodes</code>属性即可。</p>
-<blockquote>
-<p>你以为就这么就结束了？不，你错了。因为后台为了兼容<code>IE9</code>，我选用<code>wangEditor2</code>所
-编辑的富文本你会发现好多标签都没有识别出来，特别是 HTML4 标准的。 好坑。</p>
-</blockquote>]]></description>
 </item>
 </channel>
 </rss>

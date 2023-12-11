@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 768 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <path d="M488,125L278.5,165.5" style="fill:none;fill-rule:nonzero;stroke:#e5e5e5;stroke-width:2px;"/>
+    <path d="M280,125L488,165" style="fill:none;fill-rule:nonzero;stroke:#e5e5e5;stroke-width:2px;"/>
+    <path d="M488,165L280,165" style="fill:none;fill-rule:nonzero;stroke:#e5e5e5;stroke-width:2px;"/>
+    <g id="Root">
+        <g>
+            <path d="M384.1,23.4L348.9,43.9L384,64.4L419.1,43.9L384.1,23.4Z" style="fill:#b4f5ff;fill-rule:nonzero;"/>
+            <path d="M349.4,43.4L314.3,63.9L349.4,84.4L384.5,63.9L349.4,43.4Z" style="fill:#79e5ff;fill-rule:nonzero;"/>
+            <path d="M418.7,43.4L383.6,63.9L418.7,84.4L453.8,63.9L418.7,43.4Z" style="fill:#d5e7ff;fill-rule:nonzero;"/>
+            <path d="M314.8,63.4L279.6,83.9L314.7,104.4L349.8,83.9L314.8,63.4Z" style="fill:#46d5ff;fill-rule:nonzero;"/>
+            <path d="M384.3,63.5L348.9,83.9L384.3,104.3L384.3,63.5Z" style="fill:#9ed5ff;fill-rule:nonzero;"/>
+            <path d="M383.8,63.5L383.8,104.4L419.2,84L383.8,63.5Z" style="fill:#b4d5ff;fill-rule:nonzero;"/>
+            <path d="M453.4,63.4L418.3,83.9L453.4,104.4L488.5,83.9L453.4,63.4Z" style="fill:#f1d5ff;fill-rule:nonzero;"/>
+            <path d="M279.9,83.5L279.7,124.2L315,144.3L315.2,103.6L279.9,83.5Z" style="fill:#2e89ce;fill-rule:nonzero;"/>
+            <path d="M349.7,83.5L314.3,103.9L349.7,124.3L349.7,83.5Z" style="fill:#79c2ff;fill-rule:nonzero;"/>
+            <path d="M349.2,83.5L349.2,124.4L384.6,104L349.2,83.5Z" style="fill:#92c2ff;fill-rule:nonzero;"/>
+            <path d="M419,83.5L383.6,103.9L419,124.3L419,83.5Z" style="fill:#bfc2fe;fill-rule:nonzero;"/>
+            <path d="M418.5,83.5L418.5,124.4L453.9,104L418.5,83.5Z" style="fill:#d5c1fe;fill-rule:nonzero;"/>
+            <path d="M488.3,83.5L453,103.7L453.2,144.4L488.5,124.2L488.3,83.5Z" style="fill:#df9ced;fill-rule:nonzero;"/>
+            <path d="M314.5,103.5L314.5,144.4L349.9,124L314.5,103.5Z" style="fill:#4f88ce;fill-rule:nonzero;"/>
+            <path d="M384.3,103.5L348.9,123.9L384.3,144.3L384.3,103.5Z" style="fill:#9eb0ff;fill-rule:nonzero;"/>
+            <path d="M383.8,103.5L383.8,144.4L419.2,124L383.8,103.5Z" style="fill:#b3aeff;fill-rule:nonzero;"/>
+            <path d="M453.6,103.5L418.2,123.9L453.6,144.3L453.6,103.5Z" style="fill:#cc9eed;fill-rule:nonzero;"/>
+            <path d="M349.7,123.5L314.3,143.9L349.7,164.3L349.7,123.5Z" style="fill:#5a77ce;fill-rule:nonzero;"/>
+            <path d="M349.2,123.5L349.2,164.4L384.6,144L349.2,123.5Z" style="fill:#6e78cd;fill-rule:nonzero;"/>
+            <path d="M419,123.5L383.6,143.9L419,164.3L419,123.5Z" style="fill:#ad88ed;fill-rule:nonzero;"/>
+            <path d="M418.5,123.5L418.5,164.4L453.9,144L418.5,123.5Z" style="fill:#c28aed;fill-rule:nonzero;"/>
+            <path d="M384.3,143.5L348.9,163.9L384.3,184.3L384.3,143.5Z" style="fill:#7a65ce;fill-rule:nonzero;"/>
+            <path d="M383.8,143.5L383.8,184.4L419.2,164L383.8,143.5Z" style="fill:#a176ed;fill-rule:nonzero;"/>
+        </g>
+    </g>
+    <g>
+        <path d="M384,225L384,184.5" style="fill:none;fill-rule:nonzero;stroke:#e5e5e5;stroke-width:1.46px;"/>
+        <path d="M384,185L280,125L280,165L384,225L488,165L488,125L384,185Z" style="fill:none;fill-rule:nonzero;stroke:#e5e5e5;stroke-width:2px;"/>
+        <circle cx="488" cy="125" r="4" style="fill:#e5e5e5;"/>
+        <circle cx="488" cy="165" r="4" style="fill:#e5e5e5;"/>
+        <circle cx="384" cy="223" r="4" style="fill:#e5e5e5;"/>
+        <circle cx="280" cy="165" r="4" style="fill:#e5e5e5;"/>
+        <circle cx="280" cy="125" r="4" style="fill:#e5e5e5;"/>
+        <circle cx="384" cy="184" r="4" style="fill:#e5e5e5;"/>
+    </g>
+</svg>

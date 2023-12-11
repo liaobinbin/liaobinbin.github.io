@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:serif="http://www.serif.com/"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1344 776"
+	 style="enable-background:new 0 0 1344 776;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#737373;}
+	.st1{fill:#474F53;}
+	.st2{fill:#565D60;}
+	.st3{opacity:0.25;fill:#565D60;}
+	.st4{opacity:0.5;fill:#565D60;}
+	.st5{fill:#7F7F7F;}
+	.st6{opacity:0.75;fill:#565D60;}
+	.st7{opacity:0.33;fill:#565D60;}
+	.st8{fill:#878787;}
+	.st9{opacity:0.17;}
+	.st10{fill:#3075B2;}
+	.st11{fill:#367DCC;}
+	.st12{fill:#4995C7;}
+	.st13{fill:#AFAFAF;}
+	.st14{fill:#265D8E;}
+	.st15{fill:#3887BC;}
+	.st16{fill:#5F9FCA;}
+	.st17{fill:#1E4A6B;}
+	.st18{fill:#969696;}
+</style>
+<g>
+	<rect x="64" y="200" class="st0" width="1200" height="48"/>
+	<rect x="96" y="200" class="st1" width="1136" height="256"/>
+	<path class="st2" d="M1264,488h-48V200h16c17.7,0,32,14.3,32,32V488z"/>
+	<rect x="192" y="200" class="st3" width="64" height="256"/>
+	<rect x="320" y="200" class="st4" width="64" height="256"/>
+	<rect x="64" y="184" class="st5" width="1200" height="16"/>
+	<g>
+		<path class="st2" d="M96,200c-17.7,0-32,14.3-32,32v256c0-17.7,14.3-32,32-32h32V200H96z"/>
+	</g>
+	<rect x="448" y="200" class="st6" width="64" height="256"/>
+	<rect x="576" y="200" class="st2" width="64" height="256"/>
+	<rect x="704" y="200" class="st6" width="64" height="256"/>
+	<rect x="832" y="200" class="st4" width="64" height="256"/>
+	<rect x="960" y="200" class="st7" width="64" height="256"/>
+	<rect x="1088" y="200" class="st3" width="64" height="256"/>
+</g>
+<path class="st8" d="M1232,456H96c-17.7,0-32,14.3-32,32v32v16v56c0,13.3,10.7,24,24,24h0c13.3,0,24-10.7,24-24v-56h1104v56
+	c0,13.3,10.7,24,24,24l0,0c13.3,0,24-10.7,24-24v-56v-16v-32C1264,470.3,1249.7,456,1232,456z"/>
+<g id="Layer_2" class="st9">
+	<polygon points="1056,424 896,344 992,296 1152,376 	"/>
+	<polygon points="671.7,424 511.7,344 607.7,296 767.7,376 	"/>
+	<polygon points="287.7,424 127.7,344 223.7,296 383.7,376 	"/>
+</g>
+<g>
+	<polygon class="st10" points="288,216 384,264 384,376 288,424 192,376 192,265 	"/>
+	<polygon class="st11" points="288,424 384,376 384,264 288,312 	"/>
+	<polygon class="st12" points="384,264 288,216 192,265 288,312 	"/>
+	<polygon class="st13" points="384,280 352,296 352,312 384,296 	"/>
+	<polygon class="st14" points="384,264 288,216 192,265 224,280 288,248 352,280 	"/>
+	<polygon class="st15" points="320,296 352,280 320,264 288,280 	"/>
+	<polygon class="st16" points="288,280 256,296 224,280 256,264 	"/>
+	<polygon class="st17" points="288,216 288,248 224,280 192,265 	"/>
+</g>
+<g>
+	<polygon class="st10" points="672,216.3 768,264.3 768,376.3 672,424.3 576,376.3 576,265.3 	"/>
+	<polygon class="st11" points="672,424.3 768,376.3 768,264.3 672,312.3 	"/>
+	<polygon class="st16" points="768,264.3 672,216.3 576,265.3 672,312.3 	"/>
+	<polygon class="st13" points="768,280.3 736,296.3 736,312.3 768,296.3 	"/>
+	<polygon class="st14" points="768,264.3 672,216.3 576,265.3 608,280.3 672,248.3 736,280.3 	"/>
+	<polygon class="st15" points="704,296.3 736,280.3 704,264.3 672,280.3 	"/>
+	<polygon class="st12" points="672,280.3 640,296.3 608,280.3 640,264.3 	"/>
+	<polygon class="st17" points="672,216.3 672,248.3 608,280.3 576,265.3 	"/>
+	<polygon class="st13" points="768.3,311.3 736.3,327.3 736.3,343.3 768.3,327.3 	"/>
+</g>
+<g>
+	<polygon class="st10" points="1056,216.3 1152,264.3 1152,376.3 1056,424.3 960,376.3 960,265.3 	"/>
+	<polygon class="st11" points="1056,424.3 1152,376.3 1152,264.3 1056,312.3 	"/>
+	<polygon class="st15" points="1152,264.3 1056,216.3 960,265.3 1056,312.3 	"/>
+	<polygon class="st13" points="1152,280.3 1120,296.3 1120,312.3 1152,296.3 	"/>
+	<polygon class="st14" points="1152,264.3 1056,216.3 960,265.3 992,280.3 1056,248.3 1120,280.3 	"/>
+	<polygon class="st16" points="1088,296.3 1120,280.3 1088,264.3 1056,280.3 	"/>
+	<polygon class="st12" points="1056,280.3 1024,296.3 992,280.3 1024,264.3 	"/>
+	<polygon class="st17" points="1056,216.3 1056,248.3 992,280.3 960,265.3 	"/>
+	<polygon class="st13" points="1152,312.3 1120,328.3 1120,344.3 1152,328.3 	"/>
+	<polygon class="st13" points="1152,344.3 1120,360.3 1120,376.3 1152,360.3 	"/>
+</g>
+<path class="st18" d="M1240,616"/>
+<g>
+	<path class="st18" d="M1264,499.4v4.6h0.3C1264.3,502.4,1264.2,500.9,1264,499.4z"/>
+	<path class="st18" d="M64.3,504c0-17.7,14.3-32,32-32h1136c16.1,0,29.4,11.9,31.7,27.4V488c0-17.7-14.3-32-32-32H96
+		c-17.7,0-32,14.3-32,32"/>
+</g>
+</svg>

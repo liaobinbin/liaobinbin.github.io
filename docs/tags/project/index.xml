@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>project - 标签 - Boiao Ch</title>
+        <link>https://liaobinbin.com/tags/project/</link>
+        <description>project - 标签 - Boiao Ch</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>doubiliao@gmail.com (Boiao Ch)</managingEditor>
+            <webMaster>doubiliao@gmail.com (Boiao Ch)</webMaster><copyright>&amp;copy; &lt;a href=&#34;https://liaobinbin.com&#34;&gt; Boiao Ch&lt;/a&gt; 2008 - 2018</copyright><lastBuildDate>Tue, 28 Dec 2021 09:43:43 &#43;0800</lastBuildDate><atom:link href="https://liaobinbin.com/tags/project/" rel="self" type="application/rss+xml" /><item>
+    <title>项目开发到部署，流程总结</title>
+    <link>https://liaobinbin.com/posts/project-development-to-deployment-flow/</link>
+    <pubDate>Tue, 28 Dec 2021 09:43:43 &#43;0800</pubDate>
+    <author>Boiao Ch</author>
+    <guid>https://liaobinbin.com/posts/project-development-to-deployment-flow/</guid>
+    <description><![CDATA[开发 第一个阶段就是开发的阶段，首先要考虑的是做哪些功能或者调整 BUG 的顺序，根据任务的紧急程度进行划分 需求安排 紧急程度 应有个整体的需求清单的列表]]></description>
+</item>
+</channel>
+</rss>

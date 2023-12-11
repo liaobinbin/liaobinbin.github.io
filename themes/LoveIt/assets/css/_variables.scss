@@ -115,43 +115,75 @@ $pagination-link-hover-color-dark: #fff !default;
 
 // ========== Code ========== //
 // Font family and size of the code
-$code-font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono",
-  "Courier New", monospace !default;
-$code-font-size: 0.875rem !default;
+$code-font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$code-font-size: .875rem !default;
 
 // Color of the code
-$code-color: #e74c3c !default;
-$code-color-dark: #e5bf78 !default;
+$code-color: #E74C3C !default;
+$code-color-dark: #E5BF78 !default;
 
 // Color of the code background
 $code-background-color: #f5f5f5 !default;
-$code-background-color-dark: #272c34 !default;
+$code-background-color-dark: #272C34 !default;
 
 $code-info-color: #9c9c9c !default;
 $code-info-color-dark: #b1b0b0 !default;
 
 // Code type list
-$code-type-list: "language-bash" "Bash", "language-c" "C", "language-cs" "C#",
-  "language-cpp" "C++", "language-clojure" "Clojure",
-  "language-coffeescript" "CoffeeScript", "language-css" "CSS",
-  "language-dart" "Dart", "language-diff" "Diff", "language-erlang" "Erlang",
-  "language-go" "Go", "language-go-html-template" "Go HTML Template",
-  "language-groovy" "Groovy", "language-haskell" "Haskell",
-  "language-html" "HTML", "language-http" "HTTP", "language-xml" "XML",
-  "language-java" "Java", "language-js" "JavaScript",
-  "language-javascript" "JavaScript", "language-json" "JSON",
-  "language-kotlin" "Kotlin", "language-latex" "LaTeX", "language-less" "Less",
-  "language-lisp" "Lisp", "language-lua" "Lua", "language-makefile" "Makefile",
-  "language-markdown" "Markdown", "language-matlab" "Matlab",
-  "language-objectivec" "Objective-C", "language-php" "PHP",
-  "language-perl" "Perl", "language-powershell" "PowerShell",
-  "language-posh" "PowerShell", "language-pwsh" "PowerShell",
-  "language-python" "Python", "language-r" "R", "language-ruby" "Ruby",
-  "language-rust" "Rust", "language-scala" "Scala", "language-scss" "Scss",
-  "language-shell" "Shell", "language-sql" "SQL", "language-swift" "Swift",
-  "language-tex" "TeX", "language-toml" "TOML", "language-ts" "TypeScript",
-  "language-typescript" "TypeScript", "language-vue" "Vue",
-  "language-yml" "YAML", "language-yaml" "YAML", "language-wgsl" "WGSL" !default;
+$code-type-list:
+  "language-bash" "Bash",
+  "language-c" "C",
+  "language-cs" "C#",
+  "language-cpp" "C++",
+  "language-clojure" "Clojure",
+  "language-coffeescript" "CoffeeScript",
+  "language-css" "CSS",
+  "language-dart" "Dart",
+  "language-diff" "Diff",
+  "language-erlang" "Erlang",
+  "language-go" "Go",
+  "language-go-html-template" "Go HTML Template",
+  "language-groovy" "Groovy",
+  "language-haskell" "Haskell",
+  "language-html" "HTML",
+  "language-http" "HTTP",
+  "language-xml" "XML",
+  "language-java" "Java",
+  "language-js" "JavaScript",
+  "language-javascript" "JavaScript",
+  "language-json" "JSON",
+  "language-kotlin" "Kotlin",
+  "language-latex" "LaTeX",
+  "language-less" "Less",
+  "language-lisp" "Lisp",
+  "language-lua" "Lua",
+  "language-makefile" "Makefile",
+  "language-markdown" "Markdown",
+  "language-matlab" "Matlab",
+  "language-objectivec" "Objective-C",
+  "language-php" "PHP",
+  "language-perl" "Perl",
+  "language-powershell" "PowerShell",
+  "language-posh" "PowerShell",
+  "language-pwsh" "PowerShell",
+  "language-python" "Python",
+  "language-r" "R",
+  "language-ruby" "Ruby",
+  "language-rust" "Rust",
+  "language-scala" "Scala",
+  "language-scss" "Scss",
+  "language-shell" "Shell",
+  "language-sql" "SQL",
+  "language-swift" "Swift",
+  "language-tex" "TeX",
+  "language-toml" "TOML",
+  "language-ts" "TypeScript",
+  "language-typescript" "TypeScript",
+  "language-vue" "Vue",
+  "language-yml" "YAML",
+  "language-yaml" "YAML",
+  "language-wgsl" "WGSL",
+  !default;
 
 // Color map of the code highlight
 $code-highlight-color-map: (
@@ -227,7 +259,7 @@ $code-highlight-color-map: (
   /* GenericStrong */ "gs": #e72d40,
   /* GenericSubheading */ "gu": #e72d40,
   /* GenericTraceback */ "gt": #e72d40,
-  /* TextWhitespace */ "w": #bbbbbb
+  /* TextWhitespace */ "w": #bbbbbb,
 ) !default;
 $code-highlight-color-map-dark: (
   /* Parentheses */ "p": #a9a9b3,
@@ -302,20 +334,24 @@ $code-highlight-color-map-dark: (
   /* GenericStrong */ "gs": #f16372,
   /* GenericSubheading */ "gu": #f16372,
   /* GenericTraceback */ "gt": #f16372,
-  /* TextWhitespace */ "w": #bbbbbb
+  /* TextWhitespace */ "w": #bbbbbb,
 ) !default;
 // ========== Code ========== //
 
 // ========== Admonition ========== //
 // Color list of admonition [$type $color $background-color, ... ]
-$admonition-color-list: "note" #448aff rgba(68, 138, 255, 0.1),
+$admonition-color-list:
+  "note" #448aff rgba(68, 138, 255, 0.1),
   "abstract" #00b0ff rgba(0, 176, 255, 0.1),
-  "info" #00b8d4 rgba(83, 211, 230, 0.1), "tip" #00bfa5 rgba(0, 191, 165, 0.1),
+  "info" #00b8d4 rgba(83, 211, 230, 0.1),
+  "tip" #00bfa5 rgba(0, 191, 165, 0.1),
   "success" #00c853 rgba(0, 200, 83, 0.1),
   "question" #64dd17 rgba(100, 221, 23, 0.1),
   "warning" #ff9100 rgba(255, 145, 0, 0.1),
   "failure" #ff5252 rgba(255, 82, 82, 0.1),
-  "danger" #ff1744 rgba(68, 138, 255, 0.1), "bug" #f50057 rgba(255, 23, 68, 0.1),
+  "danger" #ff1744 rgba(68, 138, 255, 0.1),
+  "bug" #f50057 rgba(255, 23, 68, 0.1),
   "example" #651fff rgba(101, 31, 255, 0.1),
-  "quote" #9e9e9e rgba(159, 159, 159, 0.1) !default;
+  "quote" #9e9e9e rgba(159, 159, 159, 0.1),
+  !default;
 // ========== Admonition ========== //

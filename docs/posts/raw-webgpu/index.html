@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>[译]原始WebGPU - Raw WebGPU - Boiao Ch</title><meta name="Description" content="Keep Focus!"><meta property="og:title" content="[译]原始WebGPU - Raw WebGPU" />
+<meta property="og:description" content="作者： &#8201;Alain Galvan 一份如何编写 WebGPU 应用程序的概述， 学习 WebGPU 在绘制中所需的关键数据结构和类型。 Github Repo | Codepen WebGPU 是一种用于 Web 的新的图形 API，它遵循现代计算图形 API" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liaobinbin.com/posts/raw-webgpu/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-01T16:24:09+08:00" />
+<meta property="article:modified_time" content="2023-12-01T16:24:09+08:00" /><meta property="og:site_name" content="Boiao Ch" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="[译]原始WebGPU - Raw WebGPU"/>
+<meta name="twitter:description" content="作者： &#8201;Alain Galvan 一份如何编写 WebGPU 应用程序的概述， 学习 WebGPU 在绘制中所需的关键数据结构和类型。 Github Repo | Codepen WebGPU 是一种用于 Web 的新的图形 API，它遵循现代计算图形 API"/>
+<meta name="twitter:site" content="@liaobinbin"/>
+<meta name="application-name" content="Boiao Ch&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Boiao Ch&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css" rel="stylesheet" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://liaobinbin.com/posts/raw-webgpu/" /><link rel="prev" href="https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[译]原始WebGPU - Raw WebGPU",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/liaobinbin.com\/posts\/raw-webgpu\/"
+        },"genre": "posts","keywords": "webgpu, frontend, rust, wgsl","wordcount":  4797 ,
+        "url": "https:\/\/liaobinbin.com\/posts\/raw-webgpu\/","datePublished": "2023-12-01T16:24:09+08:00","dateModified": "2023-12-01T16:24:09+08:00","license": "\u0026copy; \u003ca href=\"https://liaobinbin.com\"\u003e Boiao Ch\u003c/a\u003e 2008 - 2018","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Boiao Ch"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Boiao Ch"><span id="id-8" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Boiao Ch"><span id="id-9" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[译]原始WebGPU - Raw WebGPU</h1><div class="post-meta">
+            <div class="post-meta-line"><time datetime="2023-12-01">2023-12-01</time>&nbsp;&nbsp;<span class="post-category"><a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端</a></span>&nbsp;&nbsp;<span id="/posts/raw-webgpu/" class="leancloud_visitors" data-flag-title="[译]原始WebGPU - Raw WebGPU">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次围观
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#设定">设定</a></li>
+    <li><a href="#项目结构">项目结构</a>
+      <ul>
+        <li><a href="#依赖">依赖</a></li>
+      </ul>
+    </li>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#初始化-api">初始化 API</a>
+      <ul>
+        <li><a href="#入口">入口</a></li>
+        <li><a href="#适配器">适配器</a></li>
+        <li><a href="#设备">设备</a></li>
+        <li><a href="#队列">队列</a></li>
+      </ul>
+    </li>
+    <li><a href="#帧支持">帧支持</a>
+      <ul>
+        <li><a href="#canvas-上下文">Canvas 上下文</a></li>
+        <li><a href="#帧缓冲附件">帧缓冲附件</a></li>
+      </ul>
+    </li>
+    <li><a href="#初始化资源">初始化资源</a>
+      <ul>
+        <li><a href="#顶点和索引缓冲区">顶点和索引缓冲区</a></li>
+        <li><a href="#着色器">着色器</a></li>
+        <li><a href="#着色器模块">着色器模块</a></li>
+        <li><a href="#uniform-缓冲区">Uniform 缓冲区</a></li>
+        <li><a href="#管线布局">管线布局</a></li>
+        <li><a href="#图形管线">图形管线</a></li>
+        <li><a href="#指令编码器">指令编码器</a></li>
+      </ul>
+    </li>
+    <li><a href="#渲染">渲染</a></li>
+    <li><a href="#结束语">结束语</a>
+      <ul>
+        <li><a href="#其他资源">其他资源</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>作者： <span class="h-card person-mention"><a href="https://alain.xyz" class="u-url url"><img class="u-photo photo" src="https://alain.xyz/assets/brand/alaingalvan0.jpg" alt="Alain Galvan">&#8201;<span class="p-name fn">Alain Galvan</span></a></span></p>
+<p><em>一份如何编写 WebGPU 应用程序的概述， 学习 WebGPU 在绘制中所需的关键数据结构和类型。</em></p>
+<data id="id-1" data-raw></data>
+<div id="id-2"><a href="https://github.com/alaingalvan/webgpu-seed" target="_blank" rel="noopener noreffer ">Github Repo</a> |
+<a href="https://codepen.io/alaingalvan/pen/GRgvLGw" target="_blank" rel="noopener noreffer ">Codepen</a></div>
+<data id="id-3" data-raw></data>
+<p>WebGPU 是一种用于 Web 的新的图形 API，它遵循现代计算图形 API (例如 Mircrosoft DirectX 12、 Vulkan 和 Apple Metal) 的框架。 Web 图形 API 的这种范式转变使用户能够享受与本机原生图形 API 相同的好处： 更快的应用程序归功于充分利用 GPU，更少的特定图形驱动程序错误，基于未来实现新功能的潜力。</p>
+<p>WebGPU 可能是 Web 上所有渲染 API 中最复杂的，尽管这种复杂性可以通过 API 提供的性能提示和未来支持的保证来抵消。本文旨在揭秘该 API，使其更容易理解使用该 API 编写 Web 应用程序。</p>
+<blockquote>
+<p>注意： 本文基于 2023 年 5 月 11 日的 WebGPU API，如果有任何变化，请在原文评论区或者 Twitter 上告诉作者，作者会尽快更新。
+(也可以在本评论区留言，或者联系译者，译者将会代为联系作者)</p>
+</blockquote>
+<hr>
+<p>作者已经准备了一个 <a href="https://github.com/alaingalvan/webgpu-seed" target="_blank" rel="noopener noreffer ">Github</a> 仓库，里面包含了你开始的所有所需内容。我们将一起编写使用 <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreffer ">Typescript</a> 编写的 WebGPU Hello Triangle 应用。</p>
+<blockquote>
+<p>请查看作者在 WebGL 上的另一篇博文，该文介绍如何使用一种较旧但广泛支持的 Web 图形 API 来编写图形应用程序。</p>
+</blockquote>
+<h2 id="设定">设定</h2>
+<p>WebGPU 在广泛的平台上得到支持：</p>
+<ul>
+<li><a href="https://www.google.com/chrome/canary/" target="_blank" rel="noopener noreffer ">Google Chrome</a>： WebGPU 在 Chrome 113 中可用，并且目前作为初始试用版本提供。目前，Chrome Canary 的 Android 版不支持 WebGPU。</li>
+<li><a href="https://www.mozilla.org/en-US/firefox/channel/desktop/" target="_blank" rel="noopener noreffer ">Mozilla Firefox</a>： 你必须使用 Nightly 版，Firefox Nightly 的 Android 版支持 WebGPU。</li>
+<li><a href="https://www.microsoftedgeinsider.com/en-us/download" target="_blank" rel="noopener noreffer ">Microsoft Edge</a>： 目前可以通过 Canary 版本使用，但其功能与 Chrome 相同。</li>
+<li>Apple Safari： Safari 团队目前正在致力于桌面端支持 WebGPU，但就目前而言，移动端还没有消息。</li>
+</ul>
+<p>当你拥有了支持 WebGPU 的浏览器后安装以下内容：</p>
+<ul>
+<li>任何现代浏览器的 alpha 版本，例如：
+<ul>
+<li>Chrome 或者任何 基于 Chromium 的浏览器的 Canary 版本， 然后访问 <code>about:flags</code> 去启用 <code>unsafe-webgpu</code> 。</li>
+<li>FireFox，访问 <code>about:config</code> 去启用 <code>dom.webgpu.enabled</code>。</li>
+</ul>
+</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener noreffer ">Git</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener noreffer ">Node.js</a></li>
+<li>一个文本编辑器，例如： <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreffer ">Visual Studio Code</a>、<a href="https://www.vim.org/" target="_blank" rel="noopener noreffer ">Vim</a>、<a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener noreffer ">Emacs</a></li>
+</ul>
+<p>然后在任意终端命令行输入以下内容，例如 <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank" rel="noopener noreffer ">VS Code&rsquo;s 内置终端</a>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 🐑 克隆该仓库</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/alaingalvan/webgpu-seed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 💿 进入项目文件夹 </span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> webgpu-seed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 🔨 启动构建项目 </span>
+</span></span><span class="line"><span class="cl">npm start
+</span></span></code></pre></div><blockquote>
+<p>引用一个文章介绍node.js， packages</p>
+</blockquote>
+<h2 id="项目结构">项目结构</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├─ 📂 node_modules/   <span class="c1"># 👶 依赖</span>
+</span></span><span class="line"><span class="cl">│  ├─ 📁 gl-matrix      <span class="c1"># ➕ 线性代数 </span>
+</span></span><span class="line"><span class="cl">│  └─ 📁 ...            <span class="c1"># 🕚 其他依赖 (TypeScript, Webpack, etc.)</span>
+</span></span><span class="line"><span class="cl">├─ 📂 src/            <span class="c1"># 🌟 源文件 </span>
+</span></span><span class="line"><span class="cl">│  ├─ 📄 renderer.ts    <span class="c1"># 🔺 三角形渲染器 </span>
+</span></span><span class="line"><span class="cl">│  └─ 📄 main.ts        <span class="c1"># 🏁 应用程序主入口 </span>
+</span></span><span class="line"><span class="cl">├─ 📄 .gitignore      <span class="c1"># 👁️ 在 Git 仓库中忽略特定的文件 </span>
+</span></span><span class="line"><span class="cl">├─ 📄 package.json    <span class="c1"># 📦 Node 包配置文件 </span>
+</span></span><span class="line"><span class="cl">├─ 📄 license.md      <span class="c1"># ⚖️ 你的 License (Unlicense)</span>
+</span></span><span class="line"><span class="cl">└─ 📃readme.md        <span class="c1"># 📖 请阅读它! </span>
+</span></span></code></pre></div><h3 id="依赖">依赖</h3>
+<ul>
+<li><a href="https://github.com/toji/gl-matrix" target="_blank" rel="noopener noreffer ">gl-matrix</a> - 一个 JavaScript 库，允许用户像编写 JavaScript 代码一样编写 <code>glsl</code>，包括向量、矩阵等类型。虽然在这个示例中没有使用，但是它对于编写更高级的<strong><ruby>内容<rt>例如相机矩阵</rt></ruby></strong>非常有用。</li>
+<li>TypeScript - 带有类型的 JavaScript，通过实时自动补全和类型检查使得编写 Web 应用程序变得非常容易。</li>
+<li>Webpack - 一个JavaScript 编译工具，用于构建最小化的输出和更快地测试我们的应用程序。</li>
+</ul>
+<h2 id="概述">概述</h2>
+<p>在这个应用程序中我们将要做以下几件事：</p>
+<ol>
+<li><strong>初始化 API</strong> - 检查<code>Navigator.gpu</code>是否存在，如果存在，则请求一个 <code>GPUAdapter</code>， 然后请求一个 <code>GPUDevice</code>，并获取该设备的默认 <code>GPUQueue</code>。</li>
+<li><strong>设置帧支持</strong> - 创建一个<code>GPUCanvasContext</code>并将其配置为接收当前帧的<code>GPUTexture</code>，以及您可能需要的任何其他附件(例如深度模板纹理等)。为这些纹理创建<code>GPUTextureView</code>。</li>
+<li><strong>初始化资源</strong> - 创建您的顶点和索引 <code>GPUBuffers</code>， 将 <strong><ruby>WebGPU Shading Language<rt>WGSL</rt></ruby></strong> 着色器加载为<code>GPUShaderModules</code>，通过描述图形管线的每个阶段创建<code>GPURenderPipeline</code>。最后，使用您打算运行的渲染通道构建<code>GPUCommandEncoder</code>，然后使用渲染通道执行所有的绘图调用构建<code>GPURenderPassEncoder</code>。</li>
+<li><strong>渲染</strong> - 通过调用 <code>.finish()</code> 提交您的 <code>GPUCommandEncoder</code> 到 <code>GPUQueue</code>。通过调用<code>requestAnimationFrame</code> 刷新你画布上下文。</li>
+<li><strong>销毁</strong> - 在使用 API 完成后销毁所有数据结构。</li>
+</ol>
+<h2 id="初始化-api">初始化 API</h2>
+<h3 id="入口">入口</h3>
+<p><figure><a class="lightgallery" href="./os-window.svg" title="Entry Point Diagram" data-thumbnail="./os-window.svg" data-sub-html="<h2>Hello Triangle</h2><p>Entry Point Diagram</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./os-window.svg"
+            data-srcset="./os-window.svg, ./os-window.svg 1.5x, ./os-window.svg 2x"
+            data-sizes="auto"
+            alt="./os-window.svg" />
+    </a><figcaption class="image-caption">Hello Triangle</figcaption>
+    </figure></p>
+<p>为了访问 WebGPU API，你需要检查全局变量<code>navigator</code>对象中是否存在一个<code>gpu</code>对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 🏭  WebGPU 入口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">entry</span>: <span class="kt">GPU</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">gpu</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;WebGPU is not supported on this browser.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="适配器">适配器</h3>
+<p><figure><a class="lightgallery" href="./adapter.svg" title="Adapter Diagram" data-thumbnail="./adapter.svg" data-sub-html="<h2>适配器</h2><p>Adapter Diagram</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./adapter.svg"
+            data-srcset="./adapter.svg, ./adapter.svg 1.5x, ./adapter.svg 2x"
+            data-sizes="auto"
+            alt="./adapter.svg" />
+    </a><figcaption class="image-caption">适配器</figcaption>
+    </figure></p>
+<p><strong>适配器</strong> 描述了特定 GPU 的物理属性，例如它的名称、扩展和设备限制。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义适配器句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">adapter</span>: <span class="kt">GPUAdapter</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🙏 内置的异步获取...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 🔌 物理设备适配器 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">adapter</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">requestAdapter</span><span class="p">();</span>
+</span></span></code></pre></div><h3 id="设备">设备</h3>
+<p><figure><a class="lightgallery" href="./device.svg" title="Device" data-thumbnail="./device.svg" data-sub-html="<h2>设备</h2><p>Device</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./device.svg"
+            data-srcset="./device.svg, ./device.svg 1.5x, ./device.svg 2x"
+            data-sizes="auto"
+            alt="./device.svg" />
+    </a><figcaption class="image-caption">设备</figcaption>
+    </figure></p>
+<p><strong>设备</strong>  是您访问 WebGPU API 的核心方式，它将允许您创建所需的数据结构。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义设备句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">device</span>: <span class="kt">GPUDevice</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🙏 内置的异步获取...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 💻 逻辑设备 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">device</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">adapter</span><span class="p">.</span><span class="nx">requestDevice</span><span class="p">();</span>
+</span></span></code></pre></div><h3 id="队列">队列</h3>
+<p><figure><a class="lightgallery" href="./queue.svg" title="Queue" data-thumbnail="./queue.svg" data-sub-html="<h2>队列</h2><p>Queue</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./queue.svg"
+            data-srcset="./queue.svg, ./queue.svg 1.5x, ./queue.svg 2x"
+            data-sizes="auto"
+            alt="./queue.svg" />
+    </a><figcaption class="image-caption">队列</figcaption>
+    </figure></p>
+<p><strong>队列</strong> 允许您将工作异步的发送到 GPU。在原文撰写时，您只能从给定的 <code>GPUDevice</code> 访问一个默认的队列。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义队列句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">queue</span>: <span class="kt">GPUQueue</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 📦 获取队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">queue</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">queue</span><span class="p">;</span>
+</span></span></code></pre></div><h2 id="帧支持">帧支持</h2>
+<h3 id="canvas-上下文">Canvas 上下文</h3>
+<p><figure><a class="lightgallery" href="./canvas.svg" title="Canvas" data-thumbnail="./canvas.svg" data-sub-html="<h2>Canvas</h2><p>Canvas</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./canvas.svg"
+            data-srcset="./canvas.svg, ./canvas.svg 1.5x, ./canvas.svg 2x"
+            data-sizes="auto"
+            alt="./canvas.svg" />
+    </a><figcaption class="image-caption">Canvas</figcaption>
+    </figure></p>
+<p>为了看到你所绘制的内容，您需要一个 <code>HTMLCanvasElement</code>  <sup>canvas</sup>/<sub>画布</sub> 元素， 并且需要从该画布获得一个 <strong>Canvas 上下文</strong>， Canvas 上下文管理一系列纹理，您将使用这些纹理来呈现最终的渲染输出到你的 canvas 元素。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义上下文句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">context</span>: <span class="kt">GPUCanvasContext</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ⚪ 创建上下文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;webgpu&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ⛓️ 配置上下文 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">canvasConfig</span>: <span class="kt">GPUCanvasConfiguration</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">device</span>: <span class="kt">this.device</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;bgra8unorm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">usage</span>: <span class="kt">GPUTextureUsage.RENDER_ATTACHMENT</span> <span class="o">|</span> <span class="nx">GPUTextureUsage</span><span class="p">.</span><span class="nx">COPY_SRC</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alphaMode</span><span class="o">:</span> <span class="s1">&#39;opaque&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">context</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">canvasConfig</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="帧缓冲附件">帧缓冲附件</h3>
+<p><figure><a class="lightgallery" href="./attachments.svg" title="Attachment" data-thumbnail="./attachments.svg" data-sub-html="<h2>附件</h2><p>Attachment</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./attachments.svg"
+            data-srcset="./attachments.svg, ./attachments.svg 1.5x, ./attachments.svg 2x"
+            data-sizes="auto"
+            alt="./attachments.svg" />
+    </a><figcaption class="image-caption">附件</figcaption>
+    </figure></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义附件句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">depthTexture</span>: <span class="kt">GPUTexture</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">depthTextureView</span>: <span class="kt">GPUTextureView</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🤔 创建深度支持 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">depthTextureDesc</span>: <span class="kt">GPUTextureDescriptor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">size</span><span class="o">:</span> <span class="p">[</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dimension</span><span class="o">:</span> <span class="s1">&#39;2d&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;depth24plus-stencil8&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">usage</span>: <span class="kt">GPUTextureUsage.RENDER_ATTACHMENT</span> <span class="o">|</span> <span class="nx">GPUTextureUsage</span><span class="p">.</span><span class="nx">COPY_SRC</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">depthTexture</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createTexture</span><span class="p">(</span><span class="nx">depthTextureDesc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">depthTextureView</span> <span class="o">=</span> <span class="nx">depthTexture</span><span class="p">.</span><span class="nx">createView</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✋ 定义 Canvas 上下文图像句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">colorTexture</span>: <span class="kt">GPUTexture</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colorTextureView</span>: <span class="kt">GPUTextureView</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">colorTexture</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getCurrentTexture</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">colorTextureView</span> <span class="o">=</span> <span class="nx">colorTexture</span><span class="p">.</span><span class="nx">createView</span><span class="p">();</span>
+</span></span></code></pre></div><h2 id="初始化资源">初始化资源</h2>
+<h3 id="顶点和索引缓冲区">顶点和索引缓冲区</h3>
+<p><figure><a class="lightgallery" href="./buffer.svg" title="Buffer" data-thumbnail="./buffer.svg" data-sub-html="<h2>缓冲区</h2><p>Buffer</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./buffer.svg"
+            data-srcset="./buffer.svg, ./buffer.svg 1.5x, ./buffer.svg 2x"
+            data-sizes="auto"
+            alt="./buffer.svg" />
+    </a><figcaption class="image-caption">缓冲区</figcaption>
+    </figure></p>
+<p><strong><strong><ruby>缓冲区<rt>Buffer</rt></ruby></strong></strong> 是一个数组数据，比如网格的位置数据、颜色数据、索引数据等。在只用基于光栅的图形管线渲染三角形的时候，你需要将一个或者多个顶点数据缓冲区「通常称为<strong><ruby>顶点缓冲对象<rt>VBO</rt></ruby></strong>」，以及一个包含与要绘制的每个三角形顶点相对应的索引的缓冲区「也称为<strong><ruby>索引缓冲对象<rt>IBO</rt></ruby></strong>」</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 📈 位置顶点缓冲数据 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">positions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🎨 颜色顶点缓冲数据 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span> <span class="c1">// 🔴
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mf">0.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span> <span class="c1">// 🟢
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mf">0.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.0</span> <span class="c1">// 🔵
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 📇 索引缓冲数据 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">indices</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Uint16Array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✋ 定义缓冲区句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">positionBuffer</span>: <span class="kt">GPUBuffer</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colorBuffer</span>: <span class="kt">GPUBuffer</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">indexBuffer</span>: <span class="kt">GPUBuffer</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 👋 辅助函数便于其他类型数组转化为 GPUBuffer(s) 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">createBuffer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span>: <span class="kt">Float32Array</span> <span class="o">|</span> <span class="nx">Uint16Array</span><span class="p">,</span> <span class="nx">usage</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 📏 对齐到 4 字节 (感谢 @chrimsonite)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">desc</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">size</span><span class="o">:</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">byteLength</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">usage</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mappedAtCreation</span>: <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createBuffer</span><span class="p">(</span><span class="nx">desc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">writeArray</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">arr</span> <span class="k">instanceof</span> <span class="nx">Uint16Array</span>
+</span></span><span class="line"><span class="cl">            <span class="o">?</span> <span class="k">new</span> <span class="nx">Uint16Array</span><span class="p">(</span><span class="nx">buffer</span><span class="p">.</span><span class="nx">getMappedRange</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">            <span class="o">:</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">(</span><span class="nx">buffer</span><span class="p">.</span><span class="nx">getMappedRange</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">writeArray</span><span class="p">.</span><span class="kr">set</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">buffer</span><span class="p">.</span><span class="nx">unmap</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">buffer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">positionBuffer</span> <span class="o">=</span> <span class="nx">createBuffer</span><span class="p">(</span><span class="nx">positions</span><span class="p">,</span> <span class="nx">GPUBufferUsage</span><span class="p">.</span><span class="nx">VERTEX</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">colorBuffer</span> <span class="o">=</span> <span class="nx">createBuffer</span><span class="p">(</span><span class="nx">colors</span><span class="p">,</span> <span class="nx">GPUBufferUsage</span><span class="p">.</span><span class="nx">VERTEX</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">indexBuffer</span> <span class="o">=</span> <span class="nx">createBuffer</span><span class="p">(</span><span class="nx">indices</span><span class="p">,</span> <span class="nx">GPUBufferUsage</span><span class="p">.</span><span class="nx">INDEX</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="着色器">着色器</h3>
+<p><figure><a class="lightgallery" href="./shaders.svg" title="Shaders" data-thumbnail="./shaders.svg" data-sub-html="<h2>顶点着色器和片段着色器</h2><p>Shaders</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./shaders.svg"
+            data-srcset="./shaders.svg, ./shaders.svg 1.5x, ./shaders.svg 2x"
+            data-sizes="auto"
+            alt="./shaders.svg" />
+    </a><figcaption class="image-caption">顶点着色器和片段着色器</figcaption>
+    </figure></p>
+<p>伴随着 WebGPU 来的还有一个新的着色器语言： <strong><ruby>WebGPU Shading Language<rt>WGSL</rt></ruby></strong>。</p>
+<p>WebGPU 着色器语言类似于其他语言，如 Rust 、 Metal 着色器语言和 DirectX 高级着色器语言，具有 JavaScript 风格的装饰器， 例如 <code>@location(0)</code>， 采用 <strong><ruby>蛇形命名法<rt>snake_case</rt></ruby></strong> 的
+<sup>函数</sup>/<sub>成员</sub>，
+<strong><ruby>驼峰命名法<rt>CamelCase</rt></ruby></strong>的结构体，以及函数遵循 <code>fn my_func() -&gt; i32</code> 的 Rust 代码格式。</p>
+<p>以下是顶点着色器的源代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-wgsl" data-lang="wgsl"><span class="line"><span class="cl"><span class="k">struct</span><span class="w"> </span><span class="n">VSOut</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@builtin</span><span class="p">(</span><span class="nb">position</span><span class="p">)</span><span class="w"> </span><span class="n">nds_position</span><span class="p">:</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@location</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="nb">vec3</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@vertex</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="nd">@location</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in_pos</span><span class="p">:</span><span class="w"> </span><span class="nb">vec3</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nd">@location</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">in_color</span><span class="p">:</span><span class="w"> </span><span class="nb">vec3</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">VSOut</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">vs_out</span><span class="p">:</span><span class="w"> </span><span class="n">VSOut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">vs_out</span><span class="p">.</span><span class="n">nds_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">in_pos</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">vs_out</span><span class="p">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inColor</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vsOut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>以下是片段着色器的源代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-wgsl" data-lang="wgsl"><span class="line"><span class="cl"><span class="nd">@fragment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="nd">@location</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">in_color</span><span class="p">:</span><span class="w"> </span><span class="nb">vec3</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nd">@location</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">in_color</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>使用像 <a href="https://github.com/gfx-rs/naga" target="_blank" rel="noopener noreffer ">Mozilla Naga</a> 或者 <a href="https://dawn.googlesource.com/tint/" target="_blank" rel="noopener noreffer ">Google Tint</a> 这样的转换器可以将其他着色器语（例如 HLSL 或 GLSL）转换为 WGSL，但是这个过程有点复杂。</p>
+</blockquote>
+<h3 id="着色器模块">着色器模块</h3>
+<p><figure><a class="lightgallery" href="./shadermodules.svg" title="Shader Modules" data-thumbnail="./shadermodules.svg" data-sub-html="<h2>着色器模块</h2><p>Shader Modules</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./shadermodules.svg"
+            data-srcset="./shadermodules.svg, ./shadermodules.svg 1.5x, ./shadermodules.svg 2x"
+            data-sizes="auto"
+            alt="./shadermodules.svg" />
+    </a><figcaption class="image-caption">着色器模块</figcaption>
+    </figure></p>
+<p><strong>着色器模块</strong> 是一种普通的文本 WGSL 文件， 在 GPU 上使用给定的图形管道执行。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 📄 引入或者在行内定义您的WGSL代码:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">vertShaderCode</span> <span class="kr">from</span> <span class="s1">&#39;./shaders/triangle.vert.wgsl&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">fragShaderCode</span> <span class="kr">from</span> <span class="s1">&#39;./shaders/triangle.frag.wgsl&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✋ 定义着色器模块句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">vertModule</span>: <span class="kt">GPUShaderModule</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fragModule</span>: <span class="kt">GPUShaderModule</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">vsmDesc</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">code</span>: <span class="kt">vertShaderCode</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">vertModule</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createShaderModule</span><span class="p">(</span><span class="nx">vsmDesc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fsmDesc</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">code</span>: <span class="kt">fragShaderCode</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fragModule</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createShaderModule</span><span class="p">(</span><span class="nx">fsmDesc</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="uniform-缓冲区">Uniform 缓冲区</h3>
+<p><figure><a class="lightgallery" href="./uniform-buffer.svg" title="Uniform Buffer" data-thumbnail="./uniform-buffer.svg" data-sub-html="<h2>Uniform 缓冲区</h2><p>Uniform Buffer</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./uniform-buffer.svg"
+            data-srcset="./uniform-buffer.svg, ./uniform-buffer.svg 1.5x, ./uniform-buffer.svg 2x"
+            data-sizes="auto"
+            alt="./uniform-buffer.svg" />
+    </a><figcaption class="image-caption">Uniform 缓冲区</figcaption>
+    </figure></p>
+<p>您通常需要直接向着色器模块提供数据，并且为此需要指定一个统一变量。要在着色器中创建 Uniform 缓冲区，请在主函数之前声明以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-wgsl" data-lang="wgsl"><span class="line"><span class="cl"><span class="k">struct</span><span class="w"> </span><span class="n">UBO</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">modelViewProj</span><span class="p">:</span><span class="w"> </span><span class="nb">mat4x4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">primaryColor</span><span class="p">:</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">accentColor</span><span class="p">:</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="nd">@binding</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">var</span><span class="o">&lt;</span><span class="nb">uniform</span><span class="o">&gt;</span><span class="w"> </span><span class="n">uniforms</span><span class="p">:</span><span class="w"> </span><span class="n">UBO</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ❗在您的顶点着色器的主文件中 ，
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 将倒数第四行替换为：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vsOut</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uniforms</span><span class="p">.</span><span class="n">modelViewProj</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">vec4</span><span class="o">&lt;</span><span class="nb">f32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">inPos</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>在您的 JavaScript 代码中，创建一个 Uniform 缓冲区，就像使用<sup>索引</sup>/<sub>顶点</sub>缓冲区一样。</p>
+<blockquote>
+<p>为了更好地管理线性代数计算（例如矩阵乘法），您可能需要使用像 <a href="https://github.com/toji/gl-matrix" target="_blank" rel="noopener noreffer ">gl-Matrix</a> 这样的库。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 👔 uniform数据 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">uniformData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// ♟️ 模型视图投影矩阵 (单位矩阵)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 🔴 主颜色 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 🟣 强调色 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✋ 定义缓冲区句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">uniformBuffer</span>: <span class="kt">GPUBuffer</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">uniformBuffer</span> <span class="o">=</span> <span class="nx">createBuffer</span><span class="p">(</span><span class="nx">uniformData</span><span class="p">,</span> <span class="nx">GPUBufferUsage</span><span class="p">.</span><span class="nx">UNIFORM</span> <span class="o">|</span> <span class="nx">GPUBufferUsage</span><span class="p">.</span><span class="nx">COPY_DST</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="管线布局">管线布局</h3>
+<div id="id-4"><p><figure><a class="lightgallery" href="./pipeline-layout.svg" title="Pipeline Layout" data-thumbnail="./pipeline-layout.svg" data-sub-html="<h2>管线布局</h2><p>Pipeline Layout</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./pipeline-layout.svg"
+            data-srcset="./pipeline-layout.svg, ./pipeline-layout.svg 1.5x, ./pipeline-layout.svg 2x"
+            data-sizes="auto"
+            alt="./pipeline-layout.svg" />
+    </a><figcaption class="image-caption">管线布局</figcaption>
+    </figure></p>
+</div>
+<blockquote>
+<p>译者注： <strong>管线布局</strong>  本质上是一个着色器阶段的资源绑定布局描述，它定义了着色器需要的资源如何被绑定到管线上。它在创建渲染管线时被指定，确保着色器能够正确地访问所需的资源。</p>
+</blockquote>
+<p>一旦您有了一个统一的 uniform ，您就可以创建一个 <strong>管线布局</strong> 来描述在执行图形管线时该 uniform 的位置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">bindGroupLayout</span>: <span class="kt">GPUBindGroupLayout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">uniformBindGroup</span>: <span class="kt">GPUBindGroup</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 👨‍🔧 创建您的图形管线...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 🧙‍♂️ 获取您的隐式管线布局:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">bindGroupLayout</span> <span class="o">=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nx">getBindGroupLayout</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🗄️ 绑定组 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ✍ 这将用于 *编码指令*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">uniformBindGroup</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createBindGroup</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">layout</span>: <span class="kt">bindGroupLayout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">entries</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">binding</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">resource</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">buffer</span>: <span class="kt">uniformBuffer</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>或者您事先知道你的布局， 你可以自己在管线创建的时候创建并使用它。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ 定义句柄 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">uniformBindGroupLayout</span>: <span class="kt">GPUBindGroupLayout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">uniformBindGroup</span>: <span class="kt">GPUBindGroup</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">layout</span>: <span class="kt">GPUPipelineLayout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 📁 绑定组layout 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">uniformBindGroupLayout</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createBindGroupLayout</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">entries</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">binding</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">visibility</span>: <span class="kt">GPUShaderStage.VERTEX</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">buffer</span><span class="o">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🗄️ 绑定组 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ✍ 这将用于 *编码指令*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">uniformBindGroup</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createBindGroup</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">layout</span>: <span class="kt">uniformBindGroupLayout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">entries</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">binding</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">resource</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">buffer</span>: <span class="kt">uniformBuffer</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🗂️ Pipeline Layout
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 👩‍🔧 这将用作 GPUPipelineDescriptor 的成员，在创建管线的时候使用 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">pipelineLayoutDesc</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">bindGroupLayouts</span><span class="o">:</span> <span class="p">[</span><span class="nx">uniformBindGroupLayout</span><span class="p">]</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">layout</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createPipelineLayout</span><span class="p">(</span><span class="nx">pipelineLayoutDesc</span><span class="p">);</span>
+</span></span></code></pre></div><p>当进行指令编码的时候，您可以使用 <code>setBindGroup</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✍  在您指令编码后:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setBindGroup</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">uniformBindGroup</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="图形管线">图形管线</h3>
+<div id="id-5"><p><figure><a class="lightgallery" href="./raster-pipeline.svg" title="Raster pipeline" data-thumbnail="./raster-pipeline.svg" data-sub-html="<h2>图形管线</h2><p>Raster pipeline</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./raster-pipeline.svg"
+            data-srcset="./raster-pipeline.svg, ./raster-pipeline.svg 1.5x, ./raster-pipeline.svg 2x"
+            data-sizes="auto"
+            alt="./raster-pipeline.svg" />
+    </a><figcaption class="image-caption">图形管线</figcaption>
+    </figure></p>
+</div>
+<p><strong>图形管线</strong> 描述了所有要输入到光栅绘图管线执行中的数据。包括以下：</p>
+<ul>
+<li>🔣 <strong>输入组件</strong> - 每个顶点是什么样子？哪些属性在哪里，以及他们在内存中是如何对齐的？</li>
+<li>🖍️ <strong>着色器模块</strong> - 在执行此图形管线的时候，您将使用哪些着色器模块？</li>
+<li>✏️ <strong>Depth/Stencil State</strong> - 您应该执行深度测试吗？如果是这样，您应该使用什么函数来测试深度？</li>
+<li>🍥 <strong>混合状态</strong> - 在先前的颜色和当前的颜色之间应该如何混合颜色？</li>
+<li>🔺 <strong>光栅化</strong> - 在执行图形管线时，光纤化器的行为是如何的？它是否剔除面？应该剔除哪个方向的面？</li>
+<li>💾 <strong>Uniform 数据</strong> - 您的着色器应该需要什么样格式的统一数据？在 WebGPU 中，这是通过描述管道布局来实现的。</li>
+</ul>
+<p>WebGPU 为图形管线状态提供了只能默认设置，所以大多数时候您甚至不需要设置它，下面是一部分：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ Declare pipeline handle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">pipeline</span>: <span class="kt">GPURenderPipeline</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ⚗️ Graphics Pipeline
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 🔣 Input Assembly
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">positionAttribDesc</span>: <span class="kt">GPUVertexAttribute</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">shaderLocation</span>: <span class="kt">0</span><span class="p">,</span> <span class="c1">// @location(0)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">offset</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;float32x3&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">colorAttribDesc</span>: <span class="kt">GPUVertexAttribute</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">shaderLocation</span>: <span class="kt">1</span><span class="p">,</span> <span class="c1">// @location(1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">offset</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;float32x3&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">positionBufferDesc</span>: <span class="kt">GPUVertexBufferLayout</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">attributes</span><span class="o">:</span> <span class="p">[</span><span class="nx">positionAttribDesc</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arrayStride</span>: <span class="kt">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// sizeof(float) * 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stepMode</span><span class="o">:</span> <span class="s1">&#39;vertex&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">colorBufferDesc</span>: <span class="kt">GPUVertexBufferLayout</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">attributes</span><span class="o">:</span> <span class="p">[</span><span class="nx">colorAttribDesc</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arrayStride</span>: <span class="kt">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// sizeof(float) * 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">stepMode</span><span class="o">:</span> <span class="s1">&#39;vertex&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🌑 Depth
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">depthStencil</span>: <span class="kt">GPUDepthStencilState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">depthWriteEnabled</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">depthCompare</span><span class="o">:</span> <span class="s1">&#39;less&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;depth24plus-stencil8&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🦄 Uniform Data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">pipelineLayoutDesc</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">bindGroupLayouts</span><span class="o">:</span> <span class="p">[]</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">layout</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createPipelineLayout</span><span class="p">(</span><span class="nx">pipelineLayoutDesc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🎭 Shader Stages
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">vertex</span>: <span class="kt">GPUVertexState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">module</span>: <span class="kt">vertModule</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">entryPoint</span><span class="o">:</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">buffers</span><span class="o">:</span> <span class="p">[</span><span class="nx">positionBufferDesc</span><span class="p">,</span> <span class="nx">colorBufferDesc</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🌀 Color/Blend State
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">colorState</span>: <span class="kt">GPUColorTargetState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;bgra8unorm&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fragment</span>: <span class="kt">GPUFragmentState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">module</span>: <span class="kt">fragModule</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">entryPoint</span><span class="o">:</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span><span class="nx">colorState</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 🟨 Rasterization
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">primitive</span>: <span class="kt">GPUPrimitiveState</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">frontFace</span><span class="o">:</span> <span class="s1">&#39;cw&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cullMode</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">topology</span><span class="o">:</span> <span class="s1">&#39;triangle-list&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">pipelineDesc</span>: <span class="kt">GPURenderPipelineDescriptor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">layout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">vertex</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fragment</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">primitive</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">depthStencil</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">pipeline</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createRenderPipeline</span><span class="p">(</span><span class="nx">pipelineDesc</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="指令编码器">指令编码器</h3>
+<div id="id-6"><p><figure><a class="lightgallery" href="./command-encoder.svg" title="Command Encoder" data-thumbnail="./command-encoder.svg" data-sub-html="<h2>指令编码器</h2><p>Command Encoder</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./command-encoder.svg"
+            data-srcset="./command-encoder.svg, ./command-encoder.svg 1.5x, ./command-encoder.svg 2x"
+            data-sizes="auto"
+            alt="./command-encoder.svg" />
+    </a><figcaption class="image-caption">指令编码器</figcaption>
+    </figure></p>
+</div>
+<p><strong>指令编码器</strong> 会将您打算在 <strong>渲染通道编码器</strong> 组中执行的所有的绘制指令进行编码。一旦完成了指令的编码，您将收到一个指令缓冲区，可以将其提交到队列中。</p>
+<p>这个意义在于指令缓冲区类似于在 GPU 提交到队列后执行绘图函数的 <em>回调</em>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// ✋ Declare command handles
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">commandEncoder</span>: <span class="kt">GPUCommandEncoder</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">passEncoder</span>: <span class="kt">GPURenderPassEncoder</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ✍️ Write commands to send to the GPU
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">encodeCommands</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">colorAttachment</span>: <span class="kt">GPURenderPassColorAttachment</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">view</span>: <span class="kt">this.colorTextureView</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">clearValue</span><span class="o">:</span> <span class="p">{</span> <span class="nx">r</span>: <span class="kt">0</span><span class="p">,</span> <span class="nx">g</span>: <span class="kt">0</span><span class="p">,</span> <span class="nx">b</span>: <span class="kt">0</span><span class="p">,</span> <span class="nx">a</span>: <span class="kt">1</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loadOp</span><span class="o">:</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">storeOp</span><span class="o">:</span> <span class="s1">&#39;store&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">depthAttachment</span>: <span class="kt">GPURenderPassDepthStencilAttachment</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">view</span>: <span class="kt">this.depthTextureView</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">depthClearValue</span>: <span class="kt">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">depthLoadOp</span><span class="o">:</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">depthStoreOp</span><span class="o">:</span> <span class="s1">&#39;store&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">stencilClearValue</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">stencilLoadOp</span><span class="o">:</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">stencilStoreOp</span><span class="o">:</span> <span class="s1">&#39;store&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">renderPassDesc</span>: <span class="kt">GPURenderPassDescriptor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">colorAttachments</span><span class="o">:</span> <span class="p">[</span><span class="nx">colorAttachment</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">depthStencilAttachment</span>: <span class="kt">depthAttachment</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">commandEncoder</span> <span class="o">=</span> <span class="nx">device</span><span class="p">.</span><span class="nx">createCommandEncoder</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 🖌️ Encode drawing commands
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">passEncoder</span> <span class="o">=</span> <span class="nx">commandEncoder</span><span class="p">.</span><span class="nx">beginRenderPass</span><span class="p">(</span><span class="nx">renderPassDesc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setPipeline</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setScissorRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setVertexBuffer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">positionBuffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setVertexBuffer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">colorBuffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">setIndexBuffer</span><span class="p">(</span><span class="nx">indexBuffer</span><span class="p">,</span> <span class="s1">&#39;uint16&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">drawIndexed</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">passEncoder</span><span class="p">.</span><span class="nx">endPass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">queue</span><span class="p">.</span><span class="nx">submit</span><span class="p">([</span><span class="nx">commandEncoder</span><span class="p">.</span><span class="nx">finish</span><span class="p">()]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="渲染">渲染</h2>
+<div id="id-7"><p><figure><a class="lightgallery" href="./triangle-raster.gif" title="Render" data-thumbnail="./triangle-raster.gif" data-sub-html="<h2>渲染</h2><p>Render</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./triangle-raster.gif"
+            data-srcset="./triangle-raster.gif, ./triangle-raster.gif 1.5x, ./triangle-raster.gif 2x"
+            data-sizes="auto"
+            alt="./triangle-raster.gif" />
+    </a><figcaption class="image-caption">渲染</figcaption>
+    </figure></p>
+</div>
+<p><strong>渲染</strong> 是在 WebGPU 中简单地更新任务你打算更新的 uniform， 从你的上下文或者下一个附件，提交你的指令编码器以执行，然后使用 <code>requestAnimationFrame</code>  回调再次执行所有这些操作。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">render</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ⏭ Acquire next image from context
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorTexture</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getCurrentTexture</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">colorTextureView</span> <span class="o">=</span> <span class="nx">colorTexture</span><span class="p">.</span><span class="nx">createView</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 📦 Write and submit commands to queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">encodeCommands</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// ➿ Refresh canvas
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">render</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="结束语">结束语</h2>
+<p><strong>WebGPU</strong> 可能比其他图形 API 更难，但是它的API <em>设计的与现在显卡相结合的更紧密</em>，因此，不仅可以让应用程序更快，并且更长效。</p>
+<p>有些事情作者没有在这篇文章中涉及，因为它们超出了这篇文章的范围，比如：</p>
+<ul>
+<li><strong>矩阵</strong> 不管是用于视角还是场景中的物体转换。 gl-Matrix 是一种无价的资源。</li>
+<li><a href="" rel="">WebGPU 类型定义</a> 详细概述了绘图管线的每种可能状态，是非常有帮助的。</li>
+<li><strong>混合模式</strong> <a href="https://www.andersriggelsen.dk/glblendfunc.php" target="_blank" rel="noopener noreffer ">Anders Riggelsen 在这里编写了一个工具</a>，可以帮助您以可视化的方式查看 OpenGL 混合模式的行为。</li>
+<li><strong>计算管线</strong> 如果您想尝试的化，请查看下面的说明或者一些示例。</li>
+<li><strong>加载纹理</strong> 这可能有点复杂，下面的示例很好的介绍了如何加载纹理。</li>
+</ul>
+<h3 id="其他资源">其他资源</h3>
+<p>下面是一些关于 WebGPU 的<sup>文章</sup>/<sub>项目</sub>，顺序不分先后：</p>
+<ul>
+<li>William Usher (<a href="https://twitter.com/_wusher" target="_blank" rel="noopener noreffer ">@_wusher</a>)&rsquo;s article, updated for the Chrome 113 release of WebGPU: <a href="https://www.willusher.io/graphics/2023/04/10/0-to-gltf-triangle" target="_blank" rel="noopener noreffer ">From 0 to glTF with WebGPU</a>.</li>
+<li><a href="https://github.com/kvark" target="_blank" rel="noopener noreffer ">Dzmitry Malyshau</a> wrote an article similar to this one <a href="https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/" target="_blank" rel="noopener noreffer ">introducing WebGPU in Mozilla FireFox</a>.</li>
+<li><a href="https://metalbyexample.com/" target="_blank" rel="noopener noreffer ">Warren Moore</a> (<a href="https://twitter.com/warrenm" target="_blank" rel="noopener noreffer ">@warrenm</a>) wrote an article to help folks transition from the Metal API to <a href="https://metalbyexample.com/webgpu-part-one/" target="_blank" rel="noopener noreffer ">WebGPU</a>.</li>
+<li><a href="https://blog.tojicode.com/" target="_blank" rel="noopener noreffer ">Brandon Jones</a> (<a href="https://twitter.com/Tojiro" target="_blank" rel="noopener noreffer ">@Tojiro</a>) wrote an article describing how to write a <a href="https://toji.github.io/webgpu-gltf-case-study/" target="_blank" rel="noopener noreffer ">GLTF renderer in WebGPU</a>.</li>
+<li><a href="https://sotrh.github.io/learn-wgpu/#what-is-wgpu" target="_blank" rel="noopener noreffer ">Learn WGPU</a> is an introduction to writing WebGPU applications with Rust.</li>
+<li><a href="https://eliemichel.github.io/LearnWebGPU/" target="_blank" rel="noopener noreffer ">Learn WebGPU</a> for native graphics in C++.</li>
+</ul>
+<p>这有许多开源项目：</p>
+<ul>
+<li><a href="http://austineng.github.io/" target="_blank" rel="noopener noreffer ">Austin Eng</a>&rsquo;s <a href="http://austin-eng.com/webgpu-samples/samples/texturedCube" target="_blank" rel="noopener noreffer ">WebGPU Samples</a></li>
+<li><a href="http://tareksherif.net/" target="_blank" rel="noopener noreffer ">Tarek Sherif</a> (<a href="https://twitter.com/thsherif" target="_blank" rel="noopener noreffer ">@tsherif</a>)&rsquo;s <a href="https://github.com/tsherif/webgpu-examples" target="_blank" rel="noopener noreffer ">WebGPU Examples</a></li>
+<li><a href="https://github.com/redcamel/RedGPU" target="_blank" rel="noopener noreffer ">RedGPU</a> by <a href="https://twitter.com/redcamel15" target="_blank" rel="noopener noreffer ">@RedCamel15</a>, a series of examples written for WebGPU.</li>
+<li><a href="https://github.com/mrdoob/three.js/tree/dev/examples/jsm/renderers/webgpu" target="_blank" rel="noopener noreffer ">Three.js&rsquo; WebGPU Source</a></li>
+<li><a href="https://github.com/BabylonJS/Babylon.js/blob/WebGPU/src/Engines/webgpuEngine.ts" target="_blank" rel="noopener noreffer ">BabylonJS&rsquo;s WebGPU Source</a></li>
+<li><a href="https://github.com/gpuweb/types" target="_blank" rel="noopener noreffer ">WebGPU&rsquo;s Type Definitions</a></li>
+<li><a href="https://github.com/gpuweb/cts" target="_blank" rel="noopener noreffer ">WebGPU&rsquo;s Conformance Tests</a></li>
+<li><a href="https://dawn.googlesource.com/dawn" target="_blank" rel="noopener noreffer ">Dawn - A C++ Implementation of WebGPU</a> used to power Chromium&rsquo;s implementation of WebGPU. Carl Woffenden released a <a href="https://github.com/cwoffenden/hello-webgpu" target="_blank" rel="noopener noreffer ">Hello Triangle example with WebGPU and Dawn</a>.</li>
+<li><a href="https://github.com/gfx-rs/wgpu-native" target="_blank" rel="noopener noreffer ">wgpu-native</a> is a native WebGPU implementation in Rust, which can easily be used in all sorts of native projects.</li>
+</ul>
+<p>WebGPU 和 WebGPU 着色器语言的规范也值得看一看：</p>
+<ul>
+<li><a href="https://gpuweb.github.io/gpuweb/" target="_blank" rel="noopener noreffer ">WebGPU Specification</a></li>
+<li><a href="https://gpuweb.github.io/gpuweb/wgsl/" target="_blank" rel="noopener noreffer ">WebGPU Shading Language (WGSL) Specification</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-12-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/webgpu/">webgpu</a>,&nbsp;<a href="/tags/frontend/">frontend</a>,&nbsp;<a href="/tags/rust/">rust</a>,&nbsp;<a href="/tags/wgsl/">wgsl</a></section>
+        <section class="post-button">
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/awesome-wm-virtualbox-full-screen/" class="prev" rel="prev" title="Awesome Wm Virtualbox Full Screen"><i class="fas fa-angle-left fa-fw"
+                aria-hidden="true"></i>Awesome Wm Virtualbox Full Screen</a></div>
+</div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2008 - 2023</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="/css/726bc0.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/object-fit-images@3.2.4/dist/ofi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"XIo8KShyg27BUQNLIDGqtjhj-gzGzoHsz","appKey":"6AGQbwYr9G7NhVKfqxiOnV4y","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"Write something ...","recordIP":true,"visitor":true}},"data":{"id-1":"\n\u003ciframe height=\"480\" style=\"width: 100%;\" scrolling=\"no\" title=\"Raw WebGPU\" src=\"https://codepen.io/alaingalvan/embed/preview/GRgvLGw?height=480\u0026amp;theme-id=default\u0026amp;default-tab=result\" frameborder=\"no\" allowtransparency=\"true\" allowfullscreen=\"true\"\u003e\n  See the Pen \u003ca href='https://codepen.io/alaingalvan/pen/GRgvLGw\"'\u003eRaw WebGPU\u003c/a\u003e by Alain Galvan\n  (\u003ca href='https://codepen.io/alaingalvan\"'\u003e@alaingalvan\u003c/a\u003e) on \u003ca href='https://codepen.io\"'\u003eCodePen\u003c/a\u003e.\n\u003c/iframe\u003e\n","id-3":"\n\u003csvg width=\"100%\" height=\"100%\" viewBox=\"0 0 932 315\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" xmlns:serif=\"http://www.serif.com/\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;\"\u003e\n    \u003cpath id=\"Triangle_1\" d=\"M154.8,220.055L56.4,49.619L253.2,49.619L154.8,220.055Z\" style=\"fill:#005a9c;fill-rule:nonzero;\"/\u003e\n    \u003cpath id=\"Triangle_2\" d=\"M252.3,49.619L203.048,134.633L301.548,134.633L252.3,49.619Z\" style=\"fill:#0066b0;fill-rule:nonzero;\"/\u003e\n    \u003cpath id=\"Triangle_3\" d=\"M252.3,219.646L203.048,134.633L301.548,134.633L252.3,219.646Z\" style=\"fill:#0076cc;fill-rule:nonzero;\"/\u003e\n    \u003cpath id=\"Triangle_4\" d=\"M301.349,135.041L276.621,92.535L326.077,92.535L301.349,135.041Z\" style=\"fill:#0086e8;fill-rule:nonzero;\"/\u003e\n    \u003cpath id=\"Triangle_5\" d=\"M301.349,50.028L276.621,92.535L326.077,92.535L301.349,50.028Z\" style=\"fill:#0093ff;fill-rule:nonzero;\"/\u003e\n    \u003cpath id=\"ebGPU\" d=\"M397.927,170C398.055,162.128 396.176,154.351 392.468,147.406C388.885,140.802 383.494,135.354 376.929,131.7C369.836,127.799 361.841,125.829 353.747,125.989C345.455,125.825 337.262,127.825 329.977,131.789C323.126,135.616 317.548,141.37 313.935,148.336C310.126,155.504 308.222,163.847 308.223,173.365C308.224,182.883 310.184,191.254 314.103,198.479C317.805,205.479 323.43,211.279 330.313,215.193C337.469,219.183 345.555,221.211 353.747,221.073C364.721,221.073 373.904,218.301 381.297,212.758C388.528,207.448 393.742,199.833 396.079,191.172L379.617,191.172C377.927,196.187 374.655,200.521 370.294,203.519C365.868,206.6 360.352,208.139 353.747,208.138C346.165,208.317 338.796,205.58 333.169,200.495C327.513,195.4 324.405,188.317 323.846,179.245L397.423,179.245C397.748,176.176 397.915,173.092 397.923,170.006L397.927,170ZM382.138,166.808L324.014,166.808C324.796,158.075 327.904,151.243 333.337,146.314C338.719,141.406 345.793,138.757 353.075,138.923C358.163,138.858 363.196,139.979 367.775,142.198C372.122,144.314 375.769,147.639 378.275,151.773C380.943,156.324 382.282,161.534 382.138,166.808ZM433.371,144.634L433.371,95.246L418.084,95.246L418.084,219.554L433.371,219.554L433.371,202.588C436.589,208.157 441.265,212.746 446.894,215.858C453.275,219.43 460.497,221.229 467.808,221.066C483.797,221.286 498.571,212.329 505.772,198.052C509.677,190.356 511.639,181.819 511.484,173.19C511.484,163.783 509.58,155.524 505.772,148.413C502.202,141.555 496.792,135.824 490.15,131.866C483.38,127.904 475.652,125.87 467.808,125.987C460.581,125.86 453.449,127.657 447.146,131.194C441.425,134.346 436.664,138.991 433.371,144.633L433.371,144.634ZM495.861,173.191C496.017,179.578 494.573,185.904 491.661,191.591C489.088,196.56 485.155,200.697 480.323,203.518C475.548,206.266 470.125,207.687 464.616,207.633C459.162,207.673 453.796,206.252 449.077,203.518C444.232,200.686 440.274,196.554 437.655,191.591C431.947,180.179 431.947,166.718 437.655,155.306C440.275,150.343 444.232,146.211 449.077,143.379C453.797,140.646 459.162,139.225 464.616,139.264C470.114,139.209 475.531,140.599 480.323,143.295C485.147,146.052 489.082,150.133 491.661,155.054C494.566,160.651 496.011,166.892 495.861,173.196L495.861,173.191ZM638.647,136.4C634.672,125.691 627.332,116.553 617.733,110.362C608.158,104.205 597.155,101.125 584.724,101.123C574.314,101.007 564.055,103.644 554.991,108.766C546.092,113.802 538.742,121.181 533.741,130.1C528.462,139.505 525.766,150.142 525.929,160.926C525.759,171.684 528.455,182.296 533.741,191.667C538.76,200.55 546.108,207.898 554.991,212.917C564.054,218.041 574.313,220.678 584.724,220.56C594.518,220.687 604.182,218.286 612.777,213.589C621.038,209.07 628.028,202.541 633.1,194.608C638.23,186.658 641.344,177.576 642.171,168.151L642.171,156.392L579.181,156.392L579.181,168.823L625.881,168.823C624.648,180.471 620.337,189.71 612.946,196.54C605.555,203.37 596.148,206.786 584.725,206.787C576.994,206.902 569.369,204.96 562.635,201.16C556.064,197.39 550.703,191.824 547.181,185.117C543.427,178.175 541.551,170.112 541.553,160.928C541.555,151.744 543.431,143.653 547.181,136.654C550.686,129.913 556.05,124.316 562.635,120.527C569.369,116.728 576.994,114.786 584.725,114.9C592.275,114.735 599.723,116.685 606.225,120.527C612.4,124.299 617.314,129.826 620.337,136.4L638.647,136.4ZM740.614,136.736C740.614,126.657 737.17,118.426 730.282,112.042C723.394,105.658 713.343,102.466 700.129,102.467L662.329,102.467L662.329,219.554L677.615,219.554L677.615,170.671L700.125,170.671C713.787,170.671 723.95,167.451 730.614,161.012C737.278,154.573 740.611,146.481 740.614,136.738L740.614,136.736ZM700.129,158.07L677.619,158.07L677.619,115.07L700.129,115.07C716.702,115.07 724.989,122.293 724.991,136.74C724.991,143.572 722.975,148.835 718.944,152.53C714.913,156.225 708.641,158.073 700.129,158.074L700.129,158.07ZM759.259,102.469L759.259,176.383C759.259,186.126 761.191,194.329 765.054,200.993C768.684,207.437 774.194,212.624 780.845,215.859C795.082,222.351 811.46,222.351 825.697,215.859C832.36,212.611 837.893,207.429 841.571,200.993C845.49,194.331 847.45,186.128 847.451,176.383L847.451,102.469L832.164,102.469L832.164,176.55C832.164,186.965 829.616,194.693 824.521,199.732C819.426,204.771 812.398,207.291 803.439,207.291C794.368,207.291 787.285,204.771 782.189,199.732C777.093,194.693 774.545,186.965 774.546,176.55L774.546,102.469L759.259,102.469Z\" style=\"fill:currentColor;fill-rule:nonzero;\"/\u003e\n\u003c/svg\u003e\n","id-8":"Boiao Ch's Blog","id-9":"Boiao Ch's Blog"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-8":["id-8"],"id-9":["id-9"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

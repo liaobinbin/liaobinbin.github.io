@@ -2,14 +2,20 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://liaobinbin.com/posts/raw-webgpu/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/categories/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/frontend/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/posts/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/rust/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/webgpu/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/wgsl/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/categories/%E5%89%8D%E7%AB%AF/</loc><lastmod>2023-12-01T16:24:09&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/posts/awesome-wm-virtualbox-full-screen/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/awesomewm/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/categories/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/full-screen/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/categories/linux/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/posts/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/tags/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/virtualbox/</loc><lastmod>2023-08-15T22:56:34&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%AF%86%E7%A0%81/</loc><lastmod>2023-08-11T23:03:29&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/%E7%94%B5%E4%BF%A1/</loc><lastmod>2023-08-11T23:03:29&#43;08:00</lastmod></url><url>
@@ -25,7 +31,6 @@
             <loc>https://liaobinbin.com/tags/build/</loc><lastmod>2022-08-08T10:20:31&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/vite/</loc><lastmod>2022-08-08T10:20:31&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/posts/vite-multiple-lib-entry-config/</loc><lastmod>2022-08-08T10:20:31&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/categories/%E5%89%8D%E7%AB%AF/</loc><lastmod>2022-08-08T10:20:31&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/posts/jest-e2e-puppeteer-comfirm-alert/</loc><lastmod>2022-07-18T10:02:54&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/puppeteer/</loc><lastmod>2022-07-18T10:02:54&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/unit-test/</loc><lastmod>2022-07-18T10:02:54&#43;08:00</lastmod></url><url>
@@ -35,6 +40,11 @@
             <loc>https://liaobinbin.com/tags/font/</loc><lastmod>2022-07-13T09:58:09&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/lisp/</loc><lastmod>2022-07-13T09:58:09&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/categories/%E5%B7%A5%E5%85%B7/</loc><lastmod>2022-07-13T09:58:09&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/categories/developer/</loc><lastmod>2021-12-28T09:43:43&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/flow/</loc><lastmod>2021-12-28T09:43:43&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/git/</loc><lastmod>2021-12-28T09:43:43&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/tags/project/</loc><lastmod>2021-12-28T09:43:43&#43;08:00</lastmod></url><url>
+            <loc>https://liaobinbin.com/posts/project-development-to-deployment-flow/</loc><lastmod>2021-12-28T09:43:43&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/bluetooch/</loc><lastmod>2021-02-14T17:27:19&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/keyboard/</loc><lastmod>2021-02-14T17:27:19&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/mac/</loc><lastmod>2021-02-14T17:27:19&#43;08:00</lastmod></url><url>
@@ -43,7 +53,6 @@
             <loc>https://liaobinbin.com/tags/hackintosh/</loc><lastmod>2021-01-24T22:44:15&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/posts/hackintosh-startimage-failed-solution/</loc><lastmod>2021-01-24T22:44:15&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/categories/%E7%B3%BB%E7%BB%9F/</loc><lastmod>2021-01-24T22:44:15&#43;08:00</lastmod></url><url>
-            <loc>https://liaobinbin.com/tags/git/</loc><lastmod>2020-07-20T23:04:02&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/posts/git-simple-guidelines/</loc><lastmod>2020-07-20T23:04:02&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/%E6%95%99%E7%A8%8B/</loc><lastmod>2020-07-20T23:04:02&#43;08:00</lastmod></url><url>
             <loc>https://liaobinbin.com/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</loc><lastmod>2019-05-27T20:21:58&#43;08:00</lastmod></url><url>
