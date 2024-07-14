@@ -1,0 +1,27 @@
+#+TITLE: Doom Emacs 字体 HiDPI 设置
+#+DATE: 2024-07-14
+#+DRAFT: false
+#+CATEGORYS: Emacs
+#+TAGS[]: emacs font doomemacs
+
+我使用的是 =4K= 显示器，其分辨率为 =3840x2160=
+
+在我的 linux 操作环境系统中，我已经将系统层面的整体缩放调整为 =1.5= 倍， 使其整体界面的实际效果以 =2560x1440= 进行显示。用以获得相较于 =1080p= 整数倍缩放获得更宽裕的空间使用，兼顾矢量字体的清晰度。
+
+但是除了在 =emacs -nw= 下运行的时候，例如直接启动 emacs ，我的整体文字仍然按照设定的字体大小，就像固定的像素大小进行渲染和显示。
+
+这在 =4K= 下导致我的文字异常的小，于是在网上寻求解决办法。
+
+幸运的是，我很快的在 =doomemacs= 的 issue 中找到了解决办法。
+
+具体解决办法如下：
+
+#+begin_src elisp
+(setq doom-font (font-spec :family "Terminess Nerd Font" :size 16.0 ))
+#+end_src
+
+是的，你没有看错，这就是和默认的设置方式一模一样。
+
+但是重点就是 =size= 不是一个整数，而是一个浮点数。
+
+然后我的 emacs 显示效果就完美的应用上了系统设置的 =DPI= 系数

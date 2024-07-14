@@ -2,7 +2,7 @@
 title: "Doom Emacs 给中文指定字体"
 date: 2022-07-13T09:58:09+08:00
 draft: false
-categories: ["工具"]
+categories: ["Emacs"]
 tags: ["emacs", "lisp", "font", "chinese"]
 ---
 
