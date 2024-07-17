@@ -1,7 +1,7 @@
 #+TITLE: Doom Emacs 字体 HiDPI 设置
 #+DATE: 2024-07-14
 #+DRAFT: false
-#+CATEGORYS: Emacs
+#+CATEGORIES[]: Emacs
 #+TAGS[]: emacs font doomemacs
 
 我使用的是 =4K= 显示器，其分辨率为 =3840x2160=
