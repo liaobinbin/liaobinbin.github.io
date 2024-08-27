@@ -1,6 +1,6 @@
 baseURL = "https://liaobinbin.com/"
 languageCode = "zh-cn"
-title = "Boiao Ch"
+title = "林彡示申/Boiao Ch/Blog"
 theme = "LoveIt"
 copyright = "&copy; <a href=\"https://liaobinbin.com\"> Boiao Ch</a> 2008 - 2018"
 publishdir = "docs"
@@ -9,6 +9,8 @@ enableEmoji = true
 
 
 defaultContentLanguage = "zh-cn"
+
+enableGitInfo = true
 
 [author]
   name = "Boiao Ch"
