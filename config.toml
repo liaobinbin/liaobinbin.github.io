@@ -12,11 +12,6 @@ defaultContentLanguage = "zh-cn"
 
 enableGitInfo = true
 
-[author]
-  name = "Boiao Ch"
-  email = "doubiliao@gmail.com"
-  link = "https://liaobinbin.com"
-
 [menu]
   [[menu.main]]
    weight = 1
@@ -49,6 +44,12 @@ enableGitInfo = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+
+[params.author]
+  name = "Boiao Ch"
+  email = "doubiliao@gmail.com"
+  link = "https://liaobinbin.com"
 
 [params.comment]
   type = "valine"
